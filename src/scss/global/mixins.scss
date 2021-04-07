@@ -215,3 +215,9 @@
 		opacity: 0.5;
 	}
 }
+
+// Color Gradient:
+@mixin pink-gradient {
+	background: $light-pink;
+	background: linear-gradient(90deg, $light-purple 0%, $light-pink 100%);
+}

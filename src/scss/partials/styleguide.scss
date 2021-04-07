@@ -9,7 +9,7 @@
 	width: 220px;
 	height: 100vh;
 	padding: 20px;
-	background: $light-gray;
+	background: $light-grey;
 	.option {
 		display: flex;
 		align-items: center;
@@ -27,30 +27,30 @@
 	.color {
 		position: relative;
 	}
-	.primary {
-		@include display-value($primary);
-	}
-	.secondary {
-		@include display-value($secondary);
-	}
-	.tertiary {
-		@include display-value($tertiary);
-	}
-	.light-gray {
-		@include display-value($light-gray);
-	}
-	.medium-gray {
-		@include display-value($medium-gray);
-	}
-	.dark-gray {
-		@include display-value($dark-gray);
-	}
+	// .primary {
+	// 	@include display-value($primary);
+	// }
+	// .secondary {
+	// 	@include display-value($secondary);
+	// }
+	// .tertiary {
+	// 	@include display-value($tertiary);
+	// }
+	// .light-gray {
+	// 	@include display-value($light-grey);
+	// }
+	// .medium-gray {
+	// 	@include display-value($medium-gray);
+	// }
+	// .dark-gray {
+	// 	@include display-value($dark-gray);
+	// }
 }
 
 .block {
 	.label {
 		font-size: 16px;
-		color: $medium-gray;
+		color: $black;
 		&.hide {
 			display: none;
 		}

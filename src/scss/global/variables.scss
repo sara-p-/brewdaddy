@@ -1,20 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@900&family=Roboto:wght@400;500;700;900&display=swap');
 // Paths
 $img-path: "../../static/";
 
 // Type
-$base-font-family: "Lato", sans-serif;
-$heading-font-family: "Lato", sans-serif;
+$base-font-family: "Roboto", sans-serif;
+$heading-font-family: "Jost", sans-serif;
 
 // Font Size
-$base-font-size: 18px;
-$desktop-font-size: 18px;
-$tablet-font-size: 18px;
-$mobile-font-size: 18px;
+$base-font-size: 14px;
+$desktop-font-size: 14px;
+$tablet-font-size: 14px;
+$mobile-font-size: 12px;
 
 // Line Height
-$base-line-height: 1.84;
+$base-line-height: 22px;
 $heading-line-height: 1;
 
 // Font Weight
@@ -22,33 +21,33 @@ $base-font-weight: 400;
 $heading-font-weight: 900;
 
 // Other Sizes
-$site-width: 1200px;
-$bottom-margin: 100px;
+$site-width-single: 800px;
+$site-width: 1400px;
+$bottom-margin: 60px;
 $base-border-radius: 0px;
 $base-spacing: 1.5em;
 $small-spacing: $base-spacing / 2;
 
 // Colors
-$primary: #000;
-$secondary: #303030;
-$tertiary: #424242;
-$links: $primary;
-$hover: $secondary;
-
-$dark-gray: #333;
-$medium-gray: #999;
-$light-gray: #ddd;
-
-$black: #000000;
+$black: #363636;
 $white: #ffffff;
+$off-white: #F3F3F3;
+$light-grey: #D4D4D4;
+$light-purple: #EACBEF;
+$light-pink: #FFA4A4;
+
+$links: $black;
+$hover: $black;
+
+
 
 // Font Colors
-$base-font-color: #000;
-$action-color: $primary;
-$error-color: "red";
+$base-font-color: $black;
+$action-color: $black;
+$error-color: $black;
 
 $base-font-color: $black;
-$color-selection: $light-gray;
+$color-selection: $light-grey;
 
 // Buttons
 $btn-bg-color: transparent;
