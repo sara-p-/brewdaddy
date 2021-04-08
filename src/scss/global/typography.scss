@@ -38,18 +38,37 @@ h6, .h6 {
 }
 
 a {
-	color: $action-color;
+	color: $black;
 	transition: all $base-duration $base-timing;
 	padding: 3px;
-	background: $white;
-	&:hover, &:focus {
+	background: transparent;
+	line-height: 1;
+	position: relative;
+	display: block;
+	overflow: hidden;
+	z-index: 1;
+	&:before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		transform: translateX(-101%);
+		transition: all $base-duration $base-timing;
 		background: $black;
-		color: $off-white;
+		z-index: -1;
 	}
-	// &:focus {
-	// 	outline: $focus-outline;
-	// 	outline-offset: $focus-outline-offset;
-	// }
+	&:hover, &:focus {
+		color: $off-white;
+		&::before {
+			transform: translateX(0%);
+		}
+	}
+	&:focus {
+		outline: $focus-outline;
+		outline-offset: $focus-outline-offset;
+	}
 }
 
 hr {

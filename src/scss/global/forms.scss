@@ -39,7 +39,8 @@ textarea {
 	font-family: $base-font-family;
 	text-transform: uppercase;
 	width: 100%;
-	max-width: 210px;
+	// max-width: 211px;
+	min-width: 210px;
 }
 
 #{$all-text-inputs} {

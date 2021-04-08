@@ -4,4 +4,56 @@
         padding: 0 30px;
     }
 
+    .filter-panel {
+        position: fixed;
+        overflow: scroll;
+        top: 0;
+        right: 0;
+        height: 100%;
+        z-index: 1;
+        border-left: $base-border;
+        transition: all $base-duration;
+        @include tablet {
+            width: 100%;
+        }
+        .wrapper {
+            padding: 125px 20px 30px;
+            position: relative;
+            width: auto;
+            height: 100%;
+        }
+        .filters {
+            padding-bottom: 60px;
+        }
+        .buttons {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            max-width: 255px;
+            @include tablet {
+                max-width: 100%;
+            }
+        }
+    }
+
+    .beers {
+        width: auto;
+        height: 800px;
+        margin: 125px 255px 30px 0;
+        .wrapper {
+            max-width: 100%;
+            height: 100%;
+            padding: 0 30px;
+        }
+        .beer-grid {
+            height: 100%;
+            width: 100%;
+            display: grid;
+            grid-auto-columns: 250px;
+            grid-auto-rows: 250px;
+            gap: 30px;
+        }
+    }
+
 }
