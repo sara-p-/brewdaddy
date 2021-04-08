@@ -1,6 +1,6 @@
-#app {
-	padding: 200px 0;
-}
+// #app {
+// 	padding: 200px 0;
+// }
 
 .component.panel {
 	position: fixed;
@@ -27,24 +27,25 @@
 	.color {
 		position: relative;
 	}
-	// .primary {
-	// 	@include display-value($primary);
-	// }
-	// .secondary {
-	// 	@include display-value($secondary);
-	// }
-	// .tertiary {
-	// 	@include display-value($tertiary);
-	// }
-	// .light-gray {
-	// 	@include display-value($light-grey);
-	// }
-	// .medium-gray {
-	// 	@include display-value($medium-gray);
-	// }
-	// .dark-gray {
-	// 	@include display-value($dark-gray);
-	// }
+	.black {
+		@include display-value($black);
+	}
+	.off-white {
+		@include display-value($off-white);
+	}
+	.gradient {
+		&:after {
+			content: "";
+			position: relative;
+			display: block;
+			width: 200px;
+			height: 200px;
+			@include pink-gradient;
+		}
+	}
+	.light-grey {
+		@include display-value($light-grey);
+	}
 }
 
 .block {

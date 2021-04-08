@@ -21,15 +21,25 @@ legend {
 
 label {
 	display: block;
-	font-weight: 600;
-	margin-bottom: $small-spacing / 2;
+	margin-bottom: 3px;
+	font-size: 12px;
+	line-height: 1;
+	font-weight: 500;
+	font-family: $base-font-family;
+	text-transform: uppercase;
 }
 
 input,
 select,
 textarea {
 	display: block;
-	font-size: 16px;
+	font-size: 12px;
+	line-height: 1;
+	font-weight: 500;
+	font-family: $base-font-family;
+	text-transform: uppercase;
+	width: 100%;
+	max-width: 210px;
 }
 
 #{$all-text-inputs} {
@@ -41,7 +51,7 @@ textarea {
 	background-color: inherit; // $_form-background-color
 	border: $base-border;
 	border-radius: $base-border-radius;
-	box-shadow: $_form-box-shadow;
+	box-shadow: none;
 	box-sizing: border-box;
 	appearance: none;
 	transition: border-color $base-duration $base-timing;
@@ -50,7 +60,7 @@ textarea {
 	}
 	&:focus {
 		border-color: $base-border-color;
-		box-shadow: $_form-box-shadow-focus;
+		box-shadow: none;
 		outline: none;
 	}
 	&:disabled {
@@ -111,7 +121,7 @@ input[type="file"],
 select {
 	&:focus {
 		border-color: $base-border-color;
-		box-shadow: $_form-box-shadow-focus;
+		box-shadow: none;
 		outline: none;
 	}
 }
@@ -133,11 +143,12 @@ body
 	select,
 body .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select {
 	// display: block;
-	color: $base-font-color;
+	color: $off-white;
 	-webkit-font-smoothing: antialiased;
 	line-height: 1.3;
-	padding: 0.65em calc(0.7em + 14px) 0.52em 0.7em;
-	max-width: 100%;
+	// padding: 0.65em calc(0.7em + 14px) 0.52em 0.7em;
+	padding: 9px 10px;
+	// max-width: 100%;
 	// height: 38.75px;
 	box-sizing: border-box;
 	margin: 0 0 0.2rem;
@@ -147,7 +158,7 @@ body .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select {
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	appearance: none;
-	background-color: $white;
+	background-color: $black;
 	background-repeat: no-repeat, repeat;
 	/* arrow icon position (1em from the right, 50% vertical) , then gradient position*/
 	background-position: right 0.7em top 54%, 0 0;
@@ -240,130 +251,11 @@ form input[type="submit"] {
 	}
 }
 
-// Gravity Forms
-body .gform_wrapper {
-	// Resets
-
-	// Setting complex fields with only one child to span the entire width
-	// This is used on the Book a Tour form for city and state fields
-	.ginput_complex.ginput_container span:only-of-type {
-		width: 100%;
-		margin-right: 0;
-		padding-right: 0;
+// BrewDaddy
+.filter {
+	margin-bottom: 10px;
+	&.select:last-of-type {
+		margin-bottom: 20px;
 	}
-	span.gform_description {
-		width: 100%;
-	}
-	ul.gform_fields li.gfield,
-	li.gfield.gf_right_half,
-	.top_label li.gfield.gf_right_half {
-		padding-right: 0;
-	}
-	.description,
-	.gfield_description,
-	.gsection_description,
-	.instruction {
-		font-style: italic;
-	}
-	.field_sublabel_above .ginput_complex.ginput_container label,
-	.field_sublabel_above div[class*="gfield_date_"].ginput_container label,
-	.field_sublabel_above div[class*="gfield_time_"].ginput_container label,
-	.field_sublabel_below .ginput_complex.ginput_container label,
-	.field_sublabel_below div[class*="gfield_date_"].ginput_container label,
-	.field_sublabel_below div[class*="gfield_time_"].ginput_container label {
-		font-weight: 400;
-	}
-	.ginput_complex
-		.ginput_left
-		input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="image"]):not([type="file"]),
-	.ginput_complex
-		.ginput_right
-		input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="image"]):not([type="file"]),
-	.ginput_complex
-		input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="image"]):not([type="file"]) {
-		margin-bottom: 0.2rem;
-	}
-	.field_sublabel_below .ginput_complex.ginput_container label {
-		margin-bottom: 1rem;
-	}
-	img.gform_ajax_spinner {
-		display: none !important;
-	}
-	.gform_footer {
-		padding-top: 15px;
-		text-align: center;
-	}
-	.top_label div.ginput_container,
-	.top_label div.ginput_complex.ginput_container.gf_name_has_1,
-	.top_label div.ginput_complex.ginput_container.gf_name_has_2,
-	.top_label div.ginput_complex.ginput_container.gf_name_has_3 {
-		margin-top: 0;
-		width: 100%;
-	}
-	.gfield_required {
-		color: $error-color;
-	}
-	.field_description_below .gfield_description {
-		padding-top: 6px;
-	}
-	input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]) {
-		width: 100%;
-		padding: $input-padding;
-	}
-	.gform_footer input.button,
-	.gform_page_footer input.button,
-	.gform_footer input[type="submit"],
-	.gform_page_footer input[type="submit"] {
-		font-size: 24px;
-	}
-	.gfield_checkbox li label,
-	.gfield_radio li label {
-		font-weight: 400;
-	}
-	// End Resets
-
-	// Error Styling
-	div.validation_error {
-		color: $error-color;
-		font-size: 1em;
-		font-weight: 400;
-		margin-bottom: 0;
-		border-top: 3px solid $error-color;
-		border-bottom: 3px solid $error-color;
-		padding: 16px 0 16px 0;
-		clear: both;
-		width: 100%;
-		text-align: center;
-	}
-	.validation_message {
-		color: $error-color;
-		font-weight: 400;
-		font-style: italic;
-		letter-spacing: normal;
-	}
-	.gfield_error .gfield_label {
-		color: $error-color;
-	}
-	li.gfield.gfield_error,
-	li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
-		border: none;
-		background: none;
-	}
-	li.gfield_error
-		input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]),
-	li.gfield_error textarea {
-		border: 3px solid $error-color;
-	}
-	&.gform_validation_error {
-		padding-top: 20px;
-	}
-	&.gform_validation_error
-		.gform_body
-		ul
-		li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half) {
-		@media only screen and (min-width: 641px) {
-			max-width: 100% !important;
-		}
-	}
-	// End Error Styling
 }
+

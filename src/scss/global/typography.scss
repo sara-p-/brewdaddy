@@ -12,23 +12,44 @@ p {
 	margin: 0 0 20px 0;
 }
 
-@for $index from 1 through 6 {
-	h#{$index},
-	.h#{$index} {
-		font-size: (6em / $index);
-		font-weight: $heading-font-weight;
-		line-height: $heading-line-height;
-		margin: 0 0 40px 0;
-	}
+h1, .h1 {
+	@include heading-style(64px, $heading-font-family, 900);
+}
+
+h2, .h2 {
+	@include heading-style(48px, $base-font-family, 900);
+	letter-spacing: 0.02px;
+}
+
+h3, .h3 {
+	@include heading-style(36px, $base-font-family, 700);
+}
+
+h4, .h4 {
+	@include heading-style(24px, $base-font-family, 500);
+}
+
+h5, .h5 {
+	@include heading-style(18px, $base-font-family, 500);
+}
+
+h6, .h6 {
+	@include heading-style(14px, $base-font-family, 500);
 }
 
 a {
 	color: $action-color;
 	transition: all $base-duration $base-timing;
-	&:focus {
-		outline: $focus-outline;
-		outline-offset: $focus-outline-offset;
+	padding: 3px;
+	background: $white;
+	&:hover, &:focus {
+		background: $black;
+		color: $off-white;
 	}
+	// &:focus {
+	// 	outline: $focus-outline;
+	// 	outline-offset: $focus-outline-offset;
+	// }
 }
 
 hr {

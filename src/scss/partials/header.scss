@@ -13,17 +13,43 @@
 }
 
 header {
-	background: #000;
+	background: $white;
+	border-bottom: $base-border;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 2;
 	.row {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 20px 0;
+		padding: 40px 0;
 	}
-	ul {
-		@include clear-list();
+	.logo {
+		a {
+			text-decoration: none;
+			font-family: $heading-font-family;
+			font-size: 48px;
+			text-transform: uppercase;
+		}
 	}
-	a {
-		color: #fff;
+	nav.main-menu {
+		ul {
+			@include clear-list();
+		}
+		li {
+			display: inline-block;
+			margin-right: 30px;
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+		a {
+			font-size: 18px;
+			font-weight: 500;
+			text-transform: uppercase;
+		}
 	}
+	
 }

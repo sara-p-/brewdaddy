@@ -26,11 +26,12 @@
 }
 
 // Styleguide
-@mixin heading-style($heading-font-size, $heading-line-height) {
-	font-size: $heading-font-size;
-	font-family: $heading-font-family;
-	font-weight: $heading-font-weight;
+@mixin heading-style($font-size, $font-family, $font-weight) {
+	font-size: $font-size;
+	font-family: $font-family;
+	font-weight: $font-weight;
 	line-height: $heading-line-height;
+	text-transform: uppercase;
 }
 
 // Utility
