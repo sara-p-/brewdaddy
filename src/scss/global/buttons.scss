@@ -14,7 +14,7 @@ button {
 
 .buttons .btn {
 	@include btn-base();
-	position: relative;
+	  position: relative;
     text-decoration: none;
     text-transform: uppercase;
     overflow: hidden;

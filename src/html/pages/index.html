@@ -12,92 +12,11 @@
 		<%= require('html-loader!../components/header.html') %>
 		
 		<main>
-			<div class="filter-panel">
-				<div class="wrapper">
-					<h2 class="title h4">Filters</h2>
-					<div class="filters">
-						<div class="filter search">
-							<label for="fname">Search</label>
-  							<input type="search" id="fname" name="fname" placeholder="Search Here">
-						</div>
-						<div class="filter select">
-							<label class="label" for="beer-style">Beer Style:</label>
-							<select id="beer-style">
-								<option>Saison</option>
-								<option>Porter</option>
-								<option>Stout</option>
-								<option>Pilsner</option>
-							</select>
-						</div>
-						<div class="filter select">
-							<label class="label" for="beer-style">Beer Style:</label>
-							<select id="beer-style">
-								<option>Saison</option>
-								<option>Porter</option>
-								<option>Stout</option>
-								<option>Pilsner</option>
-							</select>
-						</div>
-						<div class="filter select">
-							<label class="label" for="beer-style">Beer Style:</label>
-							<select id="beer-style">
-								<option>Saison</option>
-								<option>Porter</option>
-								<option>Stout</option>
-								<option>Pilsner</option>
-							</select>
-						</div>
-						<div class="filter select">
-							<label class="label" for="beer-style">Beer Style:</label>
-							<select id="beer-style">
-								<option>Saison</option>
-								<option>Porter</option>
-								<option>Stout</option>
-								<option>Pilsner</option>
-							</select>
-						</div>
-						<div class="filter select">
-							<label class="label" for="beer-style">Beer Style:</label>
-							<select id="beer-style">
-								<option>Saison</option>
-								<option>Porter</option>
-								<option>Stout</option>
-								<option>Pilsner</option>
-							</select>
-						</div>
-						<div class="filter select">
-							<label class="label" for="beer-style">Beer Style:</label>
-							<select id="beer-style">
-								<option>Saison</option>
-								<option>Porter</option>
-								<option>Stout</option>
-								<option>Pilsner</option>
-							</select>
-						</div>
-						<div class="filter range">
-							<label for="vol">ABV:</label>
-  							<input type="range" id="vol" name="vol" min="0" max="20" value="1">
-						</div>
-						<div class="filter range">
-							<label for="vol">IBU:</label>
-  							<input type="range" id="vol" name="vol" min="0" max="20" value="1">
-						</div>
-						<div class="filter range">
-							<label for="vol">Color:</label>
-  							<input type="range" id="vol" name="vol" min="0" max="20" value="1">
-						</div>
-					</div>
-					<div class="buttons full-width">
-						<a href="#" class="btn white">Submit</a>
-						<a href="#" class="btn black">Reset</a>
-					</div>
-				</div>
-			</div>
-			<section class="beers">
-				<div class="wrapper">
-					<div class="beer-grid"></div>
-				</div>
-			</section>
+			
+			<%= require('html-loader!../components/filter-panel.html') %>
+
+			<%= require('html-loader!../blocks/listing.html') %>
+
 		</main>
 
 		<%= require('html-loader!../components/footer.html') %>
