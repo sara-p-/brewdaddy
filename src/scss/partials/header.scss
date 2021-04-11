@@ -19,8 +19,12 @@ header {
 	left: 0;
 	width: 100%;
 	z-index: 2;
+	border-bottom: $base-border;
+	@include tablet {
+		border-bottom: none;
+	}
 	.wrapper {
-		border-bottom: $base-border;
+		max-width: $site-width;
 	}
 	.row {
 		display: flex;
@@ -34,6 +38,9 @@ header {
 			font-family: $heading-font-family;
 			font-size: 48px;
 			text-transform: uppercase;
+			@include tablet {
+				font-size: 24px;
+			}
 		}
 	}
 	nav.main-menu {

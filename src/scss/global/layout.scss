@@ -4,14 +4,14 @@ html {
 }
 
 main {
-	padding: 95px 0 0;
+	padding: 95px 0 0 0;
+	@include tablet {
+		padding: 110px 0 0;
+	}
 }
 
 .block {
-	margin: 0 auto 200px;
-	&:last-of-type.hero.style-2 {
-		margin-bottom: 0;
-	}
+	margin-bottom: 60px;
 }
 
 *,
@@ -43,18 +43,21 @@ body {
 
 .wrapper,
 .wp-block-group__inner-container {
+	width: 100%;
 	max-width: $site-width;
 	margin: auto;
-	padding: 0 2rem;
-	// @include tablet-landscape-up {
-	// 	padding: 0 1.2rem;
-	// }
+	padding: 0 30px;
 }
 .wp-block-group__inner-container {
 	.wrapper {
 		padding-left: 0;
 		padding-right: 0;
 	}
+}
+
+.single .block .wrapper,
+.single .component .wrapper {
+	max-width: $site-width-single;
 }
 
 .visually-hidden,
@@ -92,4 +95,3 @@ body {
 		justify-content: center;
 	}
 }
-

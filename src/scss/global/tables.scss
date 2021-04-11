@@ -1,59 +1,65 @@
 table {
-	min-width: 500px;
+	width: 100%;
 	margin: 0 auto;
 	border-collapse: collapse;
-	table-layout: fixed;
+	table-layout: auto;
 	text-align: left;
+	background: $white;
 }
 
 thead {
 	line-height: $heading-line-height;
 	vertical-align: bottom;
+	background: $black;
 }
 
 tbody {
 	vertical-align: top;
 }
 
-th,
-td {
-	font-weight: 600;
-	border-left: 10px solid $white;
-	border-right: 10px solid $white;
+tr {
+	border: $base-border;
 }
 
+td,
 th {
-	padding: $small-spacing;
-	background-color: transparent;
-}
-
-tr:first-child td {
-	padding-top: 0.8em;
-}
-
-td {
-	position: relative;
-	padding: 0.4em 0.75em;
-	&:after {
-		content: "";
-		display: block;
-		width: calc(100% - (0.75em * 2));
-		height: 1px;
-		background-color: $black;
-		position: absolute;
-		bottom: 0;
-		left: 50%;
-		transform: translateX(-50%);
+	padding: 7px;
+	text-transform: uppercase;
+	&:first-of-type {
+		padding-left: 30px;
+	}
+	&:last-of-type {
+		padding-left: 30px;
 	}
 }
 
-td.amount {
-	text-align: right;
+th {
+	color: $off-white;
+	font-weight: 14px;
+	line-height: 1;
+	font-weight: 500;
+	padding: 10px 0;
 }
 
-tr:last-child td,
-td.amount {
-	&:after {
-		content: none;
+td {
+	font-size: 12px;
+	padding: 6px 0;
+}
+
+// Mobile Tables
+.mobile-table {
+	margin-bottom: 20px;
+	tr:first-of-type {
+		background-color: $black;
+		color: $off-white;
+		font-weight: 500;
+	}
+}
+
+// Table-Content Elements (like on the Single Pages)
+.table-content {
+	margin-bottom: 30px;
+	h3.table-title {
+		margin-bottom: 7px;
 	}
 }

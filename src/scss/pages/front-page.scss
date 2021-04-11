@@ -4,7 +4,6 @@
     }
     .wrapper {
         max-width: 100%;
-        padding: 0 30px;
     }
 
     .filter-panel {
@@ -16,8 +15,11 @@
         z-index: 1;
         border-left: $base-border;
         transition: all $base-duration;
+        background: $white;
         @include tablet {
             width: 100%;
+            z-index: 2;
+            transform: translateX(100%);
         }
         .wrapper {
             padding: 125px 20px 30px;

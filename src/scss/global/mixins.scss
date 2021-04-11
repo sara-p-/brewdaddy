@@ -145,3 +145,14 @@
 	background: $light-pink;
 	background: linear-gradient(90deg, $light-purple 0%, $light-pink 100%);
 }
+
+// Beer color swatch
+@mixin beer-color($size: 20px, $color: #D5BC26) {
+	position: absolute;
+	top: -1px;
+	right: -1px;
+	width: $size;
+	height: $size;
+	background: $color;
+	border: $base-border;
+}

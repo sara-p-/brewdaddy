@@ -1,19 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Single Page</title>
+	</head>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Single Page</title>
-</head>
+	<body class="single">
+		<div id="app">
+			<%= require('html-loader!../components/header.html') %>
+			<main>
+				<%= require('html-loader!../blocks/top-card.html') %>
 
-<body>
-	<div id="app">
-		<%= require('html-loader!../components/header.html') %>
+				<section id="ingredients" class="block ingredients">
+					<div class="component intro">
+						<div class="wrapper">
+							<h2 class="title">Ingredients</h2>
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="table-content">
+							<h3 class="table-title">Grains</h3>
+							<table data-mobile-table="true">
+								<thead>
+									<tr>
+										<th>Name:</th>
+										<th>Quantity:</th>
+										<th>Lovibond:</th>
+										<th>% of Total:</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Belgium - Pilsner</td>
+										<td>7.75 lbs</td>
+										<td>123</td>
+										<td>78.53%</td>
+									</tr>
+									<tr>
+										<td>Munich - Light 10L</td>
+										<td>7.75 lbs</td>
+										<td>123</td>
+										<td>78.53%</td>
+									</tr>
+									<tr>
+										<td>German - Spalt Malt</td>
+										<td>7.75 lbs</td>
+										<td>123</td>
+										<td>78.53%</td>
+									</tr>
+									<tr>
+										<td>American - White Wheat</td>
+										<td>7.75 lbs</td>
+										<td>123</td>
+										<td>78.53%</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="table-content">
+							<h3 class="table-title">Hops</h3>
+							<table data-mobile-table="true">
+								<thead>
+									<tr>
+										<th>Name:</th>
+										<th>Quantity:</th>
+										<th>AA:</th>
+										<th>Timing:</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Belgium - Pilsner</td>
+										<td>7.75 lbs</td>
+										<td>123</td>
+										<td>30 min</td>
+									</tr>
+									<tr>
+										<td>Munich - Light 10L</td>
+										<td>7.75 lbs</td>
+										<td>123</td>
+										<td>30 min</td>
+									</tr>
+									<tr>
+										<td>German - Spalt Malt</td>
+										<td>7.75 lbs</td>
+										<td>123</td>
+										<td>30 min</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="table-content">
+							<h3 class="table-title">Other</h3>
+							<table data-mobile-table="true">
+								<thead>
+									<tr>
+										<th>Name:</th>
+										<th>Quantity:</th>
+										<th>Timing:</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Belgium - Pilsner</td>
+										<td>7.75 lbs</td>
+										<td>123</td>
+									</tr>
+									<tr>
+										<td>Munich - Light 10L</td>
+										<td>7.75 lbs</td>
+										<td>123</td>
+									</tr>
+									<tr>
+										<td>German - Spalt Malt</td>
+										<td>7.75 lbs</td>
+										<td>123</td>
+									</tr>
+									<tr>
+										<td>American - White Wheat</td>
+										<td>7.75 lbs</td>
+										<td>123</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="table-content">
+							<h3 class="table-title">Yeast</h3>
+							<table class="yeast-names">
+								<thead>
+									<tr>
+										<th>Name</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Yeast Name 1</td>
+									</tr>
+									<tr>
+										<td>Yeast Name 2</td>
+									</tr>
+									<tr>
+										<td>Bacteria Name 1</td>
+									</tr>
+								</tbody>
+							</table>
+							<table class="yeast-schedule">
+								<thead>
+									<tr>
+										<th>Temperature:</th>
+										<th>Duration:</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>170&deg;F</td>
+										<td>100 min</td>
+									</tr>
+									<tr>
+										<td>170&deg;F</td>
+										<td>100 min</td>
+									</tr>
+									<tr>
+										<td>170&deg;F</td>
+										<td>100 min</td>
+									</tr>
+									<tr>
+										<td>170&deg;F</td>
+										<td>100 min</td>
+									</tr>
+									<tr>
+										<td>170&deg;F</td>
+										<td>100 min</td>
+									</tr>
+									<tr>
+										<td>170&deg;F</td>
+										<td>100 min</td>
+									</tr>
+									<tr>
+										<td>170&deg;F</td>
+										<td>100 min</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</section>
 
-		<%= require('html-loader!../components/footer.html') %>
-	</div>
-	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-</body>
-
+				<section id="ingredients" class="block ingredients">
+					<div class="component intro">
+						<div class="wrapper">
+							<h2 class="title">Water</h2>
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="table-content">
+							<h3 class="table-title">Water Profile</h3>
+							<table data-mobile-table="true">
+								<thead>
+									<tr>
+										<th>CA<sup>+2</sup></th>
+										<th>MG<sup>+2</sup></th>
+										<th>NA<sup>+</sup></th>
+										<th>CI<sup>-</sup></th>
+										<th>SO4<sup>-2</sup></th>
+										<th>HCO<sup>3-</sup></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>58</td>
+										<td>24</td>
+										<td>0</td>
+										<td>8</td>
+										<td>39</td>
+										<td>0</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="table-content">
+							<h3 class="table-title">Mash</h3>
+							<table data-mobile-table="true">
+								<thead>
+									<tr>
+										<th>Volume:</th>
+										<th>Quantity:</th>
+										<th>AA:</th>
+										<th>Timing:</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Belgium - Pilsner</td>
+										<td>7.75 lbs</td>
+										<td>123</td>
+										<td>30 min</td>
+									</tr>
+									<tr>
+										<td>Munich - Light 10L</td>
+										<td>7.75 lbs</td>
+										<td>123</td>
+										<td>30 min</td>
+									</tr>
+									<tr>
+										<td>German - Spalt Malt</td>
+										<td>7.75 lbs</td>
+										<td>123</td>
+										<td>30 min</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="table-content">
+							<h3 class="table-title">Other</h3>
+							<table data-mobile-table="true">
+								<thead>
+									<tr>
+										<th>Name:</th>
+										<th>Quantity:</th>
+										<th>Timing:</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Belgium - Pilsner</td>
+										<td>7.75 lbs</td>
+										<td>123</td>
+									</tr>
+									<tr>
+										<td>Munich - Light 10L</td>
+										<td>7.75 lbs</td>
+										<td>123</td>
+									</tr>
+									<tr>
+										<td>German - Spalt Malt</td>
+										<td>7.75 lbs</td>
+										<td>123</td>
+									</tr>
+									<tr>
+										<td>American - White Wheat</td>
+										<td>7.75 lbs</td>
+										<td>123</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="table-content">
+							<h3 class="table-title">Yeast</h3>
+							<table class="yeast-names">
+								<thead>
+									<tr>
+										<th>Name</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Yeast Name 1</td>
+									</tr>
+									<tr>
+										<td>Yeast Name 2</td>
+									</tr>
+									<tr>
+										<td>Bacteria Name 1</td>
+									</tr>
+								</tbody>
+							</table>
+							<table class="yeast-schedule">
+								<thead>
+									<tr>
+										<th>Temperature:</th>
+										<th>Duration:</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>170&deg;F</td>
+										<td>100 min</td>
+									</tr>
+									<tr>
+										<td>170&deg;F</td>
+										<td>100 min</td>
+									</tr>
+									<tr>
+										<td>170&deg;F</td>
+										<td>100 min</td>
+									</tr>
+									<tr>
+										<td>170&deg;F</td>
+										<td>100 min</td>
+									</tr>
+									<tr>
+										<td>170&deg;F</td>
+										<td>100 min</td>
+									</tr>
+									<tr>
+										<td>170&deg;F</td>
+										<td>100 min</td>
+									</tr>
+									<tr>
+										<td>170&deg;F</td>
+										<td>100 min</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</section>
+			</main>
+			<%= require('html-loader!../components/footer.html') %>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+	</body>
 </html>
