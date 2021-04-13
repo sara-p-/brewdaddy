@@ -2,9 +2,9 @@ import "../scss/main.scss";
 
 import vue from "./components/vue";
 import styleGuide from "./components/styleguide";
-import menu from "./menu";
-import mobileTables from "./tables";
-
+import menu from "./components/menu";
+import mobileTables from "./components/tables";
+import sliders from "./components/sliders";
 
 document.addEventListener("DOMContentLoaded", function () {
 	vue();
@@ -12,4 +12,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	menu();
 	mobileTables();
+	sliders();
 });

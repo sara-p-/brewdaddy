@@ -130,10 +130,10 @@
 	appearance: none;
 	box-sizing: content-box;
 	cursor: pointer;
-	&:focus {
-		outline: $focus-outline;
-		outline-offset: 3px;
-	}
+	// &:focus {
+	// 	outline: $focus-outline;
+	// 	outline-offset: 3px;
+	// }
 	&:disabled {
 		cursor: not-allowed;
 		opacity: 0.5;
@@ -147,7 +147,7 @@
 }
 
 // Beer color swatch
-@mixin beer-color($size: 20px, $color: #D5BC26) {
+@mixin beer-color($size: 20px, $color: #d5bc26) {
 	position: absolute;
 	top: -1px;
 	right: -1px;

@@ -1,0 +1,34 @@
+.block.slider {
+	.glide__track {
+		border: $base-border;
+	}
+	.glide__slides {
+		margin: 0;
+	}
+	.glide__slide {
+		height: 500px;
+		position: relative;
+		@include tablet {
+			height: 300px;
+		}
+	}
+	.glide__slide {
+	}
+	figure {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+	}
+	img {
+		object-fit: cover;
+		object-position: center;
+	}
+
+	.glide__arrows {
+		margin-top: 30px;
+		display: flex;
+		justify-content: space-between;
+	}
+}

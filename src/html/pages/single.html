@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Single Page</title>
-	</head>
+<%= require('html-loader!../components/head.html') %>
+
 
 	<body class="single">
 		<div id="app">
-			<%= require('html-loader!../components/header.html') %>
+			<%= require('html-loader!../components/header-single.html') %>
 			<main>
 				<%= require('html-loader!../blocks/top-card.html') %>
 
-				<section id="ingredients" class="block ingredients">
+				<section id="ingredients" class="block table">
 					<div class="component intro">
 						<div class="wrapper">
 							<h2 class="title">Ingredients</h2>
@@ -187,7 +182,7 @@
 					</div>
 				</section>
 
-				<section id="ingredients" class="block ingredients">
+				<section id="water" class="block table">
 					<div class="component intro">
 						<div class="wrapper">
 							<h2 class="title">Water</h2>
@@ -196,7 +191,7 @@
 					<div class="wrapper">
 						<div class="table-content">
 							<h3 class="table-title">Water Profile</h3>
-							<table data-mobile-table="true">
+							<table class="table-fixed" data-mobile-table="true">
 								<thead>
 									<tr>
 										<th>CA<sup>+2</sup></th>
@@ -225,9 +220,9 @@
 								<thead>
 									<tr>
 										<th>Volume:</th>
-										<th>Quantity:</th>
-										<th>AA:</th>
-										<th>Timing:</th>
+										<th>Temperature:</th>
+										<th>Duration:</th>
+										<th>Discription:</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -243,17 +238,11 @@
 										<td>123</td>
 										<td>30 min</td>
 									</tr>
-									<tr>
-										<td>German - Spalt Malt</td>
-										<td>7.75 lbs</td>
-										<td>123</td>
-										<td>30 min</td>
-									</tr>
 								</tbody>
 							</table>
 						</div>
 						<div class="table-content">
-							<h3 class="table-title">Other</h3>
+							<h3 class="table-title">Water Additions</h3>
 							<table data-mobile-table="true">
 								<thead>
 									<tr>
@@ -286,67 +275,216 @@
 								</tbody>
 							</table>
 						</div>
+					</div>
+				</section>
+
+				<section id="fermintation-notes" class="block basic-content">
+					<div class="wrapper">
+						<h2 class="block-title">Fermintation Notes</h2>
+						<div class="row">
+							<div class="content">
+								<p>
+									Lorem, ipsum dolor sit amet consectetur
+									adipisicing elit. Reprehenderit, reiciendis.
+									Aliquam omnis fugiat alias esse ullam facere
+									cum reprehenderit ut suscipit? Suscipit a
+									explicabo reiciendis ut, pariatur fugiat
+									aliquid sapiente, in atque temporibus, iste
+									sunt maxime totam aliquam facere deleniti
+									earum hic ipsam recusandae aperiam ea veniam
+									dignissimos quas. Repellat.
+								</p>
+								<p>
+									Lorem, ipsum dolor sit amet consectetur
+									adipisicing elit. Reprehenderit, reiciendis.
+									Aliquam omnis fugiat alias esse ullam facere
+									cum reprehenderit ut suscipit? Suscipit a
+									explicabo reiciendis ut, pariatur fugiat
+									aliquid sapiente, in atque temporibus, iste
+									sunt maxime totam aliquam facere deleniti
+									earum hic ipsam recusandae aperiam ea veniam
+									dignissimos quas. Repellat.
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section id="brewing-log" class="block basic-content">
+					<div class="wrapper">
+						<h2 class="block-title">Brewing Log</h2>
+						<div class="row">
+							<div class="content">
+								<p>
+									Lorem, ipsum dolor sit amet consectetur
+									adipisicing elit. Reprehenderit, reiciendis.
+									Aliquam omnis fugiat alias esse ullam facere
+									cum reprehenderit ut suscipit? Suscipit a
+									explicabo reiciendis ut, pariatur fugiat
+									aliquid sapiente, in atque temporibus, iste
+									sunt maxime totam aliquam facere deleniti
+									earum hic ipsam recusandae aperiam ea veniam
+									dignissimos quas. Repellat.
+								</p>
+								<p>
+									Lorem, ipsum dolor sit amet consectetur
+									adipisicing elit. Reprehenderit, reiciendis.
+									Aliquam omnis fugiat alias esse ullam facere
+									cum reprehenderit ut suscipit? Suscipit a
+									explicabo reiciendis ut, pariatur fugiat
+									aliquid sapiente, in atque temporibus, iste
+									sunt maxime totam aliquam facere deleniti
+									earum hic ipsam recusandae aperiam ea veniam
+									dignissimos quas. Repellat.
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section id="packaging" class="block packaging">
+					<div class="component intro">
+						<div class="wrapper">
+							<h2 class="title">Packaging</h2>
+						</div>
+					</div>
+					<div class="wrapper">
+						<h3 class="table-title">Mash</h3>
 						<div class="table-content">
-							<h3 class="table-title">Yeast</h3>
-							<table class="yeast-names">
+							<table data-mobile-table="true">
 								<thead>
 									<tr>
-										<th>Name</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Yeast Name 1</td>
-									</tr>
-									<tr>
-										<td>Yeast Name 2</td>
-									</tr>
-									<tr>
-										<td>Bacteria Name 1</td>
-									</tr>
-								</tbody>
-							</table>
-							<table class="yeast-schedule">
-								<thead>
-									<tr>
+										<th>Volume:</th>
 										<th>Temperature:</th>
 										<th>Duration:</th>
+										<th>Discription:</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
-										<td>170&deg;F</td>
-										<td>100 min</td>
+										<td>Belgium - Pilsner</td>
+										<td>7.75 lbs</td>
+										<td>123</td>
+										<td>30 min</td>
 									</tr>
 									<tr>
-										<td>170&deg;F</td>
-										<td>100 min</td>
-									</tr>
-									<tr>
-										<td>170&deg;F</td>
-										<td>100 min</td>
-									</tr>
-									<tr>
-										<td>170&deg;F</td>
-										<td>100 min</td>
-									</tr>
-									<tr>
-										<td>170&deg;F</td>
-										<td>100 min</td>
-									</tr>
-									<tr>
-										<td>170&deg;F</td>
-										<td>100 min</td>
-									</tr>
-									<tr>
-										<td>170&deg;F</td>
-										<td>100 min</td>
+										<td>Munich - Light 10L</td>
+										<td>7.75 lbs</td>
+										<td>123</td>
+										<td>30 min</td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
 					</div>
 				</section>
+
+				<section id="gravity" class="block gravity">
+					<div class="component intro">
+						<div class="wrapper">
+							<h2 class="title">Gravity</h2>
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="table-content grid">
+							<table>
+								<thead>
+									<tr>
+										<th>Original Gravity</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Gravity: 1.001</td>
+									</tr>
+									<tr>
+										<td>Date: 1/12/2021</td>
+									</tr>
+								</tbody>
+							</table>
+							<table>
+								<thead>
+									<tr>
+										<th>Pre Boil Gravity</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Gravity: 1.001</td>
+									</tr>
+									<tr>
+										<td>Date: 1/12/2021</td>
+									</tr>
+								</tbody>
+							</table>
+							<table>
+								<thead>
+									<tr>
+										<th>Post Boil Gravity</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Gravity: 1.001</td>
+									</tr>
+									<tr>
+										<td>Date: 1/12/2021</td>
+									</tr>
+								</tbody>
+							</table>
+							<table>
+								<thead>
+									<tr>
+										<th>Pre Boil Gravity</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Gravity: 1.001</td>
+									</tr>
+									<tr>
+										<td>Date: 1/12/2021</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</section>
+
+				<section id="tasting-notes" class="block basic-content">
+					<div class="wrapper">
+						<h2 class="block-title">Tasting Notes</h2>
+						<div class="row">
+							<div class="content">
+								<p>
+									Lorem, ipsum dolor sit amet consectetur
+									adipisicing elit. Reprehenderit, reiciendis.
+									Aliquam omnis fugiat alias esse ullam facere
+									cum reprehenderit ut suscipit? Suscipit a
+									explicabo reiciendis ut, pariatur fugiat
+									aliquid sapiente, in atque temporibus, iste
+									sunt maxime totam aliquam facere deleniti
+									earum hic ipsam recusandae aperiam ea veniam
+									dignissimos quas. Repellat.
+								</p>
+								<p>
+									Lorem, ipsum dolor sit amet consectetur
+									adipisicing elit. Reprehenderit, reiciendis.
+									Aliquam omnis fugiat alias esse ullam facere
+									cum reprehenderit ut suscipit? Suscipit a
+									explicabo reiciendis ut, pariatur fugiat
+									aliquid sapiente, in atque temporibus, iste
+									sunt maxime totam aliquam facere deleniti
+									earum hic ipsam recusandae aperiam ea veniam
+									dignissimos quas. Repellat.
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<%= require('html-loader!../blocks/slider.html') %>
+
 			</main>
 			<%= require('html-loader!../components/footer.html') %>
 		</div>

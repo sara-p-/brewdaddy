@@ -86,7 +86,7 @@ header {
 			span.line-box {
 				width: 30px;
 				display: flex;
-				flex-direction:column;
+				flex-direction: column;
 				justify-content: center;
 				align-items: center;
 				.line {
@@ -111,7 +111,7 @@ header {
 		right: 0;
 		background: $white;
 		z-index: 2;
-		border-right:$base-border;
+		border-right: $base-border;
 		transform: translateX(100%);
 		@include tablet {
 			display: block;
@@ -136,5 +136,34 @@ header {
 			}
 		}
 	}
-	
+
+	// Single Subnav
+	.single-subnav {
+		width: 100%;
+		border-top: $base-border;
+		padding: 15px 30px 8px;
+		@include tablet {
+			display: none;
+		}
+		nav {
+			@include flex;
+		}
+		ul {
+			@include clear-list;
+		}
+		li {
+			display: inline-block;
+			margin-right: 30px;
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+		a {
+			font-size: 14px;
+			line-height: 1;
+			text-transform: uppercase;
+			font-weight: 500;
+			text-decoration: none;
+		}
+	}
 }

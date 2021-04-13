@@ -5,6 +5,9 @@ table {
 	table-layout: auto;
 	text-align: left;
 	background: $white;
+	&.table-fixed {
+		table-layout: fixed;
+	}
 }
 
 thead {
@@ -57,9 +60,16 @@ td {
 }
 
 // Table-Content Elements (like on the Single Pages)
+h3.table-title {
+	margin-bottom: 7px;
+}
 .table-content {
 	margin-bottom: 30px;
-	h3.table-title {
-		margin-bottom: 7px;
+	&.grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: auto;
+
+		gap: 30px;
 	}
 }
