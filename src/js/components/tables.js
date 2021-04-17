@@ -4,6 +4,7 @@ export default function mobileTables() {
 	// **************** Variables ********************
 	var tablesTurnedToMobile = false;
 	var allTables = document.querySelectorAll(`[data-mobile-table="true"]`);
+	console.log(allTables);
 	var windowBreakpoint = 800;
 
 	// *************** Functions *********************

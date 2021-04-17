@@ -3,17 +3,15 @@
 
 	<body class="single">
 		<div id="app">
-			<%= require('html-loader!../components/header-single.html') %>
+			<%= require('html-loader!../components/header.html') %>
+			<%= require('html-loader!../components/sub-nav.html') %>
+
 			<main>
 				<%= require('html-loader!../blocks/top-card.html') %>
 
 				<section id="ingredients" class="block table">
-					<div class="component intro">
-						<div class="wrapper">
-							<h2 class="title">Ingredients</h2>
-						</div>
-					</div>
 					<div class="wrapper">
+						<h2 class="block-title">Ingredients</h2>
 						<div class="table-content">
 							<h3 class="table-title">Grains</h3>
 							<table data-mobile-table="true">
@@ -183,15 +181,11 @@
 				</section>
 
 				<section id="water" class="block table">
-					<div class="component intro">
-						<div class="wrapper">
-							<h2 class="title">Water</h2>
-						</div>
-					</div>
 					<div class="wrapper">
+						<h2 class="block-title">Water</h2>
 						<div class="table-content">
 							<h3 class="table-title">Water Profile</h3>
-							<table class="table-fixed" data-mobile-table="true">
+							<table class="table-fixed lines" data-mobile-table="true">
 								<thead>
 									<tr>
 										<th>CA<sup>+2</sup></th>
@@ -342,15 +336,11 @@
 					</div>
 				</section>
 
-				<section id="packaging" class="block packaging">
-					<div class="component intro">
-						<div class="wrapper">
-							<h2 class="title">Packaging</h2>
-						</div>
-					</div>
+				<section id="packaging" class="block table">
 					<div class="wrapper">
-						<h3 class="table-title">Mash</h3>
+						<h2 class="block-title">Packaging</h2>
 						<div class="table-content">
+							<h3 class="table-title">Mash</h3>
 							<table data-mobile-table="true">
 								<thead>
 									<tr>
@@ -379,7 +369,7 @@
 					</div>
 				</section>
 
-				<section id="gravity" class="block gravity">
+				<section id="gravity" class="block table">
 					<div class="component intro">
 						<div class="wrapper">
 							<h2 class="title">Gravity</h2>
@@ -484,6 +474,62 @@
 				</section>
 
 				<%= require('html-loader!../blocks/slider.html') %>
+
+				<section class="block listing grid">
+					<div class="wrapper">
+						<h2 class="block-title">Related Recipes</h2>
+						<div class="items">
+							<div class="item">
+								<div class="content">
+									<div class="color"></div>
+									<h1 class="label h6">Beer Style - Beer Sub Style</h1>
+									<h2 class="title h1">Claudia Pepperfield</h2>
+									<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, blanditiis!</p>
+									<div class="stats">
+										<div class="stat"><p>5.6% ABV | 24 IBU</p></div>
+										<div class="stat"><p>Batch No. 15</p></div>
+									</div>
+									<div class="buttons full-width">
+										<a href="#" class="btn white">Quick View</a>
+										<a href="#" class="btn">Full Recipe</a>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="content">
+									<div class="color"></div>
+									<h1 class="label h6">Beer Style - Beer Sub Style</h1>
+									<h2 class="title h1">Claudia Pepperfield</h2>
+									<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, blanditiis!</p>
+									<div class="stats">
+										<div class="stat"><p>5.6% ABV | 24 IBU</p></div>
+										<div class="stat"><p>Batch No. 15</p></div>
+									</div>
+									<div class="buttons full-width">
+										<a href="#" class="btn white">Quick View</a>
+										<a href="#" class="btn">Full Recipe</a>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="content">
+									<div class="color"></div>
+									<h1 class="label h6">Beer Style - Beer Sub Style</h1>
+									<h2 class="title h1">Claudia Pepperfield</h2>
+									<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, blanditiis!</p>
+									<div class="stats">
+										<div class="stat"><p>5.6% ABV | 24 IBU</p></div>
+										<div class="stat"><p>Batch No. 15</p></div>
+									</div>
+									<div class="buttons full-width">
+										<a href="#" class="btn white">Quick View</a>
+										<a href="#" class="btn">Full Recipe</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 
 			</main>
 			<%= require('html-loader!../components/footer.html') %>

@@ -1,5 +1,7 @@
 html,
-.p {
+p,
+.p,
+p span {
 	font-family: $base-font-family;
 	font-weight: $base-font-weight;
 	line-height: $base-line-height;
@@ -7,7 +9,7 @@ html,
 	-webkit-font-smoothing: antialiased;
 	color: $base-font-color;
 	@include tablet {
-		font-size: 12px;
+		font-size: $mobile-font-size;
 	}
 }
 
@@ -25,8 +27,8 @@ h1,
 
 h2,
 .h2 {
-	@include heading-style(48px, $base-font-family, 900);
-	letter-spacing: 0.02px;
+	@include heading-style(48px, $heading-font-family, 900);
+	// letter-spacing: 0.02px;
 	@include tablet {
 		font-size: 34px;
 	}
@@ -34,7 +36,7 @@ h2,
 
 h3,
 .h3 {
-	@include heading-style(36px, $base-font-family, 700);
+	@include heading-style(36px, $base-font-family, 300);
 	@include tablet {
 		font-size: 24px;
 	}

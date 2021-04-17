@@ -62,11 +62,21 @@ button {
 		background: transparent;
 		color: $black;
 		border: $base-border;
+		text-decoration: underline;
 		&:before {
 			transform: translateX(0%);
 		}
 		&:after {
 			transform: translateX(100%);
+		}
+	}
+
+	i {
+		font-size: 14px;
+		margin-left: 7px;
+		&.prev {
+			margin-left: 0;
+			margin-right: 7px;
 		}
 	}
 }

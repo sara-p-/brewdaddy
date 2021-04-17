@@ -5,12 +5,14 @@ import styleGuide from "./components/styleguide";
 import menu from "./components/menu";
 import mobileTables from "./components/tables";
 import sliders from "./components/sliders";
+import filters from "./components/filters";
 
 document.addEventListener("DOMContentLoaded", function () {
 	vue();
 	// styleGuide();
 
-	menu();
+	// menu();
 	mobileTables();
 	sliders();
+	filters();
 });

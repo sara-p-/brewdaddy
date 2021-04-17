@@ -111,7 +111,7 @@
 @mixin btn-base() {
 	position: relative;
 	display: inline-block;
-	padding: 12px 8px 11px;
+	padding: 17px 8px 15px;
 	min-width: 120px;
 	text-align: center;
 	font-family: $base-font-family;
@@ -147,12 +147,21 @@
 }
 
 // Beer color swatch
-@mixin beer-color($size: 20px, $color: #d5bc26) {
+@mixin beer-color($size: 30px, $color: #d5bc26) {
 	position: absolute;
-	top: -1px;
-	right: -1px;
+	top: -2px;
+	right: -2px;
 	width: $size;
 	height: $size;
 	background: $color;
 	border: $base-border;
+}
+
+@mixin fake-input-text {
+	font-size: 14px;
+	font-family: $base-font-family;
+	font-weight: 500;
+	line-height: 1;
+	margin-bottom: 0;
+	text-transform: uppercase;
 }

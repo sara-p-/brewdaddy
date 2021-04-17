@@ -1,8 +1,13 @@
 import Glide from "@glidejs/glide";
 
 export default function sliders() {
-	// init the glide slider
-	new Glide(".glide").mount({
-		type: "carousel",
+	// ******************* Init the Sliders ********************
+
+	// Loop through each slider on the page
+	var sliders = document.querySelectorAll(".glide");
+	sliders.forEach((element, index) => {
+		new Glide(element).mount({
+			type: "carousel",
+		});
 	});
 }

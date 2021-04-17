@@ -1,0 +1,68 @@
+.block.filters {
+	.wrapper {
+		max-width: $site-width-medium;
+	}
+	.search-box {
+		margin-bottom: 30px;
+		@include flex;
+		position: relative;
+		[type="search"] {
+			flex: 1;
+			margin-bottom: 0;
+			border-right: none;
+		}
+		label {
+			position: absolute;
+			top: -20px;
+			left: 0;
+		}
+	}
+
+	.filter-box {
+		@include flex(space-between, center);
+		.fieldset {
+			width: 180px;
+			position: relative;
+			margin-bottom: 25px;
+		}
+		.false-select {
+			position: relative;
+			.top {
+				// padding: 16px 0.8em 14px;
+				width: 100%;
+				button.false-button {
+					background: $white;
+					width: 100%;
+					@include fake-input-text;
+					padding: $input-padding;
+					border: $base-border;
+					@include flex(space-between, center);
+				}
+			}
+			.bottom {
+				// display: none;
+				position: absolute;
+				top: calc(100% - 4px);
+				left: 0;
+				width: 300px;
+				background: $white;
+				border: $base-border;
+				.range-label {
+					width: 100%;
+					padding: 10px 20px;
+					border-bottom: $base-border;
+				}
+				p.range-value {
+					@include fake-input-text;
+				}
+				.range {
+					width: 100%;
+					padding: 20px;
+					input {
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+}

@@ -7,6 +7,21 @@ table {
 	background: $white;
 	&.table-fixed {
 		table-layout: fixed;
+		td,
+		th {
+			text-align: center;
+			&:first-of-type {
+				padding-left: 0;
+			}
+			&:last-of-type {
+				padding-left: 0;
+			}
+		}
+	}
+	&.lines {
+		td {
+			border-right: $base-border;
+		}
 	}
 }
 
@@ -26,8 +41,9 @@ tr {
 
 td,
 th {
-	padding: 7px;
+	padding: 16px 0;
 	text-transform: uppercase;
+	// text-align: center;
 	&:first-of-type {
 		padding-left: 30px;
 	}
@@ -41,12 +57,11 @@ th {
 	font-weight: 14px;
 	line-height: 1;
 	font-weight: 500;
-	padding: 10px 0;
 }
 
 td {
-	font-size: 12px;
-	padding: 6px 0;
+	font-size: 14px;
+	padding: 11px 0;
 }
 
 // Mobile Tables
@@ -56,20 +71,5 @@ td {
 		background-color: $black;
 		color: $off-white;
 		font-weight: 500;
-	}
-}
-
-// Table-Content Elements (like on the Single Pages)
-h3.table-title {
-	margin-bottom: 7px;
-}
-.table-content {
-	margin-bottom: 30px;
-	&.grid {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: auto;
-
-		gap: 30px;
 	}
 }
