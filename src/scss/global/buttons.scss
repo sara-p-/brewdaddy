@@ -104,3 +104,9 @@ button {
 p + .buttons {
 	padding-top: 0; // Top padding for buttons under paragraphs
 }
+
+// Close Button
+.close-button {
+	@include close-button;
+	border: $base-border;
+}

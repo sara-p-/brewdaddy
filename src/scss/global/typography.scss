@@ -63,7 +63,8 @@ h6,
 	@include heading-style(14px, $base-font-family, 500);
 }
 
-a {
+a,
+.styled-btn {
 	color: $black;
 	transition: all $base-duration $base-timing;
 	padding: 3px;
@@ -72,6 +73,7 @@ a {
 	position: relative;
 	display: block;
 	overflow: hidden;
+	border: none;
 	z-index: 1;
 	&:before {
 		content: "";
@@ -94,7 +96,7 @@ a {
 	}
 	&:focus {
 		outline: $focus-outline;
-		outline-offset: $focus-outline-offset;
+		outline-offset: 1px;
 	}
 }
 

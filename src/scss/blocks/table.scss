@@ -5,36 +5,4 @@
 	.title {
 		margin-bottom: 10px;
 	}
-
-	// Table-Content Elements (like on the Single Pages)
-	.table-content {
-		margin-bottom: 30px;
-		.table-title {
-			margin-bottom: 10px;
-		}
-		&.grid {
-			display: grid;
-			grid-template-columns: repeat(4, 1fr);
-			grid-template-rows: auto;
-			gap: 30px;
-			@include tablet {
-				display: block;
-			}
-			table {
-				@include tablet {
-					margin-bottom: 20px;
-				}
-			}
-			td,
-			th {
-				text-align: center;
-				&:first-of-type {
-					padding-left: 0;
-				}
-				&:last-of-type {
-					padding-left: 0;
-				}
-			}
-		}
-	}
 }

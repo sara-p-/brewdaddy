@@ -39,6 +39,9 @@ textarea {
 	font-family: $base-font-family;
 	text-transform: uppercase;
 	width: 100%;
+	&:focus {
+		@include focus;
+	}
 }
 
 #{$all-text-inputs} {
@@ -183,6 +186,10 @@ body .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select {
 	&:disabled:hover,
 	&[aria-disabled="true"] {
 		border-color: #aaa;
+	}
+
+	&:focus {
+		@include focus;
 	}
 }
 

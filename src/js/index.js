@@ -6,6 +6,7 @@ import menu from "./components/menu";
 import mobileTables from "./components/tables";
 import sliders from "./components/sliders";
 import filters from "./components/filters";
+import modals from "./components/modals";
 
 document.addEventListener("DOMContentLoaded", function () {
 	vue();
@@ -15,4 +16,5 @@ document.addEventListener("DOMContentLoaded", function () {
 	mobileTables();
 	sliders();
 	filters();
+	modals();
 });
