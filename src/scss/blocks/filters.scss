@@ -36,21 +36,24 @@
 					@include fake-input-text;
 					padding: $input-padding;
 					border: $base-border;
+					color: $black;
 					@include flex(space-between, center);
 				}
 			}
 			.bottom {
 				// display: none;
 				position: absolute;
-				top: calc(100% - 4px);
+				top: calc(100% + 5px);
 				left: 0;
 				width: 300px;
 				background: $white;
 				border: $base-border;
+				z-index: 2;
 				.range-label {
 					width: 100%;
 					padding: 10px 20px;
 					border-bottom: $base-border;
+					@include flex(space-between);
 				}
 				p.range-value {
 					@include fake-input-text;

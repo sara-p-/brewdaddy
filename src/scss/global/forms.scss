@@ -157,11 +157,12 @@ body .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select {
 	-webkit-appearance: none;
 	appearance: none;
 	background-color: $white;
+	background-image: url("../../assets/img/chevron-down.png");
 	background-repeat: no-repeat, repeat;
 	/* arrow icon position (1em from the right, 50% vertical) , then gradient position*/
 	background-position: right 0.7em top 54%, 0 0;
 	/* icon size, then gradient */
-	background-size: 14px auto, 100%;
+	background-size: 12px auto, 100%;
 
 	/* Hide arrow icon in IE browsers */
 	&::-ms-expand {
