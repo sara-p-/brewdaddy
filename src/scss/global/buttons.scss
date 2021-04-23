@@ -48,9 +48,17 @@ button {
 		transform: translateX(0%);
 		transition: all $base-duration $base-timing;
 	}
+	&.full-width {
+		width: 100%;
+	}
 	&.white {
 		color: $black;
 		border: $base-border;
+		&.full-width {
+			border-left: none;
+			border-right: none;
+			border-top: none;
+		}
 		&:before {
 			background: $black;
 		}
@@ -62,6 +70,7 @@ button {
 			color: $off-white;
 		}
 	}
+
 	&:hover,
 	&:focus {
 		background: transparent;
@@ -78,7 +87,9 @@ button {
 
 	i {
 		font-size: 14px;
-		margin-left: 7px;
+		&.next {
+			margin-left: 7px;
+		}
 		&.prev {
 			margin-left: 0;
 			margin-right: 7px;
@@ -103,6 +114,14 @@ button {
 }
 p + .buttons {
 	padding-top: 0; // Top padding for buttons under paragraphs
+}
+
+// Mobile Filter Button
+.filter-button {
+	display: none;
+	@include tablet {
+		display: block;
+	}
 }
 
 // Close Button

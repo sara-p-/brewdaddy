@@ -1,44 +1,54 @@
 import { gsap } from "gsap";
 
 export default function menu() {
+	// Create the function to toggleSlide the various panels
+	function toggleSlide(element, button) {
+		var clicked = false;
+		// Create the slide animation all of the panels will use
+		var panelSlide = gsap
+			.timeline({
+				paused: true,
+			})
+			.fromTo(
+				element,
+				{
+					x: "100%",
+				},
+				{
+					x: "0%",
+					duration: 0.3,
+					onStart: () => {
+						element.style.display = "block";
+						button.classList.add("open");
+					},
+					onReverseComplete: () => {
+						element.style.display = "none";
+						button.classList.remove("open");
+					},
+				}
+			);
 
-    // Need to streamline all of this into one function, but I'm too hazy to do it right now because of the vaccine
-    // ****************** Main Menu ***************************
-    const mobilePanel = document.querySelector('.mobile-panel');
-    const hamburger = document.querySelector('a.hamburger');
+		button.addEventListener("click", (e) => {
+			e.preventDefault;
+			if (clicked == false) {
+				panelSlide.play();
+				clicked = true;
+			} else {
+				panelSlide.reverse();
+				clicked = false;
+			}
+		});
+	}
 
-    var mobileMove = gsap.to(mobilePanel, {
-        x: '0%',
-        duration: 0.3,
-    });
+	// ****************** Main Menu ***************************
+	const mobilePanel = document.querySelector(".mobile-panel");
+	const hamburger = document.querySelector("button.hamburger");
 
-    mobileMove.reversed(true)
-    function toggleMobile() {
-        mobileMove.reversed() ? mobileMove.play() : mobileMove.reverse();
-    }
+	toggleSlide(mobilePanel, hamburger);
 
-    hamburger.addEventListener('click', () => {
-        toggleMobile();
-    })
+	// ****************** Filter Panel *************************
+	const filterButton = document.querySelector("button.filter-button");
+	const filterPanel = document.querySelector(".filter-panel");
 
-
-    // ****************** Filter Panel *************************
-    const filterButton = document.querySelector('.filter-button a');
-    const filterPanel = document.querySelector('.filter-panel');
-
-    var filterMove = gsap.to(filterPanel, {
-        x: '0%',
-        duration: 0.3,
-    });
-    
-    filterMove.reversed(true);
-
-    function toggleSlide() {
-        filterMove.reversed() ? filterMove.play() : filterMove.reverse();
-    }
-
-    filterButton.addEventListener('click', () => {
-        toggleSlide();
-    })
-
+	toggleSlide(filterPanel, filterButton);
 }

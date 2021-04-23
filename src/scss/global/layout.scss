@@ -12,6 +12,12 @@ main {
 	}
 }
 
+.search main {
+	@include tablet {
+		padding: 121px 0px 0px;
+	}
+}
+
 .block {
 	margin-bottom: $bottom-margin-large;
 	&:first-of-type {

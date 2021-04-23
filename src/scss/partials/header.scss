@@ -61,57 +61,19 @@ header {
 			text-decoration: none;
 		}
 	}
-	.filter-button {
-		display: none;
-		@include tablet {
-			display: block;
-		}
-		.btn {
-			border-top: none;
-		}
-	}
 
 	// Mobile Menu
-	.hamburger-button {
+	.hamburger {
 		z-index: 3;
 		display: none;
+		@include close-button;
 		@include tablet {
 			display: block;
-		}
-		a.hamburger {
-			span.line-box {
-				width: 30px;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
-				.line {
-					height: 5px;
-					width: 100%;
-					margin-bottom: 5px;
-					background: $black;
-					&:last-of-type {
-						margin-bottom: 0;
-					}
-				}
-			}
 		}
 	}
 
 	.mobile-panel {
-		display: none;
-		width: 100%;
-		position: fixed;
-		height: 100%;
-		top: 0;
-		right: 0;
-		background: $white;
-		z-index: 2;
-		border-right: $base-border;
-		@include tablet {
-			display: block;
-			transform: translateX(100%);
-		}
+		@include mobile-panels;
 		.wrapper {
 			padding: 125px 20px 30px;
 			height: 100%;

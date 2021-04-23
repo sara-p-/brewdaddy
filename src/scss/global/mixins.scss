@@ -128,7 +128,7 @@
 	user-select: none;
 	vertical-align: middle;
 	appearance: none;
-	box-sizing: content-box;
+	box-sizing: border-box;
 	cursor: pointer;
 	// &:focus {
 	// 	outline: $focus-outline;
@@ -233,7 +233,7 @@
 			}
 		}
 	}
-	&.close-active {
+	&.open {
 		.lines {
 			&:before {
 				transform: rotate(45deg);
@@ -246,4 +246,17 @@
 			transform: translateX(120%);
 		}
 	}
+}
+
+@mixin mobile-panels {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: calc(100% - 71px);
+	top: 71px;
+	right: 0;
+	background: $white;
+	z-index: 2;
+	// border: $base-border;
+	// transform: translateX(100%);
 }

@@ -11,15 +11,13 @@
 					<li><a href="/single.html">Single</a></li>
 				</ul>
 			</nav>
-			<div class="hamburger-button">
-				<a href="#" class="hamburger">
-					<span class="line-box">
-						<span class="line"></span>
-						<span class="line"></span>
-						<span class="line"></span>
-					</span>
-				</a>
-			</div>
+			<button class="hamburger">
+				<span class="visually-hidden">Mobile Menu</span>
+				<span class="lines">
+					<span class="line"></span>
+					<span class="line"></span>
+				</span>
+			</button>
 			<div class="mobile-panel">
 				<div class="wrapper">
 					<nav class="mobile-menu">
@@ -33,9 +31,24 @@
 			</div>
 		</div>
 	</div>
-	<!-- <div class="filter-button">
-        <div class="buttons full-width">
-            <a href="#" class="btn">Filters</a>
-        </div>
-    </div> -->
+
+	<button class="btn full-width filter-button">
+		Filters <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i>
+	</button>
+
+	<div id="original-panel" class="filter-panel">
+		<div class="panel-container">
+			<button class="btn full-width back">
+				<span class="visually-hidden">Back</span
+				><i class="fas fa-long-arrow-alt-left" aria-hidden="true"></i>
+			</button>
+
+			<div class="filters"></div>
+
+			<div class="buttons full-width">
+				<button class="btn white filter-apply">Apply</button>
+				<button class="btn filter-reset">Reset</button>
+			</div>
+		</div>
+	</div>
 </header>
