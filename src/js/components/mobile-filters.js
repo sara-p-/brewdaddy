@@ -1,9 +1,10 @@
 import { gsap } from "gsap";
-import { forEach } from "lodash";
+// import { forEach } from "lodash";
 import {
 	createFilterButtons,
 	backButton,
 	createOptionPanels,
+	spanMaker,
 } from "./html-components";
 
 export default function mobileFilters() {
@@ -148,54 +149,83 @@ export default function mobileFilters() {
 					);
 					option.setAttribute("data-option", "true");
 					icon.classList.add("fas", "fa-times");
+					option.classList.add("selected");
 				} else {
 					option.setAttribute("data-panel-option-value", "");
 					option.setAttribute("data-option", "false");
 					icon.classList.add("fas", "fa-plus");
+					option.classList.remove("selected");
 				}
 			});
 		});
 	});
 
-	// Function to update the NewDataValues
-	function updateDataValues(filterValue, mutationTarget) {
-		var values = "";
-		if (filterValue == "") {
-			values = mutationTarget.target.dataset.panelOptionValue;
+	// Function to update the Parent filter data attributes, as well as creating the child spans that will show the selected values
+	function updateDataValues(
+		parentFilter,
+		filterValue,
+		optionBoolean,
+		optionValue
+	) {
+		var html = [];
+		// on each mutation, if the boolean is true - add the filter vlaue
+		// If the boolean is false - remove the filter value
+		if (optionBoolean == "true") {
+			filterValue = filterValue + " " + optionValue;
 		} else {
-			values =
-				filterValue +
-				", " +
-				mutationTarget.target.dataset.panelOptionValue;
+			filterValue = filterValue.replace(optionValue, "");
 		}
-		return values;
+
+		// Add the option values to the parent filter
+		parentFilter.setAttribute("data-option-values", filterValue);
+
+		var array = filterValue.split(" ");
+		array.forEach((e, i) => {
+			if (e !== "") {
+				html.push(spanMaker(e));
+			}
+		});
+		console.log(html);
+		return html;
 	}
 
 	// Function to pass the option values to the original filters when option attributes are changed
+
 	const passValuesToFilter = function (mutations, observer) {
 		for (const mutation of mutations) {
-			var parentFilter = document.querySelector(
-				`.filter-panel [data-panel-button="${mutation.target.dataset.parentFilter}"]`
-			);
-			var parentFilterAttribute = parentFilter.dataset.optionValues;
-			var parentSpan = parentFilter.querySelector("span.select-values");
-			var optionBoolean = mutation.target.dataset.option;
-			var optionValue = mutation.target.dataset.panelOption;
-			var newDataValues = updateDataValues(
-				parentFilterAttribute,
-				mutation
-			);
-
 			if (mutation.attributeName == "data-option") {
-				if (optionBoolean == "false") {
-					// Add the value to the string
-					newDataValues = newDataValues.replace(optionValue, "");
+				// Grab the parent filter and it's attribute values (we will set these values in our updataDataValues function)
+				var parentFilter = document.querySelector(
+					`.filter-panel [data-panel-button="${mutation.target.dataset.parentFilter}"]`
+				);
+				var parentFilterAttribute = parentFilter.dataset.optionValues;
 
-					console.log(`on add: ${newDataValues}`);
+				// Grab the parent filter span where we will add our new spans
+				var parentSpan = parentFilter.querySelector(
+					"span.button-values"
+				);
+
+				// Grab the boolean value of the select (true when selected), and the value itself
+				var optionBoolean = mutation.target.dataset.option;
+				var optionValue = mutation.target.dataset.panelOption;
+
+				// On each mutation, clear out the parentSpan of any children
+				while (parentSpan.firstChild) {
+					parentSpan.removeChild(parentSpan.firstChild);
 				}
 
-				parentFilter.setAttribute("data-option-values", newDataValues);
-				parentSpan.innerText = newDataValues;
+				// Run our function to update the parent filter attribute values
+				var newDataValues = updateDataValues(
+					parentFilter,
+					parentFilterAttribute,
+					optionBoolean,
+					optionValue
+				);
+
+				// Populate the parentSpan with the child spans
+				newDataValues.forEach((e) => {
+					parentSpan.appendChild(e);
+				});
 			}
 		}
 	};
@@ -214,12 +244,16 @@ export default function mobileFilters() {
 	var reset = document.querySelector("header .filter-reset");
 
 	reset.addEventListener("click", (e) => {
-		// Loop through the filter buttons and set the data attributes and spans to null
-		originalFilters.forEach((filter, index) => {
+		// Loop through the filter buttons and clear the data attributes and the option value spans
+		originalFilters.forEach((filter) => {
 			filter.setAttribute("data-option-values", "");
 			var filterOptions = document.querySelectorAll(
 				`header [data-panel="${filter.dataset.panelButton}"] button.filter-button`
 			);
+			var optionSpan = filter.querySelector(".button-values");
+			while (optionSpan.firstChild) {
+				optionSpan.removeChild(optionSpan.firstChild);
+			}
 			// Loop through the filter options and set the values to null
 			filterOptions.forEach((option, i) => {
 				option.setAttribute("data-panel-option-value", "");
@@ -227,6 +261,7 @@ export default function mobileFilters() {
 				var icon = option.querySelector("i");
 				icon.removeAttribute("class");
 				icon.classList.add("fas", "fa-plus");
+				option.classList.remove("selected");
 			});
 		});
 	});

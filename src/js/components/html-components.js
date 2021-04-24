@@ -23,11 +23,14 @@ export function createFilterButtons(
 	filterNumber,
 	buttonAttriValue
 ) {
-	var span = document.createElement("span");
-	span.classList.add("button-value");
-
 	var button = document.createElement("button");
 	button.classList.add("btn", "white", "full-width", "filter-button");
+
+	var buttonContent = document.createElement("span");
+	buttonContent.classList.add("button-content");
+
+	var buttonName = document.createElement("span");
+	buttonName.classList.add("button-name");
 
 	var icon = document.createElement("i");
 
@@ -35,27 +38,33 @@ export function createFilterButtons(
 		button.setAttribute("data-panel-button", filterNumber);
 		button.setAttribute("data-option-values", "");
 
-		var innerSpan = document.createElement("span");
-		innerSpan.classList.add("select-values");
+		var buttonValues = document.createElement("span");
+		buttonValues.classList.add("button-values");
 
 		icon.classList.add("fas", "fa-chevron-right");
 		icon.setAttribute("aria-hidden", "true");
-		span.innerText = filterName + " ";
-		button.appendChild(span);
-		span.after(icon);
-		span.appendChild(innerSpan);
+
+		buttonName.innerText = filterName;
+
+		button.appendChild(buttonContent);
+		buttonContent.appendChild(buttonName);
+		buttonName.after(buttonValues);
+		buttonContent.after(icon);
 	} else {
 		button.setAttribute("data-panel-option", buttonAttriValue);
 		button.setAttribute("data-panel-option-value", "");
 		button.setAttribute("data-parent-filter", filterNumber);
 		button.setAttribute("data-option", "false");
-
 		button.classList.add("option-button");
+
+		buttonName.innerText = buttonAttriValue;
+
 		icon.classList.add("fas", "fa-plus");
 		icon.setAttribute("aria-label", "Select");
-		span.innerText = buttonAttriValue;
-		button.appendChild(span);
-		span.after(icon);
+
+		button.appendChild(buttonContent);
+		buttonContent.appendChild(buttonName);
+		buttonContent.after(icon);
 	}
 
 	return button;
@@ -76,4 +85,12 @@ export function createOptionPanels(number, func) {
 	backButton.after(filterWrapper);
 
 	return optionPanel;
+}
+
+// Function to create span elements for the filter button selected options
+export function spanMaker(optionName) {
+	var span = document.createElement("span");
+	span.classList.add("selected-option");
+	span.innerText = optionName;
+	return span;
 }

@@ -84,9 +84,36 @@
 	}
 	.filters {
 		button {
-			@include flex(space-between);
+			@include flex(space-between, center);
 			padding-left: 30px;
 			padding-right: 30px;
+
+			&.selected {
+				background: $light-grey;
+			}
+			.button-content {
+				flex: 1;
+				text-align: left;
+				margin-right: 20px;
+				span {
+					display: block;
+				}
+			}
+			span.selected-option {
+				margin-top: 5px;
+				margin-right: 4px;
+				font-size: 12px;
+				display: inline-block;
+				&:after {
+					content: ",";
+				}
+				&:last-of-type {
+					margin-right: 0;
+					&:after {
+						content: "";
+					}
+				}
+			}
 		}
 	}
 	.buttons {
