@@ -36,7 +36,6 @@
         // =========================================================================
         static function register_nav_menus(){
             register_nav_menus( array(
-                'action-menu' => __( 'Action Menu', 'text_domain' ),
                 'main-menu' => __( 'Main Menu', 'text_domain' ),
                 'footer-menu'  => __( 'Footer Menu', 'text_domain' ),
             ) );
