@@ -3,10 +3,34 @@
 
 <body class="search">
 	<div id="app">
-		<%= require('html-loader!../components/header.html') %>
+		<%= require('html-loader!../components/header-search.html') %>
 		
 		<main>
+			<%= require('html-loader!../blocks/hero-style-1.html') %>
+			<%= require('html-loader!../blocks/slider-style-2.html') %>
+			<section class="block hero style-1 full-screen align-left bg">
+				<div class="wrapper">
+					<div class="row">
+						<div class="content">
+							<h1 class="title">About</h1>
+							<div class="description">
+								<p>
+									This is a website made by 2 beer enthusiasts. One is a
+									home brewer, and the other is a web developer. It’s a
+									way to digitize a brewing journal, and easily share the
+									recipes with others.
+								</p>
+								<p>Enjoy!</p>
+							</div>
+							<div class="buttons">
+								<a href="#" class="btn">View Recipes</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 			<%= require('html-loader!../blocks/hero-style-2.html') %>
+
 			<%= require('html-loader!../components/filters.html') %>
 
 			<%= require('html-loader!../blocks/listing.html') %>

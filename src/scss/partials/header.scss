@@ -98,7 +98,6 @@ header {
 
 // Single Subnav
 .single-subnav {
-	margin-top: 94px;
 	width: 100%;
 	border-top: $base-border;
 	border-bottom: $base-border;
@@ -130,6 +129,9 @@ header {
 			text-transform: uppercase;
 			font-weight: 500;
 			text-decoration: none;
+			&.active {
+				text-decoration: underline;
+			}
 		}
 	}
 	.share {

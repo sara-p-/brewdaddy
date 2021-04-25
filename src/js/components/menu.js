@@ -50,5 +50,7 @@ export default function menu() {
 	const filterButton = document.querySelector("button.filter-button");
 	const filterPanel = document.querySelector(".filter-panel");
 
-	toggleSlide(filterPanel, filterButton);
+	if (filterButton !== null) {
+		toggleSlide(filterPanel, filterButton);
+	}
 }

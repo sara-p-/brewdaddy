@@ -52,7 +52,9 @@ h4,
 
 h5,
 .h5 {
-	@include heading-style(18px, $base-font-family, 500);
+	@include heading-style(24px, $base-font-family, 400);
+	text-transform: none;
+	line-height: 32px;
 	@include tablet {
 		font-size: 16px;
 	}

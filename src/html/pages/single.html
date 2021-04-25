@@ -3,15 +3,20 @@
 
 	<body class="single">
 		<div id="app">
-			<%= require('html-loader!../components/header.html') %>
-			<%= require('html-loader!../components/sub-nav.html') %>
+			<%= require('html-loader!../components/header-single.html') %>
 
 			<main>
 				<%= require('html-loader!../blocks/top-card.html') %>
 
 				<section id="ingredients" class="block table">
+					<div class="component intro margin-small">
+						<div class="wrapper">
+							<div class="intro-content">
+								<h2 class="title">Ingredients</h2>
+							</div>
+						</div>
+					</div>
 					<div class="wrapper">
-						<h2 class="block-title">Ingredients</h2>
 						<div class="table-content">
 							<h3 class="table-title">Grains</h3>
 							<table data-mobile-table="true">
@@ -181,8 +186,14 @@
 				</section>
 
 				<section id="water" class="block table">
+					<div class="component intro margin-small">
+						<div class="wrapper">
+							<div class="intro-content">
+								<h2 class="title">Water</h2>
+							</div>
+						</div>
+					</div>
 					<div class="wrapper">
-						<h2 class="block-title">Water</h2>
 						<div class="table-content">
 							<h3 class="table-title">Water Profile</h3>
 							<table class="table-fixed lines" data-mobile-table="true">
@@ -272,9 +283,15 @@
 					</div>
 				</section>
 
-				<section id="fermintation-notes" class="block basic-content">
+				<section id="fermentation" class="block basic-content">
+					<div class="component intro margin-small">
+						<div class="wrapper">
+							<div class="intro-content">
+								<h2 class="title">Fermintation Notes</h2>
+							</div>
+						</div>
+					</div>
 					<div class="wrapper">
-						<h2 class="block-title">Fermintation Notes</h2>
 						<div class="row">
 							<div class="content">
 								<p>
@@ -304,9 +321,15 @@
 					</div>
 				</section>
 
-				<section id="brewing-log" class="block basic-content">
+				<section id="brewing" class="block basic-content">
+					<div class="component intro margin-small">
+						<div class="wrapper">
+							<div class="intro-content">
+								<h2 class="title">Brewing Log</h2>
+							</div>
+						</div>
+					</div>
 					<div class="wrapper">
-						<h2 class="block-title">Brewing Log</h2>
 						<div class="row">
 							<div class="content">
 								<p>
@@ -337,8 +360,14 @@
 				</section>
 
 				<section id="packaging" class="block table">
+					<div class="component intro margin-small">
+						<div class="wrapper">
+							<div class="intro-content">
+								<h2 class="title">Packaging</h2>
+							</div>
+						</div>
+					</div>
 					<div class="wrapper">
-						<h2 class="block-title">Packaging</h2>
 						<div class="table-content">
 							<h3 class="table-title">Mash</h3>
 							<table data-mobile-table="true">
@@ -370,9 +399,11 @@
 				</section>
 
 				<section id="gravity" class="block table">
-					<div class="component intro">
+					<div class="component intro margin-small">
 						<div class="wrapper">
-							<h2 class="title">Gravity</h2>
+							<div class="intro-content">
+								<h2 class="title">Gravity</h2>
+							</div>
 						</div>
 					</div>
 					<div class="wrapper">
@@ -441,9 +472,15 @@
 					</div>
 				</section>
 
-				<section id="tasting-notes" class="block basic-content">
+				<section id="tasting" class="block basic-content">
+					<div class="component intro margin-small">
+						<div class="wrapper">
+							<div class="intro-content">
+								<h2 class="title">Tasting Notes</h2>
+							</div>
+						</div>
+					</div>
 					<div class="wrapper">
-						<h2 class="block-title">Tasting Notes</h2>
 						<div class="row">
 							<div class="content">
 								<p>
@@ -476,8 +513,14 @@
 				<%= require('html-loader!../blocks/slider.html') %>
 
 				<section class="block listing grid">
+					<div class="component intro margin-small">
+						<div class="wrapper">
+							<div class="intro-content">
+								<h2 class="title">Related Recipes</h2>
+							</div>
+						</div>
+					</div>
 					<div class="wrapper">
-						<h2 class="block-title">Related Recipes</h2>
 						<div class="items">
 							<div class="item">
 								<div class="content">

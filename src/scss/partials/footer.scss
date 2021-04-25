@@ -1,17 +1,29 @@
 footer {
-	background: #000;
+	background: $black;
 	.row {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 20px 0;
+		padding: 50px 0;
+		@include tablet {
+			display: block;
+		}
 	}
 	ul {
 		@include clear-list();
 		@include flex;
 	}
-	a {
+	.logo {
+		@include tablet {
+			text-align: center;
+			margin-bottom: 30px;
+		}
+	}
+	a,
+	a.h1 {
 		color: $off-white;
+		text-decoration: none;
+		margin-bottom: 0;
 	}
 
 	ul.social-menu {
@@ -21,8 +33,15 @@ footer {
 		a {
 			padding: 5px;
 			font-size: 24px;
-			background: $white;
-			color: $black;
+			background: transparent;
+			color: $off-white;
+			&:before,
+			&:after {
+				display: none;
+			}
+			&:hover {
+				transform: scale(1.2);
+			}
 		}
 	}
 }

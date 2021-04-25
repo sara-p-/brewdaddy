@@ -4,19 +4,21 @@ import {
 	createFilterButtons,
 	backButton,
 	createOptionPanels,
-	spanMaker,
 } from "./html-components";
+import { panelToggle, updateDataValues } from "./mobile-filter-helpers";
 
 export default function mobileFilters() {
-	// 1. Loop through the Facets
-	// 2. Create a Filter Button from each Facet filter with a data attribute value
-	// 3. Create an Option Panel for each Facet filter with a matching data attribute value
-	// 4. Get the slideToggle animations working.
-	// 5. Loop through each Facet value array and create Option Buttons for each in the corresponding Option Panel
-	// 6. On click of a Facet Option Button, add a "check" icon to the button, and pass the value back to the original Filter Button
+	// 1. Loop through the Facets and create:
+	//      - A Filter Button with a data attribute value
+	//      - An Option Panel for each Facet filter with a matching data attribute value, populated with Option Buttons that correspond to the Facet values
+	// 2. Get the slideToggle animations working.
+	// 3. Transfer the data
+	// 6. On click of a Facet Option Button, add a "X" icon to the button, and pass the value back to the original Filter Button
 
 	var filterPanel = document.querySelector("header #original-panel");
 	var filterBox = filterPanel.querySelector(".filters");
+	var originalFilterButton = document.querySelector("header .filter-button");
+	var originalBackButton = filterPanel.querySelector("button.back");
 
 	// making a fake facet object to loop through
 	var facets = [
@@ -30,6 +32,7 @@ export default function mobileFilters() {
 		},
 	];
 
+	// ******************** 1: Creation of Elements from the Facet Values *********************
 	// Loop through the facets and create the elements
 	facets.forEach((element, index) => {
 		// Create the Filter Buttons
@@ -69,42 +72,8 @@ export default function mobileFilters() {
 		});
 	});
 
-	// ******************** Opening/Closing of the corresponding panels ****************
-	function panelToggle(button, matchingPanel, matchingBackButton) {
-		var panelSlide = gsap
-			.timeline({
-				paused: true,
-			})
-			.fromTo(
-				matchingPanel,
-				{
-					x: "100%",
-				},
-				{
-					x: "0%",
-					duration: 0.3,
-					onStart: () => {
-						matchingPanel.style.display = "block";
-						button.classList.add("open");
-					},
-					onReverseComplete: () => {
-						matchingPanel.style.display = "none";
-						button.classList.remove("open");
-					},
-				}
-			);
-		button.addEventListener("click", (e) => {
-			panelSlide.play();
-		});
-
-		matchingBackButton.addEventListener("click", (e) => {
-			panelSlide.reverse();
-		});
-	}
-
+	// ******************** 4: Toggle the Panels *********************
 	// Function to toggle the Original Panel Open and closed
-	var originalFilterButton = document.querySelector("header .filter-button");
-	var originalBackButton = filterPanel.querySelector("button.back");
 	panelToggle(originalFilterButton, filterPanel, originalBackButton);
 
 	// Create the function to open the correct Option Panel depending on the Filter Button that is clicked
@@ -160,37 +129,7 @@ export default function mobileFilters() {
 		});
 	});
 
-	// Function to update the Parent filter data attributes, as well as creating the child spans that will show the selected values
-	function updateDataValues(
-		parentFilter,
-		filterValue,
-		optionBoolean,
-		optionValue
-	) {
-		var html = [];
-		// on each mutation, if the boolean is true - add the filter vlaue
-		// If the boolean is false - remove the filter value
-		if (optionBoolean == "true") {
-			filterValue = filterValue + " " + optionValue;
-		} else {
-			filterValue = filterValue.replace(optionValue, "");
-		}
-
-		// Add the option values to the parent filter
-		parentFilter.setAttribute("data-option-values", filterValue);
-
-		var array = filterValue.split(" ");
-		array.forEach((e, i) => {
-			if (e !== "") {
-				html.push(spanMaker(e));
-			}
-		});
-		console.log(html);
-		return html;
-	}
-
 	// Function to pass the option values to the original filters when option attributes are changed
-
 	const passValuesToFilter = function (mutations, observer) {
 		for (const mutation of mutations) {
 			if (mutation.attributeName == "data-option") {
@@ -235,7 +174,7 @@ export default function mobileFilters() {
 
 	// Loop through the Filter Options and attach the mutation observer to their data attributes
 	const allFilterOptions = document.querySelectorAll(".option-button");
-	allFilterOptions.forEach((filter, index) => {
+	allFilterOptions.forEach((filter) => {
 		observer.observe(filter, { attributes: true });
 	});
 

@@ -8,6 +8,7 @@ import sliders from "./components/sliders";
 import filters from "./components/filters";
 import modals from "./components/modals";
 import mobileFilters from "./components/mobile-filters";
+import scrollTo from "./components/scroll-to";
 
 document.addEventListener("DOMContentLoaded", function () {
 	vue();
@@ -18,5 +19,10 @@ document.addEventListener("DOMContentLoaded", function () {
 	sliders();
 	filters();
 	modals();
-	mobileFilters();
+	if (document.location.pathname === "/") {
+		mobileFilters();
+	}
+	if (document.location.pathname === "/single.html") {
+		scrollTo();
+	}
 });

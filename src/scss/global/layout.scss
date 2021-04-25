@@ -3,18 +3,26 @@
 html {
 	background-color: $viewport-background-color;
 	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+.search main {
+	@include tablet {
+		padding: 121px 0px 0px;
+	}
+}
+
+.single main {
+	padding: 200px 0 60px 0;
+	@include tablet {
+		padding: 71px 0 60px;
+	}
 }
 
 main {
 	padding: 95px 0 60px 0;
 	@include tablet {
 		padding: 71px 0 60px;
-	}
-}
-
-.search main {
-	@include tablet {
-		padding: 121px 0px 0px;
 	}
 }
 

@@ -1,2 +1,24 @@
 .component.intro {
+	&.align-center {
+		text-align: center;
+	}
+	&.align-left {
+		text-align: left;
+	}
+	&.align-right {
+		text-align: right;
+	}
+	&.margin-large {
+		.intro-content {
+			margin-bottom: 60px;
+		}
+	}
+
+	.intro-content {
+		margin-bottom: 30px;
+		padding: 0;
+	}
+	.title {
+		margin-bottom: 0;
+	}
 }

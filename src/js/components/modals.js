@@ -11,6 +11,8 @@ export default function modals() {
 		button.addEventListener("click", (e) => {
 			console.log(id);
 			MicroModal.show(id);
+			var openModal = document.querySelector(".modal.is-open");
+			openModal.querySelector(".modal__close").focus();
 		});
 	});
 }
