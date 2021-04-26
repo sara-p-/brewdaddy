@@ -16,12 +16,11 @@
     <header class="header">
         <div class="wrapper">
             <div class="row">
-                <div class="col">
-                    <a class="logo" href="/" target="_self">Logo</a>
+                <div class="logo">
+                    <a href="/">Brewdaddy</a>
                 </div>
-                <div class="col">
-                    <nav id="main-menu">
-                        <?php
+                <nav class="main-menu">
+                    <?php
                             $args = array(
                                 'theme_location' 	=> 'main-menu',
                                 'container' 		=> 'ul',
@@ -29,7 +28,27 @@
                             );
                         ?>
                         <?php wp_nav_menu($args); ?>
-                    </nav>
+                </nav>
+                <button class="hamburger">
+                    <span class="visually-hidden">Mobile Menu</span>
+                    <span class="lines">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </span>
+                </button>
+                <div class="mobile-panel">
+                    <div class="wrapper">
+                        <nav class="mobile-menu">
+                            <?php
+                                $args = array(
+                                    'theme_location' 	=> 'main-menu',
+                                    'container' 		=> 'ul',
+                                    'items_wrap' 		=> '%3$s'
+                                );
+                            ?>
+                            <?php wp_nav_menu($args); ?>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>

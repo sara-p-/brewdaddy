@@ -113,6 +113,37 @@ button {
 			}
 		}
 	}
+	&.pagination {
+		width: 100%;
+		@include flex(space-between);
+		@include mobile-only {
+			@include flex(center);
+		}
+		.btn {
+			margin-bottom: 30px;
+			&:nth-child(2) {
+				margin-left: 0;
+			}
+			&.view-all {
+				margin-left: none;
+				@include mobile-only {
+					order: 3;
+				}
+			}
+			&.left {
+				@include mobile-only {
+					order: 1;
+					margin-right: 5px;
+				}
+			}
+			&.right {
+				@include mobile-only {
+					order: 2;
+					margin-left: 5px;
+				}
+			}
+		}
+	}
 }
 p + .buttons {
 	padding-top: 0; // Top padding for buttons under paragraphs

@@ -39,6 +39,10 @@ main {
 	}
 }
 
+.single .block:first-of-type {
+	padding-top: $bottom-margin-large / 2;
+}
+
 *,
 *::before,
 *::after {
@@ -88,28 +92,9 @@ body {
 	opacity: 0;
 }
 
-.align-left,
-.text-align-left {
-	text-align: left;
-}
-.text-align-center,
-.align-center {
-	text-align: center;
-}
-.align-right,
-.text-align-right {
-	text-align: right;
-}
-
-.content-left .row {
-	flex-direction: row-reverse;
-}
-.content-right .row {
-	flex-direction: row;
-}
-.content-center .row {
-	text-align: center;
-	.buttons {
-		justify-content: center;
+// Pagination
+.block.pagination {
+	.wrapper {
+		max-width: $site-width-medium;
 	}
 }
