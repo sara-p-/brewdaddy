@@ -5,6 +5,7 @@
     $image_alt = get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true );
 ?>
 
+<?php if(have_rows('stats')) : while(have_rows('stats')) : the_row(); ?>
 <section id="stats" class="block top-card">
 	<div class="wrapper">
 		<div class="row">
@@ -30,9 +31,9 @@
 					<h1 class="label h6">Beer Style - Beer Sub Style</h1>
 					<h2 class="title h1"><?php the_title(); ?></h2>
 					<div class="description">
-						<?php the_field('description'); ?>
+						<?php the_sub_field('description'); ?>
 					</div>
-                    <?php the_stats(get_field('abv'), get_field('ibu'), get_field('batch_number')); ?>
+                    <?php the_stats(get_sub_field('abv'), get_sub_field('ibu'), get_sub_field('batch_number')); ?>
 				</div>
 			</div>
 		</div>
@@ -56,13 +57,13 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><?php the_field('batch_size'); ?> Gallons</td>
-						<td><?php the_field('boil_time'); ?> Min</td>
-						<td><?php the_field('pre_boil'); ?> Gallons</td>
-						<td><?php the_field('post_boil'); ?> Gallons</td>
-						<td><?php the_field('efficiency'); ?>%</td>
-						<td><?php the_field('target_og'); ?></td>
-						<td><?php the_field('target_fg'); ?></td>
+						<td><?php the_sub_field('batch_size'); ?> Gallons</td>
+						<td><?php the_sub_field('boil_time'); ?> Min</td>
+						<td><?php the_sub_field('pre_boil'); ?> Gallons</td>
+						<td><?php the_sub_field('post_boil'); ?> Gallons</td>
+						<td><?php the_sub_field('efficiency'); ?>%</td>
+						<td><?php the_sub_field('target_og'); ?></td>
+						<td><?php the_sub_field('target_fg'); ?></td>
 					</tr>
 				</tbody>
 			</table>
@@ -77,15 +78,17 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><?php the_field('brew_date'); ?></td>
-						<td><?php the_field('package_date'); ?></td>
+						<td><?php the_sub_field('brew_date'); ?></td>
+						<td><?php the_sub_field('package_date'); ?></td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
 </section>
+<?php endwhile; endif; ?>
 
+<?php if(have_rows('ingredients')) : while (have_rows('ingredients')) : the_row(); ?>
 <section id="ingredients" class="block table">
     <div class="component intro margin-small">
         <div class="wrapper">
@@ -189,6 +192,9 @@
         <?php endif; ?>
     </div>
 </section>
+<?php endwhile; endif; ?>
+
+<?php if(have_rows('water')) : while(have_rows('water')) : the_row(); ?>
 <section id="water" class="block table">
     <div class="component intro margin-small">
         <div class="wrapper">
@@ -277,6 +283,7 @@
         <?php endif; ?>
     </div>
 </section>
+<?php endwhile; endif; ?>
 
 <?php if(get_field('brewing_log')): ?>
     <section id="brewing" class="block basic-content align-left">
