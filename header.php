@@ -52,6 +52,20 @@
                 </div>
             </div>
         </div>
+        <?php if(is_single()) : ?>
+            <div class="single-subnav">
+                <div class="wrapper">
+                    <nav class="subnav">
+                        <ul>
+                            
+                        </ul>
+                    </nav>
+                    <a href="#" class="btn share"
+                        >Share<i class="fas fa-share" aria-hidden="true"></i
+                    ></a>
+                </div>
+            </div>
+        <?php endif; ?>
     </header>
 
 <main id="main">

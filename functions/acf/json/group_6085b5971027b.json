@@ -107,6 +107,40 @@
             "return_format": "value"
         },
         {
+            "key": "field_6086dd81d0dee",
+            "label": "How Many?",
+            "name": "how_many",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6085b7292d08e",
+                        "operator": "!=",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_6085b6bb2d08d",
+                        "operator": "==",
+                        "value": "some"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 3,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
             "key": "field_6085b5da2d08b",
             "label": "Order",
             "name": "order",
@@ -252,6 +286,27 @@
             "layout": "block",
             "prefix_label": 0,
             "prefix_name": 0
+        },
+        {
+            "key": "field_6089609f1c274",
+            "label": "Global Settings",
+            "name": "global_settings",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_6089601a9ab95"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
         }
     ],
     "location": [
@@ -271,5 +326,5 @@
     "hide_on_screen": "",
     "active": false,
     "description": "",
-    "modified": 1619376822
+    "modified": 1619615924
 }

@@ -10,13 +10,14 @@ export default function scrollTo() {
 
 	// For each menu link, on click, scroll to section (also change the focus for accessibility)
 	menuLinks.forEach((element) => {
-		element.addEventListener("click", () => {
+		element.addEventListener("click", (e) => {
+			e.preventDefault();
 			var section = document.querySelector(element.hash); // Grab the section that matches the link hash
 			gsap.to(window, {
 				duration: 0.3,
 				scrollTo: {
 					y: element.hash,
-					offsetY: 200,
+					offsetY: 300,
 				},
 				ease: "linear",
 				onComplete: () => {

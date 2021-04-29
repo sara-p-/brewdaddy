@@ -58,7 +58,7 @@
 	.row {
 		@include flex;
 	}
-	i {
+	.icon i {
 		font-size: 36px;
 		margin-bottom: 30px;
 		@include tablet {

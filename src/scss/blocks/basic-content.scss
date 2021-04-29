@@ -9,6 +9,9 @@
 		text-align: right;
 	}
 	.wrapper {
+		max-width: $site-width-medium;
+	}
+	.content {
 		max-width: $site-width-small;
 	}
 }
