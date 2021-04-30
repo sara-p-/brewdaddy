@@ -1,3 +1,5 @@
+<?php $id = get_the_ID(); ?>
+
 <div class="item">
     <?php if(have_rows('stats')) : while(have_rows('stats')) : the_row(); ?>
         <div class="content">
@@ -9,10 +11,10 @@
             </div>
             <?php the_stats(get_sub_field('abv'), get_sub_field('ibu'), get_sub_field('batch_number')); ?>
             <div class="buttons full-width">
-                <a href="#" class="btn white"
+                <button class="btn white modal-<?php echo $id; ?>"
                     >Quick View
                     <i class="far fa-eye" aria-hidden="true"></i
-                ></a>
+                ></button>
                 <a href="<?php the_permalink(); ?>" class="btn"
                     >Full Recipe
                     <i
@@ -24,3 +26,5 @@
         </div>
     <?php endwhile; endif; ?>
 </div>
+
+<?php include( locate_template('./modals/recipe-modal.php') ); ?>

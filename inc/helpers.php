@@ -20,12 +20,12 @@
 	//======================================================================
 	function the_beer_style($id) {
 		$terms = get_the_terms($id, 'beer_style');
-		$term2 = '';
-		if($terms[1]) {
-			$term2 = ' - ' . $term[1]->name;
+		$sub_style = '';
+		if(count($terms) > 1) {
+			$sub_style = ' - ' . $terms[1]->name;
 		}
 		echo '
-			<h1 class="label h6">' . $terms[0]->name . $term2 . '</h1>
+			<h1 class="label h6">' . $terms[0]->name . $sub_style . '</h1>
 		';
 	}
 
@@ -48,8 +48,8 @@
 	function the_stats($abv, $ibu, $batch) {
 		echo '
 			<div class="stats">
-            	<div class="stat"><p>' . $abv . '% ABV | ' . $ibu . ' IBU</p></div>
-            	<div class="stat"><p>Batch ' . $batch . '</p></div>
+            	<div class="stat"><h6>' . $abv . '% ABV | ' . $ibu . ' IBU</h6></div>
+            	<div class="stat"><h6>Batch ' . $batch . '</h6></div>
         	</div>
 		';
 	}

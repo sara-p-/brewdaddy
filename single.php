@@ -396,7 +396,7 @@
     <div class="wrapper">
         <div class="table-content">
             <h3 class="table-title">Packaging Type</h3>
-            <table data-mobile-table="true">
+            <table class="table-fixed lines" data-mobile-table="true">
                 <?php $type = get_sub_field('bottle_or_keg'); ?>
                 <?php if($type == 'bottle') : ?>
                     <?php if(have_rows('bottle')) : while(have_rows('bottle')) : the_row(); ?>
@@ -524,15 +524,20 @@
     </section>
 <?php endif; ?>
 
+<?php
+$next_post_url = get_permalink( get_adjacent_post(false,'',false)->ID );
+$previous_post_url = get_permalink( get_adjacent_post(false,'',true)->ID );
+?>
+
 <section class="block pagination">
     <div class="wrapper">
         <div class="row">
             <div class="buttons pagination">
-                <a href="#" class="btn white left">
+                <a href="<?php echo $previous_post_url; ?>" class="btn white left">
                     <i class="fas fa-long-arrow-alt-left" aria-hidden="true"></i> Prev Recipe
                 </a>
                 <a href="/recipes" class="btn view-all">View All Recipes</a>
-                <a href="#" class="btn white right">
+                <a href="<?php echo $next_post_url; ?>" class="btn white right">
                     Next Recipe <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i>
                 </a>
             </div>
