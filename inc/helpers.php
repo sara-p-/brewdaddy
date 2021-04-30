@@ -6,6 +6,39 @@
 	//======================================================================
 
 	//======================================================================
+	// BEER COLOR 
+	//======================================================================
+	function the_beer_color($value) {
+		$value = round($value, 0);
+		echo '
+			<div class="color color-' . $value . '"></div>
+		';
+	}
+
+	//======================================================================
+	// BEER STYLE AND SUB STYLE
+	//======================================================================
+	function the_beer_style($id) {
+		$terms = get_the_terms($id, 'beer_style');
+		echo '
+			<h1 class="label h6">' . $terms[0]->name . ' - ' . $terms[1]->name . '</h1>
+		';
+	}
+
+	//======================================================================
+	// CALCULATING THE PERCENTAGES OF TOTAL FOR GRAINS
+	//======================================================================
+	function the_percentage($fields, $amount) {
+		$amount_array = [];
+		foreach($fields as $value) {
+			array_push($amount_array, floatval($value['quantity']));
+		}
+		$sum = array_sum($amount_array);
+		$percent = round((floatval($amount)/$sum) * 100, 2);
+		echo $percent;
+	}
+
+	//======================================================================
 	// RECIPE CARD STATS
 	//======================================================================
 	function the_stats($abv, $ibu, $batch) {

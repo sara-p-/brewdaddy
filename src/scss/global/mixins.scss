@@ -147,13 +147,12 @@
 }
 
 // Beer color swatch
-@mixin beer-color($size: 30px, $color: #d5bc26) {
+@mixin beer-color($size: 30px) {
 	position: absolute;
 	top: -2px;
 	right: -2px;
 	width: $size;
 	height: $size;
-	background: $color;
 	border: $base-border;
 }
 

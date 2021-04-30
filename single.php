@@ -3,6 +3,7 @@
 <?php 
     $featured_image = get_the_post_thumbnail_url( get_the_ID() );
     $image_alt = get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true );
+
 ?>
 
 <?php if(have_rows('stats')) : while(have_rows('stats')) : the_row(); ?>
@@ -27,8 +28,8 @@
             <?php endif; ?>
 			<div class="col">
 				<div class="content">
-					<div class="color"></div>
-					<h1 class="label h6">Beer Style - Beer Sub Style</h1>
+					<?php the_beer_color(get_sub_field('color')); ?>
+					<?php the_beer_style(get_the_ID()); ?>
 					<h2 class="title h1"><?php the_title(); ?></h2>
 					<div class="description">
 						<?php the_sub_field('description'); ?>
@@ -57,10 +58,10 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><?php the_sub_field('batch_size'); ?> Gallons</td>
+						<td><?php the_sub_field('batch_size'); ?> G</td>
 						<td><?php the_sub_field('boil_time'); ?> Min</td>
-						<td><?php the_sub_field('pre_boil'); ?> Gallons</td>
-						<td><?php the_sub_field('post_boil'); ?> Gallons</td>
+						<td><?php the_sub_field('pre_boil'); ?> G</td>
+						<td><?php the_sub_field('post_boil'); ?> G</td>
 						<td><?php the_sub_field('efficiency'); ?>%</td>
 						<td><?php the_sub_field('target_og'); ?></td>
 						<td><?php the_sub_field('target_fg'); ?></td>
@@ -116,7 +117,7 @@
                                 <td><?php the_sub_field('name'); ?></td>
                                 <td><?php the_sub_field('quantity'); ?> lbs</td>
                                 <td><?php the_sub_field('lovibond'); ?></td>
-                                <td>78.53%</td>
+                                <td><?php the_percentage(get_fields()['ingredients']['grains'], get_sub_field('quantity')); ?>%</td>
                             </tr>
                         <?php endwhile; ?>
                     </tbody>
@@ -140,7 +141,7 @@
                             <tr>
                                 <td><?php the_sub_field('name'); ?></td>
                                 <td><?php the_sub_field('quantity'); ?> oz</td>
-                                <td><?php the_sub_field('aa'); ?></td>
+                                <td><?php the_sub_field('aa'); ?>%</td>
                                 <td><?php the_sub_field('timing'); ?> min</td>
                             </tr>
                         <?php endwhile; ?>
@@ -164,7 +165,7 @@
                             <tr>
                                 <td><?php the_sub_field('name'); ?></td>
                                 <td><?php the_sub_field('quantity'); ?></td>
-                                <td><?php the_sub_field('timing'); ?></td>
+                                <td><?php the_sub_field('timing'); ?> min</td>
                             </tr>
                         <?php endwhile; ?>
                     </tbody>
@@ -248,9 +249,9 @@
                     <tbody>
                         <?php while(have_rows('mash')) : the_row(); ?>
                             <tr>
-                                <td><?php the_sub_field('volume'); ?></td>
-                                <td><?php the_sub_field('temperature'); ?></td>
-                                <td><?php the_sub_field('duration'); ?></td>
+                                <td><?php the_sub_field('volume'); ?> qt/lb</td>
+                                <td><?php the_sub_field('temperature'); ?>&deg;F</td>
+                                <td><?php the_sub_field('duration'); ?> min</td>
                                 <td><?php the_sub_field('description'); ?></td>
                             </tr>
                         <?php endwhile; ?>
@@ -304,7 +305,7 @@
     </section>
 <?php endif; ?>
 
-<?php if(have_rows('fermentation')) : while(have_row('fermentation')) : the_row(); ?>
+<?php if(have_rows('fermentation')) : while(have_rows('fermentation')) : the_row(); ?>
     <?php if(get_sub_field('fermintation_log')) : ?>
         <section id="fermentation" class="block basic-content align-left">
             <div class="component intro margin-small">
@@ -411,10 +412,10 @@
                         <tbody>
                             <tr>
                                 <td><?php echo $type; ?></td>
-                                <td><?php the_sub_field('target_carbonation'); ?></td>
+                                <td><?php the_sub_field('target_carbonation'); ?> Volumes</td>
                                 <td><?php the_sub_field('priming_sugar'); ?></td>
-                                <td><?php the_sub_field('sugar_quantity'); ?> Grams</td>
-                                <td><?php the_sub_field('final_volume'); ?> Gallons</td>
+                                <td><?php the_sub_field('sugar_quantity'); ?> g</td>
+                                <td><?php the_sub_field('final_volume'); ?> G</td>
                             </tr>
                         </tbody>
                     <?php endwhile; endif; ?>
@@ -430,8 +431,8 @@
                         <tbody>
                             <tr>
                                 <td><?php echo $type; ?></td>
-                                <td><?php the_sub_field('target_carbonation'); ?></td>
-                                <td><?php the_sub_field('final_volume'); ?> Gallons</td>
+                                <td><?php the_sub_field('target_carbonation'); ?> Volumes</td>
+                                <td><?php the_sub_field('final_volume'); ?> G</td>
                             </tr>
                         </tbody>
                     <?php endwhile; endif; ?>

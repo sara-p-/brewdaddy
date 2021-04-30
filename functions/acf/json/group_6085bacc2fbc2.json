@@ -453,7 +453,7 @@
                             "default_value": "",
                             "placeholder": "",
                             "prepend": "",
-                            "append": "",
+                            "append": "%",
                             "maxlength": ""
                         },
                         {
@@ -550,7 +550,7 @@
                             "default_value": "",
                             "placeholder": "",
                             "prepend": "",
-                            "append": "",
+                            "append": "min",
                             "maxlength": ""
                         }
                     ]
@@ -574,46 +574,6 @@
                     "layout": "table",
                     "button_label": "Add Yeast",
                     "sub_fields": [
-                        {
-                            "key": "field_60860c64c5cb6",
-                            "label": "Yeast Name",
-                            "name": "yeast_name",
-                            "type": "repeater",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "collapsed": "",
-                            "min": 0,
-                            "max": 0,
-                            "layout": "table",
-                            "button_label": "Add Yeast",
-                            "sub_fields": [
-                                {
-                                    "key": "field_60860c70c5cb7",
-                                    "label": "Name",
-                                    "name": "name",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
-                                }
-                            ]
-                        },
                         {
                             "key": "field_608ad04dc64cb",
                             "label": "Name",
@@ -818,7 +778,7 @@
                             "default_value": "",
                             "placeholder": "",
                             "prepend": "",
-                            "append": "",
+                            "append": "qt\/lb",
                             "maxlength": ""
                         },
                         {
@@ -837,7 +797,7 @@
                             "default_value": "",
                             "placeholder": "",
                             "prepend": "",
-                            "append": "",
+                            "append": "°F",
                             "maxlength": ""
                         },
                         {
@@ -856,7 +816,7 @@
                             "default_value": "",
                             "placeholder": "",
                             "prepend": "",
-                            "append": "",
+                            "append": "min",
                             "maxlength": ""
                         },
                         {
@@ -1048,7 +1008,7 @@
                             "default_value": "",
                             "placeholder": "",
                             "prepend": "",
-                            "append": "F",
+                            "append": "°F",
                             "maxlength": ""
                         },
                         {
@@ -1226,7 +1186,7 @@
                             "default_value": "",
                             "placeholder": "",
                             "prepend": "",
-                            "append": "",
+                            "append": "Volumes",
                             "maxlength": ""
                         },
                         {
@@ -1264,7 +1224,7 @@
                             "default_value": "",
                             "placeholder": "",
                             "prepend": "",
-                            "append": "Grams",
+                            "append": "g",
                             "maxlength": ""
                         },
                         {
@@ -1327,7 +1287,7 @@
                             "default_value": "",
                             "placeholder": "",
                             "prepend": "",
-                            "append": "",
+                            "append": "Volumes",
                             "maxlength": ""
                         },
                         {
@@ -1443,5 +1403,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1619710243
+    "modified": 1619789827
 }

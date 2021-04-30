@@ -98,3 +98,12 @@ body {
 		max-width: $site-width-medium;
 	}
 }
+
+// Beer Color
+@each $beerColor, $i in $beerColors {
+	.color {
+		&.#{$beerColor} {
+			background-color: $i;
+		}
+	}
+}
