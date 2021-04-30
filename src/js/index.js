@@ -12,7 +12,7 @@ import scrollTo from "./components/scroll-to";
 import subNav from "./components/subnav";
 
 document.addEventListener("DOMContentLoaded", function () {
-	vue();
+	// vue();
 	// styleGuide();
 
 	menu();
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	subNav();
 
 	if (document.location.pathname === "/") {
-		mobileFilters();
+		// mobileFilters();
 	}
 	if (document.location.pathname === "/single.html") {
 		scrollTo();

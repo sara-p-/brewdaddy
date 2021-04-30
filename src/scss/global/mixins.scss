@@ -259,3 +259,23 @@
 	// border: $base-border;
 	// transform: translateX(100%);
 }
+
+@mixin select {
+	color: $black;
+	-webkit-font-smoothing: antialiased;
+	line-height: 1;
+	padding: $input-padding;
+	max-width: 100%;
+	box-sizing: border-box;
+	border: $base-border;
+	box-shadow: none;
+	border-radius: $base-border-radius;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: $white;
+	background-image: url("../../assets/img/chevron-down.png");
+	background-repeat: no-repeat, repeat;
+	background-position: right 0.7em top 54%, 0 0;
+	background-size: 12px auto, 100%;
+}

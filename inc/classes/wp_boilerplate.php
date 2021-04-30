@@ -16,7 +16,7 @@
             wp_enqueue_style('wp-boilerplate', get_template_directory_uri() . '/dist/main.css');
 
             wp_deregister_script('jquery');
-            wp_register_script('jquery', ('//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'), '', '2.2.4', true);
+            wp_register_script('jquery', ('//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'), '', '2.2.4', false);
             wp_enqueue_script('jquery');
 
             wp_enqueue_script('font-awesome', '//kit.fontawesome.com/d2d9bdc7cf.js', '', '', false);        

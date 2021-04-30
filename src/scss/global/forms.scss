@@ -19,7 +19,8 @@ legend {
 	padding: 0;
 }
 
-label {
+label,
+h3.facet-label {
 	display: block;
 	margin-bottom: 3px;
 	font-size: 12px;
@@ -31,7 +32,8 @@ label {
 
 input,
 select,
-textarea {
+textarea,
+.fs-label-wrap {
 	display: block;
 	font-size: 14px;
 	line-height: 1;
@@ -143,29 +145,9 @@ body
 	div.ginput_complex
 	span.ginput_right
 	select,
-body .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select {
-	// display: block;
-	color: $black;
-	-webkit-font-smoothing: antialiased;
-	line-height: 1;
-	padding: $input-padding;
-	max-width: 100%;
-	// height: 38.75px;
-	box-sizing: border-box;
-	// margin: 0 0 0.2rem;
-	border: $base-border;
-	box-shadow: none;
-	border-radius: $base-border-radius;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	appearance: none;
-	background-color: $white;
-	background-image: url("../../assets/img/chevron-down.png");
-	background-repeat: no-repeat, repeat;
-	/* arrow icon position (1em from the right, 50% vertical) , then gradient position*/
-	background-position: right 0.7em top 54%, 0 0;
-	/* icon size, then gradient */
-	background-size: 12px auto, 100%;
+body .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select,
+.fs-label-wrap {
+	@include select;
 
 	/* Hide arrow icon in IE browsers */
 	&::-ms-expand {

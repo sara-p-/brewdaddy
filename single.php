@@ -531,7 +531,7 @@
                 <a href="#" class="btn white left">
                     <i class="fas fa-long-arrow-alt-left" aria-hidden="true"></i> Prev Recipe
                 </a>
-                <a href="#" class="btn view-all">View All Recipes</a>
+                <a href="/recipes" class="btn view-all">View All Recipes</a>
                 <a href="#" class="btn white right">
                     Next Recipe <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i>
                 </a>

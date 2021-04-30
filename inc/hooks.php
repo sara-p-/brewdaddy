@@ -32,3 +32,8 @@
     add_filter('acf/settings/save_json', 'WP_Boilerplate_ACF::json_save_folder');
     add_filter('acf/settings/load_json', 'WP_Boilerplate_ACF::json_load_folder');
     WP_Boilerplate_ACF::add_option_page();
+
+    //======================================================================
+    // FACET
+    //======================================================================
+    add_action('wp_head', 'WP_Boilerplate_Facet::fwp_add_facet_labels', 100);

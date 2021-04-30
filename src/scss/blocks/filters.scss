@@ -14,7 +14,8 @@
 			margin-bottom: 0;
 			border-right: none;
 		}
-		label {
+		label,
+		.facet-label {
 			position: absolute;
 			top: -20px;
 			left: 0;
@@ -22,11 +23,16 @@
 	}
 
 	.filter-box {
-		@include flex(space-between, center);
+		// @include flex(space-between, center);
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 30px 10px;
+		@include tablet {
+		}
 		.fieldset {
-			width: 180px;
+			width: 100%;
 			position: relative;
-			margin-bottom: 25px;
+			// margin-bottom: 25px;
 		}
 		.false-select {
 			position: relative;
@@ -70,6 +76,43 @@
 				}
 			}
 		}
+	}
+}
+
+// FacetWP
+.filters {
+	.facetwp-facet {
+		margin-bottom: 0;
+	}
+	.fs-wrap {
+		width: 100%;
+	}
+	.fs-label-wrap {
+		width: 100%;
+		border: $base-border;
+		.fs-label {
+			padding: 0;
+		}
+		.fs-arrow {
+			display: none;
+		}
+	}
+	.fs-dropdown {
+		border: $base-border;
+	}
+	.search-box {
+		.facet-wrap {
+			flex: 1;
+		}
+		.facetwp-input-wrap {
+			display: block;
+		}
+		.facetwp-facet input.facetwp-search {
+			border-right: none;
+		}
+	}
+	.facetwp-icon {
+		display: none;
 	}
 }
 

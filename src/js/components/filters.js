@@ -90,9 +90,9 @@ export default function filters() {
 			spanValue.innerText = e.target.value;
 		});
 		// On "Clear" button click, reset the value of the input, and return the span.value tag to "All"
-		clear.addEventListener("click", (e) => {
-			bottomInput.value = "";
-			spanValue.innerText = "All";
-		});
+		// clear.addEventListener("click", (e) => {
+		// 	bottomInput.value = "";
+		// 	spanValue.innerText = "All";
+		// });
 	});
 }

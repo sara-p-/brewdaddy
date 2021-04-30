@@ -16,71 +16,25 @@ get_header();
 <section class="block filters">
 	<div class="wrapper">
 		<div class="search-box">
-			<label for="search">Search</label>
-			<input id="search" type="search" placeholder="Search Here" />
-			<a href="#" class="btn white">Submit</a>
-			<a href="#" class="btn">Reset</a>
+			<?php echo facetwp_display( 'facet', 'recipe_search' ); ?>
+			<button class="btn white submit">Submit</button>
+			<button value="Reset" onclick="FWP.reset()" class="btn reset">Reset</button>
 		</div>
 		<div class="filter-box">
 			<div class="fieldset">
-				<label for="beer-style">Beer Style</label>
-				<select id="beer-style">
-					<option>All</option>
-					<option>Saison</option>
-					<option>Porter</option>
-					<option>Stout</option>
-					<option>Pilsner</option>
-				</select>
+				<?php echo facetwp_display( 'facet', 'beer_style' ); ?>
 			</div>
 			<div class="fieldset">
-				<label for="beer-sub-style">Beer Sub Style</label>
-				<select id="beer-sub-style">
-					<option>All</option>
-					<option>Saison</option>
-					<option>Porter</option>
-					<option>Stout</option>
-					<option>Pilsner</option>
-				</select>
+				<?php echo facetwp_display( 'facet', 'fermentables' ); ?>
 			</div>
 			<div class="fieldset">
-				<label for="fermentables">Fermentables</label>
-				<select id="fermentables">
-					<option>All</option>
-					<option>Saison</option>
-					<option>Porter</option>
-					<option>Stout</option>
-					<option>Pilsner</option>
-				</select>
+				<?php echo facetwp_display( 'facet', 'hops' ); ?>
 			</div>
 			<div class="fieldset">
-				<label for="hops">Hops</label>
-				<select id="hops">
-					<option>All</option>
-					<option>Saison</option>
-					<option>Porter</option>
-					<option>Stout</option>
-					<option>Pilsner</option>
-				</select>
+				<?php echo facetwp_display( 'facet', 'yeast' ); ?>
 			</div>
 			<div class="fieldset">
-				<label for="yeast">Yeast</label>
-				<select id="yeast">
-					<option>All</option>
-					<option>Saison</option>
-					<option>Porter</option>
-					<option>Stout</option>
-					<option>Pilsner</option>
-				</select>
-			</div>
-			<div class="fieldset">
-				<label for="other">Other</label>
-				<select id="other">
-					<option>All</option>
-					<option>Saison</option>
-					<option>Porter</option>
-					<option>Stout</option>
-					<option>Pilsner</option>
-				</select>
+				<?php echo facetwp_display( 'facet', 'other' ); ?>
 			</div>
 			<div class="fieldset">
 				<label for="abv">ABV</label>
@@ -95,19 +49,7 @@ get_header();
 						</button>
 					</div>
 					<div class="bottom">
-						<div class="range-label">
-							<p class="range-value">0-20%</p>
-							<button class="clear btn btn-small">Clear</button>
-						</div>
-						<div class="range">
-							<input
-								type="range"
-								id="abv"
-								min="0"
-								max="20"
-								value="2"
-							/>
-						</div>
+						<?php echo facetwp_display( 'facet', 'abv' ); ?>
 					</div>
 				</div>
 			</div>
@@ -124,19 +66,7 @@ get_header();
 						</button>
 					</div>
 					<div class="bottom">
-						<div class="range-label">
-							<p class="range-value">0-100+</p>
-							<button class="clear btn btn-small">Clear</button>
-						</div>
-						<div class="range">
-							<input
-								type="range"
-								id="ibu"
-								min="0"
-								max="100"
-								value="50"
-							/>
-						</div>
+						<?php echo facetwp_display( 'facet', 'ibu' ); ?>
 					</div>
 				</div>
 			</div>
@@ -153,19 +83,7 @@ get_header();
 						</button>
 					</div>
 					<div class="bottom">
-						<div class="range-label">
-							<p class="range-value">0-40+</p>
-							<button class="clear btn btn-small">Clear</button>
-						</div>
-						<div class="range">
-							<input
-								type="range"
-								id="color"
-								min="0"
-								max="40"
-								value="10"
-							/>
-						</div>
+						<?php echo facetwp_display( 'facet', 'color' ); ?>
 					</div>
 				</div>
 			</div>
@@ -182,19 +100,7 @@ get_header();
 						</button>
 					</div>
 					<div class="bottom">
-						<div class="range-label">
-							<p class="range-value">0-40+</p>
-							<button class="clear btn btn-small">Clear</button>
-						</div>
-						<div class="range">
-							<input
-								type="date"
-								id="date"
-								min="0"
-								max="40"
-								value="10"
-							/>
-						</div>
+						<?php echo facetwp_display( 'facet', 'brew_date' ); ?>
 					</div>
 				</div>
 			</div>
@@ -202,145 +108,28 @@ get_header();
 	</div>
 </section>
 
+<?php
+	$args = [
+        'post_type'         => 'recipe',
+        'posts_per_page'    => 6,
+        'order'             => 'DESC',
+        'orderby'           => 'date',
+		// 'meta_key'			=>
+        'facetwp'         	=> true,
+        
+    ];
+
+    $query = new WP_Query( $args );
+?>
+
 
 <section class="block listing">
 	<div class="wrapper">
 		<div class="items">
-			<div class="item">
-				<div class="content">
-					<div class="color"></div>
-					<h1 class="label h6">Beer Style - Beer Sub Style</h1>
-					<h2 class="title h1">Claudia Pepperfield</h2>
-					<div class="description">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Dignissimos, blanditiis!
-						</p>
-					</div>
-					<div class="stats">
-						<div class="stat"><p>5.6% ABV | 24 IBU</p></div>
-						<div class="stat"><p>Batch No. 15</p></div>
-					</div>
-					<div class="buttons full-width">
-						<a href="#" class="btn white">Quick View</a>
-						<a href="#" class="btn">Full Recipe</a>
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<div class="content">
-					<div class="color"></div>
-					<h1 class="label h6">Beer Style - Beer Sub Style</h1>
-					<h2 class="title h1">Claudia Pepperfield</h2>
-					<div class="description">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Dignissimos, blanditiis!
-						</p>
-					</div>
-					<div class="stats">
-						<div class="stat"><p>5.6% ABV | 24 IBU</p></div>
-						<div class="stat"><p>Batch No. 15</p></div>
-					</div>
-					<div class="buttons full-width">
-						<a href="#" class="btn white">Quick View</a>
-						<a href="#" class="btn">Full Recipe</a>
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<div class="content">
-					<div class="color"></div>
-					<h1 class="label h6">Beer Style - Beer Sub Style</h1>
-					<h2 class="title h1">Claudia Pepperfield</h2>
-					<div class="description">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Dignissimos, blanditiis!
-						</p>
-					</div>
-					<div class="stats">
-						<div class="stat"><p>5.6% ABV | 24 IBU</p></div>
-						<div class="stat"><p>Batch No. 15</p></div>
-					</div>
-					<div class="buttons full-width">
-						<a href="#" class="btn white">Quick View</a>
-						<a href="#" class="btn">Full Recipe</a>
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<div class="content">
-					<div class="color"></div>
-					<h1 class="label h6">Beer Style - Beer Sub Style</h1>
-					<h2 class="title h1">Claudia Pepperfield</h2>
-					<div class="description">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Dignissimos, blanditiis!
-						</p>
-					</div>
-					<div class="stats">
-						<div class="stat"><p>5.6% ABV | 24 IBU</p></div>
-						<div class="stat"><p>Batch No. 15</p></div>
-					</div>
-					<div class="buttons full-width">
-						<a href="#" class="btn white">Quick View</a>
-						<a href="#" class="btn">Full Recipe</a>
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<div class="content">
-					<div class="color"></div>
-					<h1 class="label h6">Beer Style - Beer Sub Style</h1>
-					<h2 class="title h1">Claudia Pepperfield</h2>
-					<div class="description">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Dignissimos, blanditiis!
-						</p>
-					</div>
-					<div class="stats">
-						<div class="stat"><p>5.6% ABV | 24 IBU</p></div>
-						<div class="stat"><p>Batch No. 15</p></div>
-					</div>
-					<div class="buttons full-width">
-						<a href="#" class="btn white">Quick View</a>
-						<a href="#" class="btn">Full Recipe</a>
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<div class="content">
-					<div class="color"></div>
-					<h1 class="label h6">Beer Style - Beer Sub Style</h1>
-					<h2 class="title h1">Claudia Pepperfield</h2>
-					<div class="description">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Dignissimos, blanditiis!
-						</p>
-					</div>
-					<div class="stats">
-						<div class="stat"><p>5.6% ABV | 24 IBU</p></div>
-						<div class="stat"><p>Batch No. 15</p></div>
-					</div>
-					<div class="buttons full-width">
-						<a href="#" class="btn white"
-							>Quick View
-							<i class="far fa-eye" aria-hidden="true"></i
-						></a>
-						<a href="#" class="btn"
-							>Full Recipe
-							<i
-								class="fas fa-long-arrow-alt-right"
-								aria-hidden="true"
-							></i
-						></a>
-					</div>
-				</div>
-			</div>
+			<?php if($query->have_posts()) : while($query->have_posts()) : $query->the_post(); ?>
+                <?php include( locate_template('./items/recipe-item.php' )); ?>
+            <?php endwhile; endif; ?>
+            <?php wp_reset_postdata(); ?>
 		</div>
 	</div>
 </section>
