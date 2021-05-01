@@ -80,19 +80,33 @@ export default function filters() {
 		element.addEventListener("click", (e) => {
 			e.stopPropagation();
 		});
+	});
 
-		// ******************** Input and span.value Value Changes ************************
-		var clear = element.querySelector("button.clear");
-		var spanValue = element.querySelector("span.value");
+	// ******************** Input and span.value Value Changes ************************
+	// still need to get ONLY the changed facet to update the corresponding span
+	document.addEventListener("facetwp-refresh", (e) => {
+		if (FWP.facets["abv"].length > 0) {
+		}
+	});
 
-		// On input change, update the span.value tag to show that value
-		bottomInput.addEventListener("input", (e) => {
-			spanValue.innerText = e.target.value;
+	var filterBoxes = document.querySelectorAll(".fieldset.slider");
+	filterBoxes.forEach((e, i) => {
+		var upperSpan = e.querySelector(".false-button span.value");
+		var filterSpan = e.querySelector("span.facetwp-slider-label");
+		// upperSpan.innerText = filterSpan.innerText;
+		// Change span text on facet refresh
+		document.addEventListener("facetwp-refresh", (e) => {
+			upperSpan.innerText = filterSpan.innerText;
 		});
-		// On "Clear" button click, reset the value of the input, and return the span.value tag to "All"
-		// clear.addEventListener("click", (e) => {
-		// 	bottomInput.value = "";
-		// 	spanValue.innerText = "All";
-		// });
+	});
+
+	var resetButton = document.querySelector(".facet-reset-button");
+
+	resetButton.addEventListener("click", (e) => {
+		filterBoxes.forEach((element, i) => {
+			var upperSpan = element.querySelector(".false-button span.value");
+			var filterSpan = element.querySelector("span.facetwp-slider-label");
+			upperSpan.innerText = "all";
+		});
 	});
 }

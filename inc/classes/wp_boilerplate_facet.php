@@ -34,4 +34,15 @@
         </script>
         <?php
         }
+
+        // =========================================================================
+        // CHANGING THE MARKUP FOR SLIDERS
+        // =========================================================================
+        function range_markup($html, $params) {
+            if ( 'slider' == $params['facet']['type'] ) {
+                $label = $params['facet']['label'];
+                $output = str_replace( '<span class="facetwp-slider-label">', '<span class="facetwp-slider-label">' .  $label . ' - ', $output );
+            }
+            return $output;
+        }
     }

@@ -18,7 +18,7 @@ get_header();
 		<div class="search-box">
 			<?php echo facetwp_display( 'facet', 'recipe_search' ); ?>
 			<button class="btn white submit">Submit</button>
-			<button value="Reset" onclick="FWP.reset()" class="btn reset">Reset</button>
+			<button value="Reset" onclick="FWP.reset()" class="btn reset facet-reset-button">Reset</button>
 		</div>
 		<div class="filter-box">
 			<div class="fieldset">
@@ -36,12 +36,12 @@ get_header();
 			<div class="fieldset">
 				<?php echo facetwp_display( 'facet', 'other' ); ?>
 			</div>
-			<div class="fieldset">
+			<div class="fieldset slider">
 				<label for="abv">ABV</label>
 				<div class="false-select">
 					<div class="top">
 						<button class="false-button">
-							<span class="value">All</span
+							<span class="value abv-value">All</span
 							><i
 								class="fas fa-chevron-down"
 								aria-hidden="true"
@@ -53,12 +53,12 @@ get_header();
 					</div>
 				</div>
 			</div>
-			<div class="fieldset">
+			<div class="fieldset slider">
 				<label for="ibu">IBU</label>
 				<div class="false-select">
 					<div class="top">
 						<button class="false-button">
-							<span class="value">All</span
+							<span class="value ibu-value">All</span
 							><i
 								class="fas fa-chevron-down"
 								aria-hidden="true"
@@ -70,12 +70,12 @@ get_header();
 					</div>
 				</div>
 			</div>
-			<div class="fieldset">
+			<div class="fieldset slider">
 				<label for="color">Color</label>
 				<div class="false-select">
 					<div class="top">
 						<button class="false-button">
-							<span class="value">All</span
+							<span class="value color-value">All</span
 							><i
 								class="fas fa-chevron-down"
 								aria-hidden="true"

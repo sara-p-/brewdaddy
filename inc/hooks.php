@@ -37,3 +37,5 @@
     // FACET
     //======================================================================
     add_action('wp_head', 'WP_Boilerplate_Facet::fwp_add_facet_labels', 100);
+    // add_filter( 'facetwp_facet_html', 'WP_Boilerplate_Facet::range_markup', 100);
+
