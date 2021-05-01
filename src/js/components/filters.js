@@ -83,23 +83,21 @@ export default function filters() {
 	});
 
 	// ******************** Input and span.value Value Changes ************************
-	// still need to get ONLY the changed facet to update the corresponding span
-	document.addEventListener("facetwp-refresh", (e) => {
-		if (FWP.facets["abv"].length > 0) {
-		}
-	});
-
-	var filterBoxes = document.querySelectorAll(".fieldset.slider");
-	filterBoxes.forEach((e, i) => {
-		var upperSpan = e.querySelector(".false-button span.value");
-		var filterSpan = e.querySelector("span.facetwp-slider-label");
-		// upperSpan.innerText = filterSpan.innerText;
-		// Change span text on facet refresh
+	// grab the slider filter values
+	var sliders = ["abv", "ibu", "color"];
+	sliders.forEach((element) => {
 		document.addEventListener("facetwp-refresh", (e) => {
-			upperSpan.innerText = filterSpan.innerText;
+			if (FWP.facets[element].length > 0) {
+				var filter = document.querySelector(
+					`.fieldset.${element} span.facetwp-slider-label`
+				);
+				var span = document.querySelector(`span.${element}-value`);
+				span.innerText = filter.innerText;
+			}
 		});
 	});
 
+	var filterBoxes = document.querySelectorAll(".fieldset.slider");
 	var resetButton = document.querySelector(".facet-reset-button");
 
 	resetButton.addEventListener("click", (e) => {

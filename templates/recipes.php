@@ -36,7 +36,7 @@ get_header();
 			<div class="fieldset">
 				<?php echo facetwp_display( 'facet', 'other' ); ?>
 			</div>
-			<div class="fieldset slider">
+			<div class="fieldset slider abv">
 				<label for="abv">ABV</label>
 				<div class="false-select">
 					<div class="top">
@@ -53,7 +53,7 @@ get_header();
 					</div>
 				</div>
 			</div>
-			<div class="fieldset slider">
+			<div class="fieldset slider ibu">
 				<label for="ibu">IBU</label>
 				<div class="false-select">
 					<div class="top">
@@ -70,7 +70,7 @@ get_header();
 					</div>
 				</div>
 			</div>
-			<div class="fieldset slider">
+			<div class="fieldset slider color">
 				<label for="color">Color</label>
 				<div class="false-select">
 					<div class="top">
