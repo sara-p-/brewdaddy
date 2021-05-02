@@ -6,8 +6,27 @@ import {
 	createOptionPanels,
 } from "./html-components";
 import { panelToggle, updateDataValues } from "./mobile-filter-helpers";
+import { brewdaddySendRequest } from "./fetch-request";
 
 export default function mobileFilters() {
+	// Create our array to hold the facet names and values
+	var facetValues = [];
+	for (const prop in FWP.facets) {
+		facetValues.push({
+			name: prop,
+			values: [],
+		});
+	}
+
+	// Call our Fetch Function (which will also update our facetValues array)
+	if (document.readyState != "loading") {
+		brewdaddySendRequest(facetValues);
+	} else {
+		document.addEventListener("DOMContentLoaded", (event) => {
+			brewdaddySendRequest(facetValues);
+		});
+	}
+	console.log(facetValues);
 	// 1. Loop through the Facets and create:
 	//      - A Filter Button with a data attribute value
 	//      - An Option Panel for each Facet filter with a matching data attribute value, populated with Option Buttons that correspond to the Facet values
@@ -19,18 +38,6 @@ export default function mobileFilters() {
 	var filterBox = filterPanel.querySelector(".filters");
 	var originalFilterButton = document.querySelector("header .filter-button");
 	var originalBackButton = filterPanel.querySelector("button.back");
-
-	// making a fake facet object to loop through
-	var facets = [
-		{
-			name: "Beer Style",
-			values: ["saison", "porter", "stout", "ale", "lager", "sour"],
-		},
-		{
-			name: "Beer Sub Style",
-			values: ["saison-sub", "porter-sub", "stout-sub", "ale-sub"],
-		},
-	];
 
 	// ******************** 1: Creation of Elements from the Facet Values *********************
 	// Loop through the facets and create the elements

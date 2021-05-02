@@ -57,12 +57,32 @@
                 <div class="wrapper">
                     <nav class="subnav">
                         <ul>
-                            
                         </ul>
                     </nav>
                     <a href="#" class="btn share"
                         >Share<i class="fas fa-share" aria-hidden="true"></i
                     ></a>
+                </div>
+            </div>
+        <?php endif; ?>
+        <?php if(is_page_template( 'recipes.php' )) : ?>
+            <button class="btn full-width filter-button">
+                Filters <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i>
+            </button>
+
+            <div id="original-panel" class="filter-panel">
+                <div class="panel-container">
+                    <button class="btn full-width back">
+                        <span class="visually-hidden">Back</span
+                        ><i class="fas fa-long-arrow-alt-left" aria-hidden="true"></i>
+                    </button>
+
+                    <div class="filters"></div>
+
+                    <div class="buttons full-width">
+                        <button class="btn white filter-apply">Apply</button>
+                        <button class="btn filter-reset">Reset</button>
+                    </div>
                 </div>
             </div>
         <?php endif; ?>

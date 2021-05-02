@@ -20,7 +20,7 @@
             wp_enqueue_script('jquery');
 
             wp_enqueue_script('font-awesome', '//kit.fontawesome.com/d2d9bdc7cf.js', '', '', false);        
-
+            wp_enqueue_script( 'wp-api' );
 
             wp_enqueue_script('wp-vue', '//cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js', '', '', true);        
             wp_enqueue_script('wp-boilerplate', get_template_directory_uri() . '/dist/main.js', '', '', true);        

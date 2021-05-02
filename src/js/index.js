@@ -21,10 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	filters();
 	modals();
 	subNav();
+	mobileFilters();
 
-	if (document.location.pathname === "/") {
-		// mobileFilters();
-	}
 	if (document.location.pathname === "/single.html") {
 		scrollTo();
 	}
