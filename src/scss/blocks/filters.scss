@@ -88,6 +88,9 @@
 	}
 	.facetwp-facet {
 		margin-bottom: 0;
+		&:focus {
+			@include focus;
+		}
 	}
 	.fs-wrap {
 		width: 100%;

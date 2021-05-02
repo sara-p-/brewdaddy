@@ -130,10 +130,10 @@
 	appearance: none;
 	box-sizing: border-box;
 	cursor: pointer;
-	// &:focus {
-	// 	outline: $focus-outline;
-	// 	outline-offset: 3px;
-	// }
+	&:focus {
+		outline: $focus-outline;
+		outline-offset: 3px;
+	}
 	&:disabled {
 		cursor: not-allowed;
 		opacity: 0.5;

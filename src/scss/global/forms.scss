@@ -137,15 +137,6 @@ input[type="file"] {
 
 /* Custom select styling */
 select,
-body .gform_wrapper.gf_browser_chrome select,
-body
-	.gform_wrapper.gf_browser_chrome
-	ul.gform_fields
-	li.gfield
-	div.ginput_complex
-	span.ginput_right
-	select,
-body .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select,
 .fs-label-wrap {
 	@include select;
 
@@ -244,5 +235,18 @@ form input[type="submit"] {
 	margin-bottom: 10px;
 	&.select:last-of-type {
 		margin-bottom: 20px;
+	}
+}
+
+.fieldset {
+	select,
+	.fs-label-wrap {
+		background-image: url("../../assets/img/chevron-down.png");
+	}
+	&.open {
+		select,
+		.fs-label-wrap {
+			background-image: url("../../assets/img/chevron-up.png");
+		}
 	}
 }

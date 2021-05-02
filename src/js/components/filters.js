@@ -103,8 +103,41 @@ export default function filters() {
 	resetButton.addEventListener("click", (e) => {
 		filterBoxes.forEach((element, i) => {
 			var upperSpan = element.querySelector(".false-button span.value");
-			var filterSpan = element.querySelector("span.facetwp-slider-label");
 			upperSpan.innerText = "all";
+		});
+	});
+
+	// ******************** Adding open class on click of facet ************************
+	var theFilters = document.querySelectorAll(".fieldset");
+	var open = false;
+	theFilters.forEach((e) => {
+		var theFacet = e.querySelector(".facetwp-facet");
+		theFacet.addEventListener("click", (event) => {
+			if (open) {
+				e.classList.remove("open");
+				open = false;
+			} else {
+				e.classList.add("open");
+				open = true;
+			}
+		});
+	});
+
+	// ******************** Adding open class on click of false button ************************
+	var theButtons = document.querySelectorAll(".false-button");
+	var openButton = false;
+	theButtons.forEach((e) => {
+		var theIcon = e.querySelector("i");
+		e.addEventListener("click", (event) => {
+			if (openButton) {
+				theIcon.classList.remove("fa-chevron-up");
+				theIcon.classList.add("fa-chevron-down");
+				openButton = false;
+			} else {
+				theIcon.classList.remove("fa-chevron-down");
+				theIcon.classList.add("fa-chevron-up");
+				openButton = true;
+			}
 		});
 	});
 }
