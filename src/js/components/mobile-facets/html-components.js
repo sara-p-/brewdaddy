@@ -38,6 +38,7 @@ export function createFilterButtons(
 	if (type == "filter") {
 		button.setAttribute("data-panel-button", filterNumber);
 		button.setAttribute("data-option-values", "");
+		button.setAttribute("data-filter-name", filterName);
 
 		var buttonValues = document.createElement("span");
 		buttonValues.classList.add("button-values");

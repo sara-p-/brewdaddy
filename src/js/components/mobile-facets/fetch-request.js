@@ -11,6 +11,7 @@ import {
 	panelToggle,
 	updateDataValues,
 	resetButton,
+	applyButton,
 } from "./mobile-filter-helpers";
 
 // Create an AJAX request to the custom endpoint
@@ -61,5 +62,8 @@ export function brewdaddySendRequest() {
 
 			// Reset the Filters on click of the reset button
 			resetButton();
+
+			// Close Filter panel after selections
+			applyButton();
 		});
 }

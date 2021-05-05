@@ -184,7 +184,7 @@ export function updateDataValues(
 	optionValue
 ) {
 	var html = [];
-	// on each mutation, if the boolean is true - add the filter vlaue
+	// on each mutation, if the boolean is true - add the filter value
 	// If the boolean is false - remove the filter value
 	if (optionBoolean == "true") {
 		filterValue = filterValue + " " + optionValue;
@@ -192,14 +192,15 @@ export function updateDataValues(
 		filterValue = filterValue.replace(optionValue, "");
 	}
 
-	// Add the option values to the parent filter
+	// Add the option values to the parent filter, and update the Facet Value
 	parentFilter.setAttribute("data-option-values", filterValue);
+	var valueArray = filterValue.split(" ");
+	valueArray = valueArray.filter((item) => item);
+	FWP.facets[parentFilter.dataset.filterName] = valueArray;
+	FWP.fetchData();
 
-	var array = filterValue.split(" ");
-	array.forEach((e, i) => {
-		if (e !== "") {
-			html.push(spanMaker(e));
-		}
+	valueArray.forEach((e) => {
+		html.push(spanMaker(e));
 	});
 	return html;
 }
@@ -272,5 +273,32 @@ export function resetButton() {
 				option.classList.remove("selected");
 			});
 		});
+		FWP.reset();
+	});
+}
+
+// ********************** Apply Button **************************
+export function applyButton() {
+	var button = document.querySelector("header .filter-apply");
+	var originalPanel = document.querySelector("#original-panel");
+	var slideClose = gsap
+		.timeline({
+			paused: true,
+		})
+		.fromTo(
+			originalPanel,
+			{
+				x: "0%",
+			},
+			{
+				x: "100%",
+				duration: 0.3,
+				onComplete: () => {
+					originalPanel.style.display = "none";
+				},
+			}
+		);
+	button.addEventListener("click", (e) => {
+		slideClose.play();
 	});
 }
