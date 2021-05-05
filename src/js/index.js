@@ -7,7 +7,7 @@ import mobileTables from "./components/tables";
 import sliders from "./components/sliders";
 import filters from "./components/filters";
 import modals from "./components/modals";
-import mobileFilters from "./components/mobile-filters";
+import mobileFilters from "./components/mobile-facets/mobile-filters";
 import scrollTo from "./components/scroll-to";
 import subNav from "./components/subnav";
 

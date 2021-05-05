@@ -27,7 +27,7 @@
 
     function custom_endpoint_function( $data ) {
         global $wpdb;
-        $query = "SELECT facet_name, facet_value FROM `wp_facetwp_index`";
+        $query = "SELECT facet_name, facet_value, facet_display_value FROM `wp_facetwp_index`";
         $list = $wpdb->get_results($query);
         return $list;
     }

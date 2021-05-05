@@ -21,7 +21,8 @@ export function createFilterButtons(
 	type,
 	filterName,
 	filterNumber,
-	buttonAttriValue
+	buttonAttrValue
+	// buttonAttrDisplay
 ) {
 	var button = document.createElement("button");
 	button.classList.add("btn", "white", "full-width", "filter-button");
@@ -51,13 +52,13 @@ export function createFilterButtons(
 		buttonName.after(buttonValues);
 		buttonContent.after(icon);
 	} else {
-		button.setAttribute("data-panel-option", buttonAttriValue);
+		button.setAttribute("data-panel-option", buttonAttrValue);
 		button.setAttribute("data-panel-option-value", "");
 		button.setAttribute("data-parent-filter", filterNumber);
 		button.setAttribute("data-option", "false");
 		button.classList.add("option-button");
 
-		buttonName.innerText = buttonAttriValue;
+		buttonName.innerText = buttonAttrValue;
 
 		icon.classList.add("fas", "fa-plus");
 		icon.setAttribute("aria-label", "Select");

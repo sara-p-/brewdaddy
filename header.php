@@ -65,7 +65,7 @@
                 </div>
             </div>
         <?php endif; ?>
-        <?php if(is_page_template( 'recipes.php' )) : ?>
+        <?php if(is_page_template( 'templates/recipes.php' )) : ?>
             <button class="btn full-width filter-button">
                 Filters <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i>
             </button>
