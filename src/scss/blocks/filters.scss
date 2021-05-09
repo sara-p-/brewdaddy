@@ -239,6 +239,23 @@
 		width: 100%;
 		padding: 30px;
 	}
+	.slider {
+		margin-bottom: 30px;
+	}
+	.ui-slider-horizontal.ui-widget.ui-widget-content {
+		background: $white;
+		border: $base-border;
+		border-radius: 0;
+	}
+	.ui-slider .ui-slider-range {
+		background: $light-grey;
+		border: 2px solid $light-grey;
+		border-radius: 0;
+	}
+	.ui-slider-handle.ui-state-default {
+		border: $base-border;
+		border-radius: 0;
+	}
 	.range-box {
 		@include flex(space-between);
 	}

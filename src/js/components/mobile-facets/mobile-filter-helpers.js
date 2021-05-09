@@ -106,12 +106,28 @@ export function createTheElements(facetArray) {
 
 			optionFilterBox.appendChild(optionSlider);
 
-			$(`[data-panel="${index}"] .slider`).slider({
-				range: true,
-				min: 0,
-				max: 500,
-				values: [75, 300],
+			var slider = $(`[data-panel="${index}"] .slider`);
+			var valueInput = $(`[data-panel="${index}"] .slider-values`);
+
+			var values = [];
+			element.values.forEach((e, i) => {
+				values.push(parseFloat(e));
 			});
+			var minVal = Math.min(...values);
+			var maxVal = Math.max(...values);
+			// Setting up the slider through jQuery and passing the Facet values to it
+			slider.slider({
+				range: true,
+				min: minVal,
+				max: maxVal,
+				values: [minVal, maxVal],
+				slide: function (event, ui) {
+					valueInput.val(ui.values[0] + " - " + ui.values[1]);
+				},
+			});
+			valueInput.val(
+				slider.slider("values", 0) + " - " + slider.slider("values", 1)
+			);
 		}
 	});
 }

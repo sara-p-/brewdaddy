@@ -104,15 +104,18 @@ export function sliderMaker(parentFilter, filterName) {
 	sliderRange.setAttribute("data-option", "false");
 	sliderRange.setAttribute("data-panel-option-value", "");
 
-	var label = document.createElement("label");
-	label.setAttribute("for", "amount-" + parentFilter);
-	label.innerText = filterName;
-
 	var slider = document.createElement("div");
 	slider.classList.add("slider");
 
 	var rangeBox = document.createElement("div");
 	rangeBox.classList.add("range-box");
+
+	var inputBox = document.createElement("div");
+	inputBox.classList.add("input-box");
+
+	var label = document.createElement("label");
+	label.setAttribute("for", "amount-" + parentFilter);
+	label.innerText = filterName;
 
 	var valueInput = document.createElement("input");
 	valueInput.setAttribute("type", "text");
@@ -124,11 +127,13 @@ export function sliderMaker(parentFilter, filterName) {
 	sliderReset.classList.add("btn", "white", "btn-small", "slider-reset");
 	sliderReset.innerText = "Reset";
 
-	rangeBox.appendChild(valueInput);
-	valueInput.after(sliderReset);
+	inputBox.appendChild(label);
+	label.after(valueInput);
 
-	sliderRange.appendChild(label);
-	label.after(slider);
+	rangeBox.appendChild(inputBox);
+	inputBox.after(sliderReset);
+
+	sliderRange.appendChild(slider);
 	slider.after(rangeBox);
 
 	return sliderRange;
