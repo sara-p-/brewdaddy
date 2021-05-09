@@ -77,7 +77,16 @@
                         ><i class="fas fa-long-arrow-alt-left" aria-hidden="true"></i>
                     </button>
 
-                    <div class="filters"></div>
+                    <div class="filters">
+                        <!-- <div class="slider-range" data-parent-filter="5" data-option="false" data-panel-option-value="">
+                            <label for="amount-0">IBU</label>
+                            <div class="slider"></div>
+                            <div class="range-box">
+                                <input type="text" id="amount-0" class="slider-values" readonly>
+                                <button class="btn white btn-small slider-reset">Reset</button>
+                            </div>
+                        </div> -->
+                    </div>
 
                     <div class="buttons full-width">
                         <button class="btn white filter-apply">Apply</button>

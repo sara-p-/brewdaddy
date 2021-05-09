@@ -9,9 +9,7 @@ import {
 	panelToggle,
 	updateDataValues,
 	filterPanel,
-	filterBox,
 	originalFilterButton,
-	originalBackButton,
 } from "./mobile-filter-helpers";
 import { brewdaddySendRequest } from "./fetch-request";
 
@@ -27,5 +25,7 @@ export default function mobileFilters() {
 
 	// ******************** Toggle the Original Panel *********************
 	// Function to toggle the Original Panel Open and closed
+	var originalBackButton = filterPanel.querySelector("button.back");
+
 	panelToggle(originalFilterButton, filterPanel, originalBackButton);
 }

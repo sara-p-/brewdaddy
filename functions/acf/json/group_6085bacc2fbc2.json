@@ -55,7 +55,7 @@
                     "append": "",
                     "min": 0,
                     "max": 40,
-                    "step": ".1"
+                    "step": ""
                 },
                 {
                     "key": "field_6085bb228dbfd",
@@ -101,7 +101,7 @@
                 },
                 {
                     "key": "field_60860a90c5c9c",
-                    "label": "Batch Number",
+                    "label": "Version Number",
                     "name": "batch_number",
                     "type": "text",
                     "instructions": "",
@@ -1123,13 +1123,13 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
+            "layout": "table",
             "sub_fields": [
                 {
-                    "key": "field_608ab75bb1a22",
-                    "label": "Bottle or Keg?",
-                    "name": "bottle_or_keg",
-                    "type": "button_group",
+                    "key": "field_6097e38dc9a07",
+                    "label": "Package Type",
+                    "name": "package_type",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -1138,178 +1138,87 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "bottle": "Bottle",
-                        "keg": "Keg"
-                    },
-                    "allow_null": 0,
-                    "default_value": "bottle",
-                    "layout": "horizontal",
-                    "return_format": "value"
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 },
                 {
-                    "key": "field_608ab7d1b1a23",
-                    "label": "Bottle",
-                    "name": "bottle",
-                    "type": "group",
+                    "key": "field_6097e5ecd07b0",
+                    "label": "Target Carbonation",
+                    "name": "target_carbonation",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_608ab75bb1a22",
-                                "operator": "==",
-                                "value": "bottle"
-                            }
-                        ]
-                    ],
+                    "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "layout": "table",
-                    "sub_fields": [
-                        {
-                            "key": "field_608ab898b1a26",
-                            "label": "Target Carbonation",
-                            "name": "target_carbonation",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "Volumes",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_608ab871b1a25",
-                            "label": "Priming Sugar",
-                            "name": "priming_sugar",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_608abacfb9cbe",
-                            "label": "Sugar Quantity",
-                            "name": "sugar_quantity",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "g",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_608ab967b1a27",
-                            "label": "Final Volume",
-                            "name": "final_volume",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "Gallons",
-                            "maxlength": ""
-                        }
-                    ]
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 },
                 {
-                    "key": "field_608aba0ab1a28",
-                    "label": "Keg",
-                    "name": "keg",
-                    "type": "group",
+                    "key": "field_6097e5fcd07b1",
+                    "label": "Priming Sugar",
+                    "name": "priming_sugar",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_608ab75bb1a22",
-                                "operator": "==",
-                                "value": "keg"
-                            }
-                        ]
-                    ],
+                    "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "layout": "table",
-                    "sub_fields": [
-                        {
-                            "key": "field_608aba2fb1a29",
-                            "label": "Target Carbonation",
-                            "name": "target_carbonation",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "Volumes",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_608aba40b1a2a",
-                            "label": "Final Volume",
-                            "name": "final_volume",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "Gallons",
-                            "maxlength": ""
-                        }
-                    ]
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6097e604d07b2",
+                    "label": "Sugar Quantity",
+                    "name": "sugar_quantity",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6097e60cd07b3",
+                    "label": "Final Volume",
+                    "name": "final_volume",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         },
@@ -1403,5 +1312,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1619796284
+    "modified": 1620569309
 }

@@ -1,10 +1,15 @@
+import $ from "jquery";
+import "webpack-jquery-ui/slider";
+import "webpack-jquery-ui/css";
 import { gsap } from "gsap";
 import {
 	spanMaker,
 	createFilterButtons,
 	backButton,
 	createOptionPanels,
+	sliderMaker,
 } from "./html-components";
+import slideRanges from "./slide-ranges";
 
 // ************************* Splitting the Facets up by type into new arrays *******************
 export function addFacetType(originalArray) {
@@ -15,11 +20,6 @@ export function addFacetType(originalArray) {
 				value.type = FWP.facet_type[typeName];
 			}
 		}
-		// // Remove the search Facet from the array
-		// if (value.name == "recipe_search") {
-		// 	var i = originalArray.indexOf(value);
-		// 	originalArray.splice(i, 1);
-		// }
 	});
 	// console.log(originalArray);
 	return originalArray;
@@ -37,17 +37,28 @@ export function fSelects(originalArray) {
 	return facetSelects;
 }
 
+// ************************** Remove the Search Facet from the array *******************
+export function noSearch(originalArray) {
+	originalArray.forEach((value) => {
+		if (value.type == "search") {
+			var i = originalArray.indexOf(value);
+			originalArray.splice(i, 1);
+		}
+	});
+
+	return originalArray;
+}
+
+// ******************** Creation of Elements from the Facet Selects *********************
 export var filterPanel = document.querySelector("header #original-panel");
-export var filterBox = filterPanel.querySelector(".filters");
 export var originalFilterButton = document.querySelector(
 	"header .filter-button"
 );
-export var originalBackButton = filterPanel.querySelector("button.back");
 
-// ******************** 1: Creation of Elements from the Facet Selects *********************
-export function createTheElements(selectArray) {
+export function createTheElements(facetArray) {
+	var filterBox = filterPanel.querySelector(".filters");
 	// Loop through the facets and create the elements
-	selectArray.forEach((element, index) => {
+	facetArray.forEach((element, index) => {
 		// Create the Filter Buttons
 		filterBox.appendChild(
 			createFilterButtons("filter", element.name, index, null)
@@ -63,27 +74,45 @@ export function createTheElements(selectArray) {
 				.after(optionPanelBox);
 		}
 
-		// Create the Option Buttons and append them to the corresponding Option Panel
-		element.values.forEach((value, i) => {
+		// If the facet type is fSelect: Create the Option Buttons and append them to the corresponding Option Panel
+		if (element.type == "fselect") {
+			element.values.forEach((value, i) => {
+				var optionP = document.querySelector(`[data-panel="${index}"]`);
+				var optionFilterBox = optionP.querySelector(".filters");
+				var optionButton = createFilterButtons(
+					"option",
+					null,
+					index,
+					value
+					// element.display[i]
+				);
+				if (i < 1) {
+					optionFilterBox.appendChild(optionButton);
+				} else {
+					document
+						.querySelector(
+							`[data-panel-option="${element.values[i - 1]}"]`
+						)
+						.after(optionButton);
+				}
+			});
+		}
+
+		// If the facet type is a range slider:
+		if (element.type == "slider") {
 			var optionP = document.querySelector(`[data-panel="${index}"]`);
 			var optionFilterBox = optionP.querySelector(".filters");
-			var optionButton = createFilterButtons(
-				"option",
-				null,
-				index,
-				value
-				// element.display[i]
-			);
-			if (i < 1) {
-				optionFilterBox.appendChild(optionButton);
-			} else {
-				document
-					.querySelector(
-						`[data-panel-option="${element.values[i - 1]}"]`
-					)
-					.after(optionButton);
-			}
-		});
+			var optionSlider = sliderMaker(index, element.name);
+
+			optionFilterBox.appendChild(optionSlider);
+
+			$(`[data-panel="${index}"] .slider`).slider({
+				range: true,
+				min: 0,
+				max: 500,
+				values: [75, 300],
+			});
+		}
 	});
 }
 

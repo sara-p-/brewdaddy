@@ -4,6 +4,7 @@ import {
 	addFacetType,
 	fSelects,
 	createTheElements,
+	noSearch,
 	toggleOptionPanels,
 	transferDataValues,
 	passValuesToFilter,
@@ -40,11 +41,15 @@ export function brewdaddySendRequest() {
 					}
 				});
 			});
-			// Add the facet type, and split the fSelect Facets up from the rest of the group
-			var facetSelects = fSelects(addFacetType(facetValues));
+			// Add the facet type
+			// var facetSelects = fSelects(addFacetType(facetValues));
+			var allFacets = addFacetType(facetValues);
+
+			// Remove the search facet
+			var facetList = noSearch(allFacets);
 
 			// Loop through the facets and create the elements
-			createTheElements(facetSelects);
+			createTheElements(facetList);
 
 			// Toggle all of the Option Panels
 			toggleOptionPanels();

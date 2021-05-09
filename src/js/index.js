@@ -10,6 +10,7 @@ import modals from "./components/modals";
 import mobileFilters from "./components/mobile-facets/mobile-filters";
 import scrollTo from "./components/scroll-to";
 import subNav from "./components/subnav";
+// import slideRanges from "./components/mobile-facets/slide-ranges";
 
 document.addEventListener("DOMContentLoaded", function () {
 	// vue();
@@ -18,10 +19,13 @@ document.addEventListener("DOMContentLoaded", function () {
 	menu();
 	mobileTables();
 	sliders();
-	filters();
 	modals();
 	subNav();
-	mobileFilters();
+	if (typeof FWP !== "undefined") {
+		filters();
+		mobileFilters();
+		// slideRanges();
+	}
 
 	if (document.location.pathname === "/single.html") {
 		scrollTo();

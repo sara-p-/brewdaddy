@@ -19,6 +19,9 @@
             wp_register_script('jquery', ('//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'), '', '2.2.4', false);
             wp_enqueue_script('jquery');
 
+            wp_enqueue_script('jquery-ui', '//code.jquery.com/ui/1.12.1/jquery-ui.min.js', '', '1.12.1', false);        
+
+
             wp_enqueue_script('font-awesome', '//kit.fontawesome.com/d2d9bdc7cf.js', '', '', false);        
             wp_enqueue_script( 'wp-api' );
 

@@ -397,46 +397,44 @@
         <div class="table-content">
             <h3 class="table-title">Packaging Type</h3>
             <table class="table-fixed lines" data-mobile-table="true">
-                <?php $type = get_sub_field('bottle_or_keg'); ?>
-                <?php if($type == 'bottle') : ?>
-                    <?php if(have_rows('bottle')) : while(have_rows('bottle')) : the_row(); ?>
-                        <thead>
-                            <tr>
-                                <th>Type:</th>
-                                <th>Target Carbonation:</th>
-                                <th>Priming Sugar:</th>
-                                <th>Sugar Quantity:</th>
-                                <th>Final Volume:</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><?php echo $type; ?></td>
-                                <td><?php the_sub_field('target_carbonation'); ?> Volumes</td>
-                                <td><?php the_sub_field('priming_sugar'); ?></td>
-                                <td><?php the_sub_field('sugar_quantity'); ?> g</td>
-                                <td><?php the_sub_field('final_volume'); ?> G</td>
-                            </tr>
-                        </tbody>
-                    <?php endwhile; endif; ?>
-                <?php else : ?>
-                    <?php if(have_rows('keg')) : while(have_rows('keg')) : the_row();?>
-                        <thead>
-                            <tr>
-                                <th>Type:</th>
-                                <th>Target Carbonation:</th>
-                                <th>Final Volume:</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><?php echo $type; ?></td>
-                                <td><?php the_sub_field('target_carbonation'); ?> Volumes</td>
-                                <td><?php the_sub_field('final_volume'); ?> G</td>
-                            </tr>
-                        </tbody>
-                    <?php endwhile; endif; ?>
-                <?php endif; ?>
+                <?php 
+                    $sugar = get_sub_field('priming_sugar'); 
+                    $sugar_true = true;
+                    if(stripos($sugar, "null") !== false || $sugar == "") {
+                        $sugar_true = false;
+                    }
+                    $quantity = get_sub_field('sugar_quantity');
+                    $quantity_true = true;
+                    if(stripos($quantity, "null") !== false || $quantity == "") {
+                        $quantity_true = false;
+                    }
+                ?>
+                <thead>
+                    <tr>
+                        <th>Type:</th>
+                        <th>Target Carbonation:</th>
+                        <?php if($sugar_true) : ?>
+                            <th>Priming Sugar:</th>
+                        <?php endif; ?>
+                        <?php if($quantity_true) : ?>
+                            <th>Sugar Quantity:</th>
+                        <?php endif; ?>
+                        <th>Final Volume:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><?php the_sub_field('package_type'); ?></td>
+                        <td><?php the_sub_field('target_carbonation'); ?> Volumes</td>
+                        <?php if($sugar_true) : ?>
+                            <td><?php echo $sugar; ?></td>
+                        <?php endif; ?>
+                        <?php if($quantity_true) : ?>
+                            <td><?php echo $quantity; ?> g</td>
+                        <?php endif; ?>
+                        <td><?php the_sub_field('final_volume'); ?> G</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>

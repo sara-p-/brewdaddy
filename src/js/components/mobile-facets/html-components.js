@@ -1,6 +1,4 @@
-// This is where I'll keep most of my html building functions
-
-// create a function to make the back button featured on all panels
+// ************************* Back Button *******************
 export function backButton() {
 	var button = document.createElement("button");
 	button.classList.add("btn", "full-width", "back");
@@ -16,7 +14,7 @@ export function backButton() {
 	return button;
 }
 
-// Create a function that makes either the filter buttons or the option buttons
+// ************************** Original Filter Buttons and fSelect Option Buttons ******************
 export function createFilterButtons(
 	type,
 	filterName,
@@ -72,7 +70,8 @@ export function createFilterButtons(
 	return button;
 }
 
-// Create a function to make the Option Panels, and give them a data attribute that matches their corresponding Filter Button data attribute
+// ************************** Option Panels ************************
+// Option Panels with data attributes that match their corresponding Filter Button data attribute
 export function createOptionPanels(number, func) {
 	var optionPanel = document.createElement("div");
 	optionPanel.classList.add("filter-panel", "option-panel");
@@ -89,10 +88,48 @@ export function createOptionPanels(number, func) {
 	return optionPanel;
 }
 
-// Function to create span elements for the filter button selected options
+// ******************** Original Filter Button Spans (that display the selected values) *************
 export function spanMaker(optionName) {
 	var span = document.createElement("span");
 	span.classList.add("selected-option");
 	span.innerText = optionName;
 	return span;
+}
+
+// ********************** Slider Ranges on Mobile *******************
+export function sliderMaker(parentFilter, filterName) {
+	var sliderRange = document.createElement("div");
+	sliderRange.classList.add("slider-range");
+	sliderRange.setAttribute("data-parent-filter", parentFilter);
+	sliderRange.setAttribute("data-option", "false");
+	sliderRange.setAttribute("data-panel-option-value", "");
+
+	var label = document.createElement("label");
+	label.setAttribute("for", "amount-" + parentFilter);
+	label.innerText = filterName;
+
+	var slider = document.createElement("div");
+	slider.classList.add("slider");
+
+	var rangeBox = document.createElement("div");
+	rangeBox.classList.add("range-box");
+
+	var valueInput = document.createElement("input");
+	valueInput.setAttribute("type", "text");
+	valueInput.readOnly = true;
+	valueInput.classList.add("slider-values");
+	valueInput.id = "amount-" + parentFilter;
+
+	var sliderReset = document.createElement("button");
+	sliderReset.classList.add("btn", "white", "btn-small", "slider-reset");
+	sliderReset.innerText = "Reset";
+
+	rangeBox.appendChild(valueInput);
+	valueInput.after(sliderReset);
+
+	sliderRange.appendChild(label);
+	label.after(slider);
+	slider.after(rangeBox);
+
+	return sliderRange;
 }

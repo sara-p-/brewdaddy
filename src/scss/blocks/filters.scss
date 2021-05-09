@@ -233,4 +233,19 @@
 		bottom: 0;
 		left: 0;
 	}
+
+	// Mobile Slider Ranges
+	.slider-range {
+		width: 100%;
+		padding: 30px;
+	}
+	.range-box {
+		@include flex(space-between);
+	}
+	input.slider-values {
+		width: auto;
+		border: none;
+		padding: 0;
+		margin: 0;
+	}
 }
