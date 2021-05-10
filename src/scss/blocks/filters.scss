@@ -255,6 +255,13 @@
 	.ui-slider-handle.ui-state-default {
 		border: $base-border;
 		border-radius: 0;
+		width: 20px;
+		height: 20px;
+		top: -6px;
+		background: $white;
+		&.ui-state-active {
+			background: $black;
+		}
 	}
 	.range-box {
 		@include flex(space-between);

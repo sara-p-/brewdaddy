@@ -67,8 +67,5 @@ export function brewdaddySendRequest() {
 
 			// Reset the Filters on click of the reset button
 			resetButton();
-
-			// Close Filter panel after selections
-			applyButton();
 		});
 }

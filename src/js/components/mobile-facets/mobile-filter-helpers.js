@@ -49,7 +49,7 @@ export function noSearch(originalArray) {
 	return originalArray;
 }
 
-// ******************** Creation of Elements from the Facet Selects *********************
+// ******************** Creation of Elements from the Facets *********************
 export var filterPanel = document.querySelector("header #original-panel");
 export var originalFilterButton = document.querySelector(
 	"header .filter-button"
@@ -61,7 +61,13 @@ export function createTheElements(facetArray) {
 	facetArray.forEach((element, index) => {
 		// Create the Filter Buttons
 		filterBox.appendChild(
-			createFilterButtons("filter", element.name, index, null)
+			createFilterButtons(
+				"filter",
+				element.name,
+				index,
+				null,
+				element.type
+			)
 		);
 
 		// Create the corresponding Option Panels
@@ -76,6 +82,7 @@ export function createTheElements(facetArray) {
 
 		// If the facet type is fSelect: Create the Option Buttons and append them to the corresponding Option Panel
 		if (element.type == "fselect") {
+			console.log(element);
 			element.values.forEach((value, i) => {
 				var optionP = document.querySelector(`[data-panel="${index}"]`);
 				var optionFilterBox = optionP.querySelector(".filters");
@@ -83,8 +90,9 @@ export function createTheElements(facetArray) {
 					"option",
 					null,
 					index,
-					value
-					// element.display[i]
+					value,
+					element.type,
+					element.display
 				);
 				if (i < 1) {
 					optionFilterBox.appendChild(optionButton);
@@ -98,7 +106,7 @@ export function createTheElements(facetArray) {
 			});
 		}
 
-		// If the facet type is a range slider:
+		// If the facet type is a range slider: Create the slider and update the values on slide event
 		if (element.type == "slider") {
 			var optionP = document.querySelector(`[data-panel="${index}"]`);
 			var optionFilterBox = optionP.querySelector(".filters");
@@ -108,10 +116,24 @@ export function createTheElements(facetArray) {
 
 			var slider = $(`[data-panel="${index}"] .slider`);
 			var valueInput = $(`[data-panel="${index}"] .slider-values`);
+			var originalFilterButton = document.querySelector(
+				`button[data-panel-button="${index}"]`
+			);
+			var filterSpan = originalFilterButton.querySelector(
+				".button-values"
+			);
 
 			var values = [];
 			element.values.forEach((e, i) => {
-				values.push(parseFloat(e));
+				var float = parseFloat(e);
+				if (i == 0) {
+					float = Math.floor(e);
+				} else if (i == element.values.length - 1) {
+					float = Math.ceil(e);
+				} else {
+					float = Math.round(e);
+				}
+				values.push(float);
 			});
 			var minVal = Math.min(...values);
 			var maxVal = Math.max(...values);
@@ -122,12 +144,47 @@ export function createTheElements(facetArray) {
 				max: maxVal,
 				values: [minVal, maxVal],
 				slide: function (event, ui) {
+					// Update the Range Slider value
 					valueInput.val(ui.values[0] + " - " + ui.values[1]);
+					// Remove the value spans in the parent Button
+					var innerSpans = filterSpan.children;
+					console.log(innerSpans);
+					if (innerSpans.length) {
+						filterSpan.innerHTML = "";
+					}
+					// Create the value spans for the parent button and assign the values to them
+					filterSpan.appendChild(
+						spanMaker(ui.values[0], "span-value-slider")
+					);
+					filterSpan.appendChild(
+						spanMaker(ui.values[1], "span-value-slider")
+					);
+					// Pass Values to Facets
+					FWP.facets[originalFilterButton.dataset.filterName] = [
+						ui.values[0],
+						ui.values[1],
+					];
+					FWP.fetchData();
 				},
 			});
+			// Set the values of the Range Slider amount input
 			valueInput.val(
 				slider.slider("values", 0) + " - " + slider.slider("values", 1)
 			);
+
+			// Remove values if slider "reset" button is clicked
+			var sliderReset = optionP.querySelector(".slider-reset");
+			sliderReset.addEventListener("click", (e) => {
+				filterSpan.innerHTML = "";
+				slider.slider("values", [minVal, maxVal]);
+				valueInput.val(
+					slider.slider("values", 0) +
+						" - " +
+						slider.slider("values", 1)
+				);
+				FWP.facets[originalFilterButton.dataset.filterName] = [];
+				FWP.fetchData();
+			});
 		}
 	});
 }
@@ -158,7 +215,7 @@ export function panelToggle(button, matchingPanel, matchingBackButton) {
 			}
 		);
 	button.addEventListener("click", (e) => {
-		panelSlide.play();
+		panelSlide.restart();
 	});
 
 	matchingBackButton.addEventListener("click", (e) => {
@@ -179,11 +236,7 @@ export function toggleOptionPanels() {
 	});
 }
 
-// ******************** Transfer of Data Values *********************
-// 1. On first click of a Filter Option, store the option value in the data attribute of the Filter Option, and change the Filter Option button icon to "x".
-// 2. If the same Filter Option is clicked again, remove the value in the data attribute, and remove the icon
-// 3. When the user clicks the Back Button, transfer the array with the selected values to the corresponding filter button
-
+// ******************** Transfer of Data Values for fSelect *********************
 export function transferDataValues() {
 	// Loop through the first panel
 	var originalFilters = filterPanel.querySelectorAll(".filter-button");
@@ -221,6 +274,7 @@ export function transferDataValues() {
 	});
 }
 
+// ******************** Update Parent Filter for fSelect *********************
 // Function to update the Parent filter data attributes, as well as creating the child spans that will show the selected values
 export function updateDataValues(
 	parentFilter,
@@ -344,6 +398,6 @@ export function applyButton() {
 			}
 		);
 	button.addEventListener("click", (e) => {
-		slideClose.play();
+		slideClose.restart();
 	});
 }

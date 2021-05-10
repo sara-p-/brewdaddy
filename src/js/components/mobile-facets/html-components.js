@@ -19,8 +19,8 @@ export function createFilterButtons(
 	type,
 	filterName,
 	filterNumber,
-	buttonAttrValue
-	// buttonAttrDisplay
+	buttonAttrValue,
+	buttonDisplayValue = null
 ) {
 	var button = document.createElement("button");
 	button.classList.add("btn", "white", "full-width", "filter-button");
@@ -44,7 +44,7 @@ export function createFilterButtons(
 		icon.classList.add("fas", "fa-chevron-right");
 		icon.setAttribute("aria-hidden", "true");
 
-		buttonName.innerText = filterName;
+		buttonName.innerText = filterName.replace("_", " ");
 
 		button.appendChild(buttonContent);
 		buttonContent.appendChild(buttonName);
@@ -89,9 +89,9 @@ export function createOptionPanels(number, func) {
 }
 
 // ******************** Original Filter Button Spans (that display the selected values) *************
-export function spanMaker(optionName) {
+export function spanMaker(optionName, classes = "span-value-fselect") {
 	var span = document.createElement("span");
-	span.classList.add("selected-option");
+	span.classList.add("selected-option", classes);
 	span.innerText = optionName;
 	return span;
 }
@@ -101,8 +101,6 @@ export function sliderMaker(parentFilter, filterName) {
 	var sliderRange = document.createElement("div");
 	sliderRange.classList.add("slider-range");
 	sliderRange.setAttribute("data-parent-filter", parentFilter);
-	sliderRange.setAttribute("data-option", "false");
-	sliderRange.setAttribute("data-panel-option-value", "");
 
 	var slider = document.createElement("div");
 	slider.classList.add("slider");

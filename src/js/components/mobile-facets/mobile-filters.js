@@ -1,14 +1,7 @@
-import { gsap } from "gsap";
-// import { forEach } from "lodash";
-import {
-	createFilterButtons,
-	backButton,
-	createOptionPanels,
-} from "./html-components";
 import {
 	panelToggle,
-	updateDataValues,
 	filterPanel,
+	applyButton,
 	originalFilterButton,
 } from "./mobile-filter-helpers";
 import { brewdaddySendRequest } from "./fetch-request";
@@ -26,6 +19,9 @@ export default function mobileFilters() {
 	// ******************** Toggle the Original Panel *********************
 	// Function to toggle the Original Panel Open and closed
 	var originalBackButton = filterPanel.querySelector("button.back");
-
 	panelToggle(originalFilterButton, filterPanel, originalBackButton);
+
+	// ******************** Apply the filters *********************
+	// Close Filter panel after selections
+	applyButton();
 }
