@@ -225,6 +225,16 @@
 						content: "";
 					}
 				}
+				&.span-value-slider {
+					&:after {
+						content: "";
+					}
+					&:first-of-type {
+						&:after {
+							content: " - ";
+						}
+					}
+				}
 			}
 		}
 	}

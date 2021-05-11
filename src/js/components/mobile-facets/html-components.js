@@ -57,7 +57,7 @@ export function createFilterButtons(
 		button.setAttribute("data-option", "false");
 		button.classList.add("option-button");
 
-		buttonName.innerText = buttonAttrValue;
+		buttonName.innerText = buttonDisplayValue;
 
 		icon.classList.add("fas", "fa-plus");
 		icon.setAttribute("aria-label", "Select");
@@ -135,4 +135,46 @@ export function sliderMaker(parentFilter, filterName) {
 	slider.after(rangeBox);
 
 	return sliderRange;
+}
+
+// ********************** Date Ranges on Mobile *******************
+export function dateRangeMaker(parentFilter) {
+	var dateRange = document.createElement("div");
+	dateRange.classList.add("date-range");
+	dateRange.setAttribute("data-parent-filter", parentFilter);
+
+	var rangeBox = document.createElement("div");
+	rangeBox.classList.add("range-box");
+
+	var startLabel = document.createElement("label");
+	startLabel.setAttribute("for", "start-date");
+	startLabel.innerText = "Start Date";
+
+	var endLabel = document.createElement("label");
+	endLabel.setAttribute("for", "end-date");
+	endLabel.innerText = "End Date";
+
+	var startInput = document.createElement("input");
+	startInput.setAttribute("type", "text");
+	startInput.classList.add("start-input");
+	startInput.id = "start-date";
+
+	var endInput = document.createElement("input");
+	endInput.setAttribute("type", "text");
+	endInput.classList.add("end-input");
+	endInput.id = "end-date";
+
+	rangeBox.appendChild(startLabel);
+	startLabel.after(startInput);
+	startInput.after(endLabel);
+	endLabel.after(endInput);
+
+	var dateReset = document.createElement("button");
+	dateReset.classList.add("btn", "white", "btn-small", "date-reset");
+	dateReset.innerText = "Reset";
+
+	dateRange.appendChild(rangeBox);
+	rangeBox.after(dateReset);
+
+	return dateRange;
 }

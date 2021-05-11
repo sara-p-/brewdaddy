@@ -41,15 +41,15 @@ module.exports = {
 				test: /\.css$/,
 				use: [{ loader: "style-loader" }, { loader: "css-loader" }],
 			},
-			{
-				test: /\.(jpe?g|png|gif)$/i,
-				use: [{ loader: "file-loader" }],
-				// options: {
-				// 	name: "[name].[ext]",
-				// 	outputPath: "assets/images/",
-				// 	//the images will be emited to dist/assets/images/ folder
-				// },
-			},
+			// {
+			// 	test: /\.(jpe?g|png|gif)$/i,
+			// 	use: [{ loader: "file-loader" }],
+			// 	// options: {
+			// 	// 	name: "[name].[ext]",
+			// 	// 	outputPath: "assets/images/",
+			// 	// 	//the images will be emited to dist/assets/images/ folder
+			// 	// },
+			// },
 		],
 	},
 	plugins: [

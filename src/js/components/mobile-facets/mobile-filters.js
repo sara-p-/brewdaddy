@@ -1,9 +1,9 @@
 import {
-	panelToggle,
 	filterPanel,
 	applyButton,
 	originalFilterButton,
-} from "./mobile-filter-helpers";
+} from "./mobile-filter-functions";
+import { panelToggle } from "./mobile-filter-helpers";
 import { brewdaddySendRequest } from "./fetch-request";
 
 export default function mobileFilters() {

@@ -1,19 +1,12 @@
-import { gsap } from "gsap";
-
 import {
 	addFacetType,
-	fSelects,
 	createTheElements,
 	noSearch,
 	toggleOptionPanels,
 	transferDataValues,
-	passValuesToFilter,
 	observer,
-	panelToggle,
-	updateDataValues,
 	resetButton,
-	applyButton,
-} from "./mobile-filter-helpers";
+} from "./mobile-filter-functions";
 
 // Create an AJAX request to the custom endpoint
 export function brewdaddySendRequest() {
@@ -66,6 +59,6 @@ export function brewdaddySendRequest() {
 			});
 
 			// Reset the Filters on click of the reset button
-			resetButton();
+			resetButton(facetList);
 		});
 }

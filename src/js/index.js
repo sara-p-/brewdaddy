@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (typeof FWP !== "undefined") {
 		filters();
 		mobileFilters();
-		// slideRanges();
 	}
 
 	if (document.location.pathname === "/single.html") {

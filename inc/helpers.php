@@ -20,13 +20,20 @@
 	//======================================================================
 	function the_beer_style($id) {
 		$terms = get_the_terms($id, 'beer_style');
+		$style = '';
 		$sub_style = '';
 		if($terms) {
 			if(count($terms) > 1) {
-				$sub_style = ' - ' . $terms[1]->name;
+				foreach($terms as $term) {
+					if ($term->parent > 0) {
+						$sub_style = ' - ' . $term->name;	
+					} else {
+						$style = $term->name;
+					}
+				}
 			}
 			echo '
-				<h1 class="label h6">' . $terms[0]->name . $sub_style . '</h1>
+				<h1 class="label h6">' . $style . $sub_style . '</h1>
 			';
 		}
 	}
