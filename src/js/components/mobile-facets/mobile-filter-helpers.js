@@ -141,3 +141,61 @@ export function resetSlider(index, sliderValues) {
 		slider.slider("values", 0) + " - " + slider.slider("values", 1)
 	);
 }
+
+// ******************** Set Min/Max Values for Datepicker ****************
+export function getTheDate(element) {
+	var date;
+	try {
+		date = $.datepicker.parseDate("mm/dd/yy", element.value);
+	} catch (error) {
+		date = null;
+	}
+	return date;
+}
+
+// ******************** Format Datepicker Values for Facets and Value Spans ****************
+export function formatDate(date) {
+	var d = new Date(date),
+		month = "" + (d.getMonth() + 1),
+		day = "" + d.getDate(),
+		year = d.getFullYear();
+
+	if (month.length < 2) month = "0" + month;
+	if (day.length < 2) day = "0" + day;
+
+	return [year, month, day].join("-");
+}
+
+function valueSpanFormat(date) {
+	var d = new Date(date),
+		month = "" + (d.getMonth() + 1),
+		day = "" + d.getDate(),
+		year = d.getFullYear();
+
+	if (month.length < 2) month = "0" + month;
+	if (day.length < 2) day = "0" + day;
+
+	return [month, day, year].join("/");
+}
+
+// ******************** Set Datepicker Values for Facets and the Filter Button spans ****************
+export function setDates(theSpan, fromValue, toValue) {
+	var start = formatDate(fromValue);
+	var end = formatDate(toValue);
+	// clear the span values on the filter button
+	var innerSpans = theSpan.children;
+	if (innerSpans.length) {
+		theSpan.innerHTML = "";
+	}
+	// Create the value spans for the parent button and assign the values to them
+	theSpan.appendChild(
+		spanMaker(valueSpanFormat(fromValue), "span-value-date-range")
+	);
+	theSpan.appendChild(
+		spanMaker(valueSpanFormat(toValue), "span-value-date-range")
+	);
+	console.log(start, end);
+	// Pass values to facets
+	FWP.facets["brew_date"] = [start, end];
+	FWP.fetchData();
+}

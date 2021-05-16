@@ -1,5 +1,6 @@
 import $ from "jquery";
 import "webpack-jquery-ui/slider";
+import "webpack-jquery-ui/datepicker";
 import "webpack-jquery-ui/css";
 import { gsap } from "gsap";
 import {
@@ -15,6 +16,9 @@ import {
 	sliderMinMax,
 	resetSlider,
 	passValuesToFilter,
+	formatDate,
+	getTheDate,
+	setDates,
 } from "./mobile-filter-helpers";
 
 // ************************* Splitting the Facets up by type into new arrays *******************
@@ -154,7 +158,6 @@ export function createTheElements(facetArray) {
 					valueInput.val(ui.values[0] + " - " + ui.values[1]);
 					// Remove the value spans in the parent Button
 					var innerSpans = filterSpan.children;
-					console.log(innerSpans);
 					if (innerSpans.length) {
 						filterSpan.innerHTML = "";
 					}
@@ -187,9 +190,50 @@ export function createTheElements(facetArray) {
 			});
 		}
 
-		// If the facet type is a datepicker: Create the slider and update the values on slide event
+		// If the facet type is a datepicker: Create the datepicker and update the values
 		if (element.type == "date_range") {
 			optionFilterBox.appendChild(dateRangeMaker(index));
+			var args = {
+				defaultDate: "+1w",
+				changeMonth: true,
+				changeYear: true,
+				dateFormat: "mm/dd/yy",
+			};
+			var from = $("#start-date")
+				.datepicker(args)
+				.on("change", function () {
+					to.datepicker("option", "minDate", getTheDate(this));
+					setDates(
+						filterSpan,
+						from.datepicker("getDate"),
+						to.datepicker("getDate")
+					);
+				});
+			var to = $("#end-date")
+				.datepicker(args)
+				.on("change", function () {
+					from.datepicker("option", "maxDate", getTheDate(this));
+					setDates(
+						filterSpan,
+						from.datepicker("getDate"),
+						to.datepicker("getDate")
+					);
+				});
+			// Reset button
+			var resetDate = document.querySelector(".date-reset");
+			resetDate.addEventListener("click", (e) => {
+				to.datepicker("setDate", null);
+				from.datepicker("setDate", null);
+				// Clear value spans
+				// clear the span values on the filter button
+				var innerSpans = filterSpan.children;
+				if (innerSpans.length) {
+					filterSpan.innerHTML = "";
+				}
+				// Clear Facet values
+				FWP.facets["brew_date"] = [];
+				FWP.fetchData();
+			});
 		}
 	});
 }

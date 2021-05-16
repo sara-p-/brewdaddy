@@ -282,4 +282,22 @@
 		padding: 0;
 		margin: 0;
 	}
+
+	// Mobile Datepicker Panel
+	.date-range {
+		padding: 30px;
+	}
+}
+
+// Mobile Datepicker
+#ui-datepicker-div {
+	width: calc(100% - 60px);
+	max-width: 400px;
+}
+.ui-datepicker .ui-datepicker-title {
+	@include flex;
+}
+.ui-datepicker td span,
+.ui-datepicker td a {
+	height: 45px;
 }

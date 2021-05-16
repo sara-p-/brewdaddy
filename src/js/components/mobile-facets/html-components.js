@@ -156,11 +156,13 @@ export function dateRangeMaker(parentFilter) {
 
 	var startInput = document.createElement("input");
 	startInput.setAttribute("type", "text");
+	startInput.readOnly = true;
 	startInput.classList.add("start-input");
 	startInput.id = "start-date";
 
 	var endInput = document.createElement("input");
 	endInput.setAttribute("type", "text");
+	endInput.readOnly = true;
 	endInput.classList.add("end-input");
 	endInput.id = "end-date";
 
