@@ -87,31 +87,18 @@ get_header();
 					</div>
 				</div>
 			</div>
-			<div class="fieldset">
-				<label for="date">Date</label>
-				<div class="false-select">
-					<div class="top">
-						<button class="false-button">
-							<span class="value">All</span
-							><i
-								class="fas fa-chevron-down"
-								aria-hidden="true"
-							></i>
-						</button>
-					</div>
-					<div class="bottom">
-						<?php echo facetwp_display( 'facet', 'brew_date' ); ?>
-					</div>
-				</div>
+			<div class="fieldset date-range-fieldset">
+				<?php echo facetwp_display( 'facet', 'brew_date' ); ?>
 			</div>
 		</div>
 	</div>
+
 </section>
 
 <?php
 	$args = [
         'post_type'         => 'recipe',
-        'posts_per_page'    => 6,
+        'posts_per_page'    => -1,
         'order'             => 'DESC',
         'orderby'           => 'date',
 		// 'meta_key'			=>

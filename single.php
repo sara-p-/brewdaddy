@@ -10,22 +10,13 @@
 <section id="stats" class="block top-card">
 	<div class="wrapper">
 		<div class="row">
-            <?php if ( $featured_image ) : ?>
-                <div class="col">
-                    <div
-                        class="image"
-                        style="
-                            background-image: url(<?php echo $featured_image; ?>);
-                        "
-                    >
-                        <img
-                            src="<?php echo $featured_image; ?>"
-                            alt="<?php echo $image_alt; ?>"
-                            class="visually-hidden"
-                        />
+            <div class="col">
+                <?php if ( $featured_image ) : ?>
+                    <div class="image">
+                        <img src="<?php echo $featured_image; ?>" alt="<?php echo $image_alt; ?>">
                     </div>
-                </div>
-            <?php endif; ?>
+                <?php endif; ?>
+            </div>
 			<div class="col">
 				<div class="content">
 					<?php the_beer_color(get_sub_field('color')); ?>

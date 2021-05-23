@@ -31,7 +31,7 @@
 	}
 
 	$args = [
-        'post_type'         => 'project',
+        'post_type'         => 'recipe',
         'posts_per_page'    => $posts_per_page,
         'order'             => $order,
         'orderby'           => $orderby,

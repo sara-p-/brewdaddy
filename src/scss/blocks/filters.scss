@@ -32,6 +32,17 @@
 			width: 100%;
 			position: relative;
 			// margin-bottom: 25px;
+			&.date-range-fieldset {
+				grid-column: 4 / span 2;
+				.facetwp-facet {
+					display: grid;
+					grid-template-columns: repeat(2, 1fr);
+					gap: 10px;
+				}
+				input[type="text"] {
+					padding: 14px 0.8em 14px;
+				}
+			}
 		}
 		.false-select {
 			position: relative;

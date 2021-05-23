@@ -4,7 +4,15 @@
 	// files to help make the code more readable, and to abstract some of 
 	// the core WordPress logic out of template files.
 	//======================================================================
-	
+	//======================================================================
+	// BEER DEFAULT IMAGE
+	//======================================================================
+	// function the_beer_image($id) {
+	// 	echo '
+			
+	// 	'
+	// }
+
 	//======================================================================
 	// BEER COLOR 
 	//======================================================================
@@ -55,10 +63,14 @@
 	// RECIPE CARD STATS
 	//======================================================================
 	function the_stats($abv, $ibu, $batch) {
+		$stat = '';
+		if((int)$batch > 1) {
+			$stat = '<div class="stat"><p class="h3">Version ' . $batch . '</p></div>';
+		}
 		echo '
 			<div class="stats">
-            	<div class="stat"><h6>' . $abv . '% ABV | ' . $ibu . ' IBU</h6></div>
-            	<div class="stat"><h6>Version ' . $batch . '</h6></div>
+            	<div class="stat"><p class="h3">' . $abv . '% ABV | ' . $ibu . ' IBU</p></div>
+            	'. $stat .'
         	</div>
 		';
 	}

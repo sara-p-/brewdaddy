@@ -3,28 +3,6 @@
     "title": "Block - Slider",
     "fields": [
         {
-            "key": "field_6085b876de8da",
-            "label": "Style",
-            "name": "style",
-            "type": "button_group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "style-1": "Style 1",
-                "style-2": "Style 2"
-            },
-            "allow_null": 0,
-            "default_value": "style-1",
-            "layout": "horizontal",
-            "return_format": "value"
-        },
-        {
             "key": "field_6085b8bade8db",
             "label": "Intro",
             "name": "intro",
@@ -44,6 +22,92 @@
             "layout": "block",
             "prefix_label": 0,
             "prefix_name": 0
+        },
+        {
+            "key": "field_6085b876de8da",
+            "label": "Style",
+            "name": "style",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "style-1": "Style 1",
+                "style-2": "Style 2"
+            },
+            "allow_null": 0,
+            "default_value": "style-1",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_60a15a911df1e",
+            "label": "Recipe Type",
+            "name": "recipe_type",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6085b876de8da",
+                        "operator": "==",
+                        "value": "style-2"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "recent": "Most Recent",
+                "custom": "Custom"
+            },
+            "allow_null": 0,
+            "default_value": "recent",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_60a15b6883556",
+            "label": "How Many?",
+            "name": "how_many",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6085b876de8da",
+                        "operator": "==",
+                        "value": "style-2"
+                    },
+                    {
+                        "field": "field_60a15a911df1e",
+                        "operator": "==",
+                        "value": "recent"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 3,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
         },
         {
             "key": "field_6085b8ccde8dc",
@@ -111,6 +175,11 @@
                         "field": "field_6085b876de8da",
                         "operator": "==",
                         "value": "style-2"
+                    },
+                    {
+                        "field": "field_60a15a911df1e",
+                        "operator": "==",
+                        "value": "custom"
                     }
                 ]
             ],
@@ -171,5 +240,5 @@
     "hide_on_screen": "",
     "active": false,
     "description": "",
-    "modified": 1619615962
+    "modified": 1621190932
 }
