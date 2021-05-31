@@ -37,7 +37,8 @@
 
 		$image_markup = '
 			<div class="col">
-				<div class="image' . $color_value .'" style="background-image: url(' . $image . ');" >
+			<div class="image-background' . $color_value .'"></div>
+				<div class="image" style="background-image: url(' . $image . ');" >
 					<img class="visually-hidden" src"' . $image . '" alt="' . $alt .'" />
 				</div>
 			</div>
