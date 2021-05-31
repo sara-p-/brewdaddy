@@ -101,9 +101,7 @@ body {
 
 // Beer Color
 @each $beerColor, $i in $beerColors {
-	.color {
-		&.#{$beerColor} {
-			background-color: $i;
-		}
+	.#{$beerColor} {
+		background-color: $i;
 	}
 }

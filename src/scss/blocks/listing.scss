@@ -16,7 +16,7 @@
 	.item {
 		height: 275px;
 		width: 100%;
-		padding: 20px 20px 55px;
+		padding: 20px 40px 55px 20px;
 		border: $base-border;
 		position: relative;
 		@include tablet {
@@ -30,7 +30,7 @@
 		}
 		.label {
 			font-size: 12px;
-			line-height: 1;
+			line-height: 1.2;
 			margin-bottom: $small-spacing / 2;
 		}
 		.title {
@@ -44,6 +44,7 @@
 			}
 			p {
 				margin-bottom: 0;
+				line-height: 22px;
 			}
 		}
 		.stats {
@@ -59,8 +60,9 @@
 				font-weight: 600;
 				font-size: 12px;
 				line-height: 1;
-				h6 {
-					margin: 0;
+				p {
+					@include heading-style(14px, $base-font-family, 500);
+					margin-bottom: 0;
 				}
 			}
 		}
@@ -69,6 +71,16 @@
 			bottom: -2px;
 			right: 0;
 			width: 100%;
+			display: flex;
+			.btn {
+				width: 100%;
+				min-width: 0;
+				border-left: none;
+				&:nth-child(2) {
+					margin-left: 0;
+					border-right: none;
+				}
+			}
 		}
 	}
 }

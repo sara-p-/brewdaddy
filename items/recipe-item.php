@@ -10,19 +10,7 @@
                 <?php trim_words(get_sub_field('description'), 10); ?>
             </div>
             <?php the_stats(get_sub_field('abv'), get_sub_field('ibu'), get_sub_field('batch_number')); ?>
-            <div class="buttons full-width">
-                <button class="btn white modal-<?php echo $id; ?>"
-                    >Quick View
-                    <i class="far fa-eye" aria-hidden="true"></i
-                ></button>
-                <a href="<?php the_permalink(); ?>" class="btn"
-                    >Full Recipe
-                    <i
-                        class="fas fa-long-arrow-alt-right"
-                        aria-hidden="true"
-                    ></i
-                ></a>
-            </div>
+            <?php include(locate_template( './blocks/components/recipe-buttons.php')); ?>
         </div>
     <?php endwhile; endif; ?>
 </div>

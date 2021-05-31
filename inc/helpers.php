@@ -5,13 +5,46 @@
 	// the core WordPress logic out of template files.
 	//======================================================================
 	//======================================================================
+	// SINGLE BEER STYLE TERMS AND SUB STYLE TERMS
+	//======================================================================
+	function the_beer_terms($id) {
+		$terms = get_the_terms($id, 'beer_style');
+		$term_ids = [];
+		foreach($terms as $term) {
+			array_push($term_ids, $term->term_id);
+		}
+		return $term_ids;
+	}
+	//======================================================================
 	// BEER DEFAULT IMAGE
 	//======================================================================
-	// function the_beer_image($id) {
-	// 	echo '
-			
-	// 	'
-	// }
+	function the_beer_image($id, $color = null) {
+		$image = "";
+		$alt = "";
+		$color_value = "";
+		$featured_image = get_the_post_thumbnail_url( $id );
+		$image_alt = get_post_meta( get_post_thumbnail_id($id), '_wp_attachment_image_alt', true );
+
+		if($featured_image) {
+			$image = $featured_image;
+			$alt = $image_alt;
+		} else {
+			$image = get_template_directory_uri() . '/assets/img/pint3.svg';
+			if($color !== null) {
+				$color_value = ' color-' . round($color, 0);
+			}
+		}
+
+		$image_markup = '
+			<div class="col">
+				<div class="image' . $color_value .'" style="background-image: url(' . $image . ');" >
+					<img class="visually-hidden" src"' . $image . '" alt="' . $alt .'" />
+				</div>
+			</div>
+		';
+
+		echo $image_markup;
+	}
 
 	//======================================================================
 	// BEER COLOR 

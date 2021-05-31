@@ -1,26 +1,7 @@
-<?php 
-    $featured_image = get_the_post_thumbnail_url( $id );
-    $image_alt = get_post_meta( get_post_thumbnail_id($id), '_wp_attachment_image_alt', true );
-    $stats = get_field('stats', $id);
-?>
+<?php $stats = get_field("stats", $id); ?>
 <li class="glide__slide">
     <div class="row">
-        <?php if($featured_image) : ?>
-            <div class="col">
-                <div
-                    class="image"
-                    style="
-                        background-image: url(<?php echo $featured_image; ?>);
-                    "
-                >
-                    <img
-                        src="<?php echo $featured_image; ?>"
-                        alt="<?php echo $image_alt; ?>"
-                        class="visually-hidden"
-                    />
-                </div>
-            </div>
-        <?php endif; ?>
+        <?php the_beer_image($id, $stats['color']); ?>
         <div class="col">
             <div class="content">
                 <?php the_beer_color($stats['color']); ?>
@@ -30,24 +11,9 @@
                     <?php trim_words($stats['description']); ?>
                 </div>
                 <?php the_stats($stats['abv'], $stats['ibu'], $stats['batch_number']); ?>
-                <div class="buttons">
-                    <a href="#" class="btn white"
-                        >Quick View
-                        <i
-                            class="far fa-eye"
-                            aria-hidden="true"
-                        ></i
-                    ></a>
-                    <a href="<?php echo get_the_permalink( $id ); ?>" class="btn"
-                        >Full Recipe
-                        <i
-                            class="fas fa-long-arrow-alt-right"
-                            aria-hidden="true"
-                        ></i
-                    ></a>
-                </div>
+                <?php include( locate_template( '/blocks/components/recipe-buttons.php' )); ?>
             </div>
         </div>
     </div>
-    <?php include( locate_template('../modals/recipe-modal.php') ); ?>
+    <?php include( locate_template('/modals/recipe-modal.php') ); ?>
 </li>

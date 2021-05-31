@@ -11,15 +11,19 @@
 		}
 	}
 	.col {
-		min-height: 500px;
+		// min-height: 500px;
 		position: relative;
 		flex: 1;
+		align-self: stretch;
 		&:first-of-type {
-			align-self: stretch;
+			// align-self: stretch;
 		}
 		&:last-of-type {
 			flex: 1.25;
-			@include flex;
+			@include flex($justify: flex-start);
+		}
+		@include tablet-portrait {
+			// min-height: 300px;
 		}
 	}
 	.stat p.h3 {
@@ -29,8 +33,12 @@
 		height: 100%;
 		width: 100%;
 		border-right: $base-border;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		min-height: 500px;
 		@include tablet {
-			height: 300px;
+			min-height: 300px;
 			border-right: none;
 			border-bottom: $base-border;
 		}

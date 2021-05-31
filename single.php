@@ -1,22 +1,10 @@
 <?php get_header(); ?>
 
-<?php 
-    $featured_image = get_the_post_thumbnail_url( get_the_ID() );
-    $image_alt = get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true );
-
-?>
-
 <?php if(have_rows('stats')) : while(have_rows('stats')) : the_row(); ?>
 <section id="stats" class="block top-card">
 	<div class="wrapper">
 		<div class="row">
-            <div class="col">
-                <?php if ( $featured_image ) : ?>
-                    <div class="image">
-                        <img src="<?php echo $featured_image; ?>" alt="<?php echo $image_alt; ?>">
-                    </div>
-                <?php endif; ?>
-            </div>
+            <?php the_beer_image(get_the_ID()); ?>
 			<div class="col">
 				<div class="content">
 					<?php the_beer_color(get_sub_field('color')); ?>
@@ -508,6 +496,46 @@
                         <?php $i++; endforeach; ?>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+<?php endif; ?>
+
+<?php
+
+	$args = [
+        'post_type'         => 'recipe',
+        'posts_per_page'    => 3,
+        'order'             => "DESC",
+        'orderby'           => "date",
+        'tax_query'         => array(
+            array(
+                'taxonomy' => 'beer_style',
+                'field'    => 'term_id',
+                'terms'    => the_beer_terms(get_the_ID()),
+            ),
+        ),
+        "post__not_in"      => array(get_the_ID()),
+    ];
+
+    $query = new WP_Query( $args );
+?>
+
+<?php if($query->post_count > 0) : ?>
+    <section class="block listing">
+        <div class="component intro margin-small">
+            <div class="wrapper">
+                <div class="intro-content">
+                    <h2 class="title">Related Recipes</h2>
+                </div>
+            </div>
+        </div>    
+        <div class="wrapper">
+            <div class="items">
+                <?php if($query->have_posts()) : while($query->have_posts()) : $query->the_post(); ?>
+                    <?php include( locate_template('./items/recipe-item.php' )); ?>
+                <?php endwhile; endif; ?>
+                <?php wp_reset_postdata(); ?>
             </div>
         </div>
     </section>
