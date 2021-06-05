@@ -4,7 +4,7 @@
 <section id="stats" class="block top-card">
 	<div class="wrapper">
 		<div class="row">
-            <?php the_beer_image(get_the_ID()); ?>
+            <?php the_beer_image(get_the_ID(), get_sub_field('color')); ?>
 			<div class="col">
 				<div class="content">
 					<?php the_beer_color(get_sub_field('color')); ?>

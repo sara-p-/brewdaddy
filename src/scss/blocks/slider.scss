@@ -82,9 +82,14 @@
 				border: none;
 				position: relative;
 			}
-			.col:first-of-type {
-				@include tablet {
-					height: 200px;
+			.col {
+				&:first-of-type {
+					@include tablet {
+						height: 200px;
+					}
+				}
+				&:last-of-type {
+					border-right: $base-border;
 				}
 			}
 			.content {

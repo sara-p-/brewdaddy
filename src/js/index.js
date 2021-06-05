@@ -10,6 +10,7 @@ import modals from "./components/modals";
 import mobileFilters from "./components/mobile-facets/mobile-filters";
 import scrollTo from "./components/scroll-to";
 import subNav from "./components/subnav";
+import beerAnimation from "./components/beer-animation";
 // import slideRanges from "./components/mobile-facets/slide-ranges";
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -21,12 +22,13 @@ document.addEventListener("DOMContentLoaded", function () {
 	sliders();
 	modals();
 	subNav();
+	if (window.location.href.indexOf("/recipe/") > -1) {
+		beerAnimation();
+		scrollTo();
+	}
+
 	if (typeof FWP !== "undefined") {
 		filters();
 		mobileFilters();
-	}
-
-	if (document.location.pathname === "/single.html") {
-		scrollTo();
 	}
 });

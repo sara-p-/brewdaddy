@@ -29,7 +29,7 @@
 			$image = $featured_image;
 			$alt = $image_alt;
 		} else {
-			$image = get_template_directory_uri() . '/assets/img/pint3.svg';
+			$image = get_template_directory_uri() . '/assets/img/pilsner.svg';
 			if($color !== null) {
 				$color_value = ' color-' . round($color, 0);
 			}
