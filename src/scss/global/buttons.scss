@@ -6,7 +6,7 @@ button {
 #{$all-buttons} {
 	&:focus {
 		outline: $focus-outline;
-		// outline-offset: $focus-outline-offset;
+		outline-offset: $focus-outline-offset;
 	}
 }
 
@@ -76,6 +76,23 @@ button {
 		&:hover,
 		&:focus {
 			color: $off-white;
+		}
+	}
+
+	&.white-outline {
+		border: 2px solid $off-white;
+		color: $off-white;
+		background: $black;
+		&:hover {
+			background: $off-white;
+			color: $black;
+			border: 2px solid $off-white;
+		}
+		&:before {
+			background: $off-white;
+		}
+		&:after {
+			background: $black;
 		}
 	}
 

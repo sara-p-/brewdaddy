@@ -32,17 +32,6 @@
 		p {
 			color: $off-white;
 		}
-		.btn {
-			border: 2px solid $off-white;
-			color: $off-white;
-			background: $black;
-			&:hover {
-				color: $black;
-			}
-			&:before {
-				background: $off-white;
-			}
-		}
 	}
 	&.large-text {
 		h1.title {

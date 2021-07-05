@@ -5,41 +5,45 @@
 	// the core WordPress logic out of template files.
 	//======================================================================
 	//======================================================================
+	// GET THE CURRENT PAGE URL (FOR THE SHARE BUTTON)
+	//======================================================================
+	function current_url() {
+		global $wp;
+		$current_url = home_url( add_query_arg( array(), $wp->request ) );
+		echo $current_url;
+	}
+
+	//======================================================================
 	// SINGLE BEER STYLE TERMS AND SUB STYLE TERMS
 	//======================================================================
 	function the_beer_terms($id) {
 		$terms = get_the_terms($id, 'beer_style');
 		$term_ids = [];
-		foreach($terms as $term) {
-			array_push($term_ids, $term->term_id);
+		if($terms) {
+			foreach($terms as $term) {
+				array_push($term_ids, $term->term_id);
+			}
 		}
 		return $term_ids;
 	}
 	//======================================================================
 	// BEER DEFAULT IMAGE
 	//======================================================================
-	function the_beer_image($id, $color = null) {
-		$image = "";
-		$alt = "";
-		$color_value = "";
-		$featured_image = get_the_post_thumbnail_url( $id );
-		$image_alt = get_post_meta( get_post_thumbnail_id($id), '_wp_attachment_image_alt', true );
+	function the_beer_image($glassware = 'pint', $color = null) {
 
-		if($featured_image) {
-			$image = $featured_image;
-			$alt = $image_alt;
-		} else {
-			$image = get_template_directory_uri() . '/assets/img/snifter.svg';
-			if($color !== null) {
-				$color_value = ' color-' . round($color, 0);
-			}
+		if($glassware == "") {
+			$glassware = 'pint';
 		}
+		
+		$image = get_template_directory_uri() . '/assets/img/' . $glassware . '.svg';
+		$color_value = ' color-' . round($color, 0);
+		
 
 		$image_markup = '
 			<div class="col">
 			<div class="image-background' . $color_value .'"></div>
 				<div class="image" style="background-image: url(' . $image . ');" >
-					<img class="visually-hidden" src"' . $image . '" alt="' . $alt .'" />
+					<img class="visually-hidden" src"' . $image . '" alt="Beer glass with beer" />
 				</div>
 			</div>
 		';
@@ -76,6 +80,18 @@
 			}
 			echo '
 				<h1 class="label h6">' . $style . $sub_style . '</h1>
+			';
+		}
+	}
+
+	//======================================================================
+	// BATCH NUMBER
+	//======================================================================
+	function the_batch_number($id) {
+		$batch_number = get_field('batch_number', $id);
+		if($batch_number) {
+			echo '
+				<h3 class="label h6">Batch Number: ' . $style . $sub_style . '</h3>
 			';
 		}
 	}

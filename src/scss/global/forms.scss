@@ -65,7 +65,7 @@ textarea,
 	&:focus {
 		border-color: $base-border-color;
 		box-shadow: none;
-		outline: none;
+		@include focus;
 	}
 	&:disabled {
 		background-color: shade($_form-background-color, 5%);
@@ -126,7 +126,7 @@ select {
 	&:focus {
 		border-color: $base-border-color;
 		box-shadow: none;
-		outline: none;
+		@include focus;
 	}
 }
 
@@ -221,8 +221,7 @@ form input[type="submit"] {
 		background-position: 100% 50%;
 	}
 	&:focus {
-		outline: $focus-outline;
-		outline-offset: 3px;
+		@include focus;
 	}
 	&:disabled {
 		cursor: not-allowed;
