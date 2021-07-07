@@ -73,6 +73,7 @@ $beerColors: (
 	"color-28": #120d0c,
 	"color-29": #100b0a,
 	"color-30": #050b0a,
+	"color-black": #050b0a,
 );
 
 $links: $black;
@@ -100,8 +101,8 @@ $base-border: 2px solid $base-border-color;
 $viewport-background-color: $white;
 
 // Focus
-$focus-outline-color: $red;
-$focus-outline-width: 1px;
+$focus-outline-color: $blue;
+$focus-outline-width: 3px;
 $focus-outline: $focus-outline-width solid $focus-outline-color;
 $focus-outline-offset: 0px;
 

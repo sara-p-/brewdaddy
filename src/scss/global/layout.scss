@@ -109,3 +109,8 @@ body {
 		background-color: $i;
 	}
 }
+
+// focus elements
+.title:focus {
+	@include focus;
+}

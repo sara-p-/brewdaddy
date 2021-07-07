@@ -6,7 +6,7 @@ export default function sliders() {
 	var sliders = document.querySelectorAll(".glide");
 
 	// Loop through each slider on the page
-	sliders.forEach((element, index) => {
+	sliders.forEach((element) => {
 		var newSlider = new Glide(element, {
 			type: "carousel",
 			animationDuration: 1500,

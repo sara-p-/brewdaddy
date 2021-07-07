@@ -1,9 +1,15 @@
 .skip-nav {
 	position: absolute;
-	top: 0;
+	top: 77px;
 	left: 0;
+	margin: auto;
+	width: 300px;
+	text-align: center;
+	font-size: 28px;
+	right: 0;
 	color: #000;
 	background: #fff;
+	padding: 50px;
 	opacity: 0;
 	z-index: -1;
 	&:focus {

@@ -12,9 +12,13 @@
                     <?php trim_words($stats['description']); ?>
                 </div>
                 <?php the_stats($stats['abv'], $stats['ibu'], $stats['batch_number']); ?>
-                <?php include( locate_template( '/blocks/components/recipe-buttons.php' )); ?>
+                <?php // include( locate_template( '/blocks/components/recipe-buttons.php' )); ?>
+                <div class="buttons">
+                    <a href="<?php echo get_the_permalink( get_the_id() ); ?>" class="btn">Full Recipe
+                        <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i></a>
+                </div>
             </div>
         </div>
     </div>
-    <?php include( locate_template('/modals/recipe-modal.php') ); ?>
+    <?php // include( locate_template('/modals/recipe-modal.php') ); ?>
 </li>

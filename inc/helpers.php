@@ -35,8 +35,13 @@
 			$glassware = 'pint';
 		}
 		
+		$color = round($color, 0);
+		if($color > 30) {
+			$color = 'black';
+		}
+		
 		$image = get_template_directory_uri() . '/assets/img/' . $glassware . '.svg';
-		$color_value = ' color-' . round($color, 0);
+		$color_value = ' color-' . $color;
 		
 
 		$image_markup = '
@@ -56,6 +61,9 @@
 	//======================================================================
 	function the_beer_color($value) {
 		$value = round($value, 0);
+		if($value > 30) {
+			$value = 'black';
+		}
 		echo '
 			<div class="color color-' . $value . '"></div>
 		';
@@ -91,7 +99,7 @@
 		$batch_number = get_field('batch_number', $id);
 		if($batch_number) {
 			echo '
-				<h3 class="label h6">Batch Number: ' . $style . $sub_style . '</h3>
+				<h3 class="label h6">Batch Number: ' . $batch_number . '</h3>
 			';
 		}
 	}
