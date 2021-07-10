@@ -85,11 +85,12 @@
 			.col {
 				&:first-of-type {
 					@include tablet {
-						height: 200px;
+						height: 275px;
 					}
 				}
 				&:last-of-type {
 					border-right: $base-border;
+					background: $white;
 				}
 			}
 			.content {
@@ -137,6 +138,7 @@
 						&:nth-child(2) {
 							margin-left: 0;
 							border-right: none;
+							margin-top: 0;
 						}
 					}
 				}

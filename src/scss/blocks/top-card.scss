@@ -48,6 +48,9 @@
 			border-right: none;
 			border-bottom: $base-border;
 		}
+		@include mobile-only {
+			min-height: 0;
+		}
 	}
 	img {
 		object-fit: cover;
