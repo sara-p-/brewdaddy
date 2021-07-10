@@ -31,11 +31,15 @@
 		.label {
 			font-size: 12px;
 			line-height: 1.2;
-			margin-bottom: $small-spacing / 2;
+			margin-bottom: 12px;
+			&.batch-number {
+				font-weight: 800;
+			}
 		}
 		.title {
 			font-size: 24px;
-			margin-bottom: $small-spacing / 2;
+			margin-bottom: 5px;
+			border-bottom: 2px solid #000000;
 		}
 		.description {
 			margin-bottom: 70px;

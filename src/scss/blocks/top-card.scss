@@ -18,7 +18,13 @@
 		position: relative;
 		flex: 1;
 		align-self: stretch;
+		&:first-of-type {
+			@include mobile-only {
+				height: 275px;
+			}
+		}
 		&:last-of-type {
+			background: $white;
 			flex: 1.25;
 			@include flex($justify: flex-start);
 		}
@@ -59,6 +65,7 @@
 	}
 	.content {
 		padding: 30px;
+		width: 100%;
 	}
 
 	@include top-card;

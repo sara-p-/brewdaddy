@@ -99,7 +99,7 @@
 		$batch_number = get_field('batch_number', $id);
 		if($batch_number) {
 			echo '
-				<h3 class="label h6">Batch Number: ' . $batch_number . '</h3>
+				<h3 class="label batch-number h6">Batch Number: ' . $batch_number . '</h3>
 			';
 		}
 	}

@@ -45,6 +45,9 @@ main {
 
 .single .block:first-of-type {
 	padding-top: $bottom-margin-large / 2;
+	@include tablet-portrait {
+		padding-top: 0;
+	}
 }
 
 *,
