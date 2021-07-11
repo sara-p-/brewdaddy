@@ -13,5 +13,8 @@
 	}
 	.content {
 		max-width: $site-width-small;
+		@include tablet-portrait {
+			max-width: 100%;
+		}
 	}
 }

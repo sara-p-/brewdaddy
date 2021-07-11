@@ -63,6 +63,12 @@ module.exports = {
 			template: "src/html/pages/index.html",
 		}),
 		new HtmlWebpackPlugin({
+			title: "Development",
+			// Load a custom template (lodash by default)
+			filename: "contact.html",
+			template: "src/html/pages/contact.html",
+		}),
+		new HtmlWebpackPlugin({
 			title: "Single",
 			filename: "single.html",
 			template: "src/html/pages/single.html",

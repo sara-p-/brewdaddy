@@ -10,10 +10,6 @@ footer {
 			display: block;
 		}
 	}
-	ul {
-		@include clear-list();
-		@include flex;
-	}
 	.logo {
 		@include tablet {
 			text-align: center;
@@ -25,24 +21,5 @@ footer {
 		color: $off-white;
 		text-decoration: none;
 		margin-bottom: 0;
-	}
-
-	ul.social-menu {
-		li {
-			margin-right: 15px;
-		}
-		a {
-			padding: 5px;
-			font-size: 24px;
-			background: transparent;
-			color: $off-white;
-			&:before,
-			&:after {
-				display: none;
-			}
-			&:hover {
-				transform: scale(1.2);
-			}
-		}
 	}
 }

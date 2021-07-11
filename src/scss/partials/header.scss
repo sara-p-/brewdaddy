@@ -67,6 +67,17 @@ header {
 			text-decoration: none;
 		}
 	}
+	nav.social {
+		ul.social-menu {
+			@include flex($justify: flex-start);
+		}
+		a {
+			color: $black;
+			&:hover {
+				color: $blue;
+			}
+		}
+	}
 
 	// Mobile Menu
 	.hamburger {

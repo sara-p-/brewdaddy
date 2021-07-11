@@ -12,7 +12,8 @@ button {
 
 // Theme Buttons
 
-.btn {
+.btn,
+input.wpcf7-submit[type="submit"] {
 	@include btn-base();
 	position: relative;
 	text-decoration: none;
@@ -190,4 +191,17 @@ p + .buttons {
 .close-button {
 	@include close-button;
 	border: $base-border;
+}
+
+// Contact Form Submit Button
+input.wpcf7-submit[type="submit"] {
+	width: auto;
+	margin-right: 100%;
+	position: relative;
+	color: $black;
+	&:hover,
+	&:focus {
+		color: $white;
+		background: $black;
+	}
 }

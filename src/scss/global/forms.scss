@@ -249,3 +249,16 @@ form input[type="submit"] {
 		}
 	}
 }
+
+// Contact 7 Form
+form.wpcf7-form {
+	margin: 0;
+	// Validation
+	.wpcf7-not-valid-tip {
+		margin-top: -15px;
+		color: $red;
+	}
+	.wpcf7-not-valid {
+		border: 2px solid $red;
+	}
+}

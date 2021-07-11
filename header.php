@@ -19,14 +19,16 @@
                     <a href="/">Brewdaddy</a>
                 </div>
                 <nav class="main-menu">
-                    <?php
+                    <ul>
+                        <?php
                             $args = array(
                                 'theme_location' 	=> 'main-menu',
-                                'container' 		=> 'ul',
+                                'container' 		=> false,
                                 'items_wrap' 		=> '%3$s'
                             );
                         ?>
-                    <?php wp_nav_menu($args); ?>
+                        <?php wp_nav_menu($args); ?>
+                    </ul>
                 </nav>
                 <button class="hamburger">
                     <span class="visually-hidden">Mobile Menu</span>
@@ -38,15 +40,18 @@
                 <div class="mobile-panel">
                     <div class="wrapper">
                         <nav class="mobile-menu">
-                            <?php
-                                $args = array(
-                                    'theme_location' 	=> 'main-menu',
-                                    'container' 		=> 'ul',
-                                    'items_wrap' 		=> '%3$s'
-                                );
-                            ?>
-                            <?php wp_nav_menu($args); ?>
+                            <ul>
+                                <?php
+                                    $args = array(
+                                        'theme_location' 	=> 'main-menu',
+                                        'container' 		=> false,
+                                        'items_wrap' 		=> '%3$s'
+                                    );
+                                ?>
+                                <?php wp_nav_menu($args); ?>
+                            </ul>
                         </nav>
+                        <?php include( locate_template('./blocks/components/social-menu.php') ); ?>
                     </div>
                 </div>
             </div>

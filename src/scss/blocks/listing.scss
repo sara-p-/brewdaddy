@@ -44,7 +44,10 @@
 		.description {
 			margin-bottom: 70px;
 			@include tablet {
-				margin-bottom: 30px;
+				margin-bottom: 40px;
+			}
+			@include mobile-only {
+				display: none;
 			}
 			p {
 				margin-bottom: 0;
